@@ -32,12 +32,12 @@
   position: relative;
   margin-top: 2vh;
 }
-.sharing_TPTA{
-    margin-top: 2vh;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 2.5vw;
+.sharing_TPTA {
+  margin-top: 2vh;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 2.5vw;
 }
 
 .sharing_TPTA div {
@@ -68,6 +68,64 @@
   line-height: 20px;
 }
 
-.share_snap_TPTA, .share_oth_TPTA{
-    width: 12.5vw;
+.share_snap_TPTA,
+.share_oth_TPTA {
+  width: 12.5vw;
+}
+
+/* Sharing Card */
+.sharingCard_TPTA {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90vw;
+  height: 90vh;
+}
+.AvatarCardS_TPTA {
+    position: absolute;
+    height: 50vh;
+    top: 30vh;
+  }
+  .BadgeS_TPTA {
+    position: relative;
+    width: 66vw;
+    margin-top: 5vh;
+  }
+.words_TPTA{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.words_TPTA span:nth-child(1) {
+  color: var(--Accent-Accent--02-Accent-02, #ff8afb);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 15.767px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 19.521px;
+}
+.words_TPTA span:nth-child(2) {
+  width: 235px;
+  color: var(--Light-Light--100, #fff);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 13.514px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 19.521px; /* 144.444% */
+}
+.svg1_TPTA{
+    position: relative;
+    margin-top: 56vh;
+}
+.wyb_TSTP_lanG{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+    margin-top: 1.2vh;
 }
