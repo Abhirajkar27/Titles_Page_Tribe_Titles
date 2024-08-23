@@ -13,8 +13,9 @@ const EarnTitlePage = (props) => {
         'Captain Chik-Chik',
         'Lord Late Lateef',
         'FIFA Master',
-        'Coder',
+        'Mr Coder',
         'Padhaku Bhaiya',
+        'Ghissu',
     ];
     const TitleBoxContainer = ({ title }) => (
         <div onClick={()=>props.setGameSTIndex(0)} className='title_box_container'>
