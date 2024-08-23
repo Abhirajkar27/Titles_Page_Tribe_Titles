@@ -129,3 +129,6 @@
     position: relative;
     margin-top: 1.2vh;
 }
+.SS_send{
+    z-index: -5;
+}
