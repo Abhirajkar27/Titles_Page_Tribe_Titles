@@ -8,7 +8,7 @@ import earnedTitleImg from '../assets/img/earnedttlimg.png';
 import voteBadge from '../assets/img/No_votes.png';
 import Back from '../assets/img/bkbtn.png';
 
-const EarnTitlePage = () => {
+const EarnTitlePage = (props) => {
     const titles = [
         'Captain Chik-Chik',
         'Lord Late Lateef',
@@ -17,7 +17,7 @@ const EarnTitlePage = () => {
         'Padhaku Bhaiya',
     ];
     const TitleBoxContainer = ({ title }) => (
-        <div className='title_box_container'>
+        <div onClick={()=>props.setGameSTIndex(0)} className='title_box_container'>
             <img className='title_box' src={title_box} alt='title_box' />
             <div className='title_box_content'>
                 <img src={earnedTitleImg} alt='earned_title' />

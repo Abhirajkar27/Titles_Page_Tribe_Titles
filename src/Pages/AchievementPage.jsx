@@ -6,10 +6,10 @@ import Badge from '../assets/img/vote_badge.png';
 import Snapcht from '../assets/img/snapchat.png';
 import otherShare from '../assets/img/elseSM.png';
 
-const AchievementPage = () => {
+const AchievementPage = (props) => {
     return (
         <div className='AchievementPage_TA'>
-            <img className='cross_btn_TPTA' src={crossBtn} alt='crossButton' />
+            <img className='cross_btn_TPTA' onClick={()=>props.setGameSTIndex(null)} src={crossBtn} alt='crossButton' />
             <img className='AvatarCard_TPTA' src={AvatarCard} alt='AvatarCard' />
             <img className='Badge_TPTA' src={Badge} alt='Badge' />
             <div className='feedback-txt_TPTA'>You are rocking with the title. brag about it</div>
