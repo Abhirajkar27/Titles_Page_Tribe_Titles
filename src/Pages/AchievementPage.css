@@ -1,0 +1,73 @@
+.AchievementPage_TA {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cross_btn_TPTA {
+  width: 10vw;
+  position: absolute;
+  top: 2.44rem;
+  left: 1.44rem;
+}
+.AvatarCard_TPTA {
+  position: absolute;
+  height: 50vh;
+  top: 12vh;
+}
+.Badge_TPTA {
+  position: relative;
+  width: 66vw;
+  margin-top: 65vh;
+}
+.feedback-txt_TPTA {
+  width: 280px;
+  color: var(--Light-Light--70, #bcc9da);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+  position: relative;
+  margin-top: 2vh;
+}
+.sharing_TPTA{
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2.5vw;
+}
+
+.sharing_TPTA div {
+  width: 35vw;
+  /* height: 40px; */
+  height: 5vh;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: radial-gradient(
+    299.05% 136.2% at 4% 100%,
+    #ffd900 0%,
+    #ff3152 47%,
+    #4964d7 100%
+  );
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2vw;
+}
+.sharing_TPTA div span {
+  color: var(--Light-Light--100, #fff);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.share_snap_TPTA, .share_oth_TPTA{
+    width: 12.5vw;
+}
