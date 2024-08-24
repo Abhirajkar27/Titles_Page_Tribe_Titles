@@ -38,7 +38,7 @@ const EarnTitlePage = (props) => {
             <div className='exicting_line_TA'>The more your play the more you are shown to others</div>
             <button className='btn_TPTA'><span>Play for more titles</span></button>
             <div className='fedbk_TPPTA'>
-                <span>4 Earned Titles</span>
+                <span>{titles.length} Earned Titles</span>
                 <span>You get the card when a friends select yous</span>
             </div>
             <div className='scrollable_container'>
