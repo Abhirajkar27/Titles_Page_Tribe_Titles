@@ -127,7 +127,7 @@
     justify-content: center;
     flex-direction: row;
     position: relative;
-    margin-top: 1.2vh;
+    margin: 1.2vh;
 }
 .SS_send{
     z-index: -5;
