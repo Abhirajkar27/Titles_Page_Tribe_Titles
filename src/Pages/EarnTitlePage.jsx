@@ -43,7 +43,7 @@ const EarnTitlePage = (props) => {
             <button onClick={handlePlayMoreClick} className='btn_TPTA'><span>Play for more titles</span></button>
             <div className='fedbk_TPPTA'>
                 <span>{titles.length} Earned Titles</span>
-                <span>You get the card when a friends select yous</span>
+                <span>You get the card when a friends select you</span>
             </div>
             <div className='scrollable_container'>
                 {titles.map((title, index) => (
