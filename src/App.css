@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,17 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.bkg_SVG_Container_TPTA{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.bkg_SVG_TPTA{
+  position: absolute;
+  top: 0vh;
+  height: 50vh;
+  width: 100vw;
 }
