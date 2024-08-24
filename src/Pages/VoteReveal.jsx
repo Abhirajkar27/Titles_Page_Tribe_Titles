@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./VoteReveal.css";
 import crossBtn from "../assets/img/cross.png";
 import AvatarCard from "../assets/img/Avatar.png";
@@ -8,6 +8,8 @@ import otherShare from "../assets/img/elseSM.png";
 import html2canvas from "html2canvas";
 
 const VoteReveal = (props) => {
+  const [isRevealed, setISRevealed] = useState(false);
+  const [voteBy, setVoteBy] = useState("someone");
   const divRef = useRef(null);
   const convertToImage = () => {
     console.log("converting");
@@ -23,11 +25,21 @@ const VoteReveal = (props) => {
   const SharingCard = () => (
     <div ref={divRef} className="sharingCardRV_TPTA">
       <div class="circular-div_RVC_TPTA">
-        <img src={Profile_img} alt="Circular Image" />
+        <img
+          style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
+          src={Profile_img}
+          alt="Circular Image"
+        />
       </div>
-      <div className="cardinfoshr_TATP">
-        Someone from my College just voted for me
-      </div>
+      {!isRevealed ? (
+        <div className="cardinfoshr_TATP">
+          Someone from my College just voted for me
+        </div>
+      ) : (
+        <div className="cardinfoshr_TATP_Reveal">
+          <span>{voteBy}</span> from my College just voted for me
+        </div>
+      )}
       <div className="badgeinfoshr_TATP">
         “Most likely to be the person showing up late everywhere “
       </div>
@@ -135,10 +147,14 @@ const VoteReveal = (props) => {
       <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
       <div className="Reveal_Comp_TPTA">
         <div class="circular-div_RV_TPTA">
-          <img src={Profile_img} alt="Circular Image" />
+          <img
+            style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
+            src={Profile_img}
+            alt="Circular Image"
+          />
         </div>
         <div className="vote_FB_TPTA_RV">
-          Someone from <span>College</span> voted for you{" "}
+          {voteBy} from <span>College</span> voted for you{" "}
         </div>
         <div className="sharing_TPTA_RV">
           <div onClick={convertToImage}>
@@ -184,9 +200,11 @@ const VoteReveal = (props) => {
           />
         </div>
       </div>
-      <button className="RV_btn_TPTA">
-        <span>See who voted</span>
-      </button>
+      {!isRevealed && (
+        <button className="RV_btn_TPTA">
+          <span>See who voted</span>
+        </button>
+      )}
       <div className="SS_send">
         <SharingCard />
       </div>
