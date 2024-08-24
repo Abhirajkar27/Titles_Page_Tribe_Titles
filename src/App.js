@@ -4,7 +4,7 @@ import AchievementPage from './Pages/AchievementPage'
 import VoteReveal from './Pages/VoteReveal';
 
 const App = () => {
-  const [gameSTIndex, setGameSTIndex] = useState(null);
+  const [gameSTIndex, setGameSTIndex] = useState(1);
 
 
   let content;
