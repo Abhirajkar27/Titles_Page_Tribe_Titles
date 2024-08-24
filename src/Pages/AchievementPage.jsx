@@ -162,11 +162,12 @@ const AchievementPage = (props) => {
           </svg>
           <span>Tell Others</span>
         </div>
-        <img className="share_snap_TPTA" src={Snapcht} alt="snapChat_Icon" />
+        <img onClick={convertToImage} className="share_snap_TPTA" src={Snapcht} alt="snapChat_Icon" />
         <img
           className="share_oth_TPTA"
           src={otherShare}
           alt="otherShare_Icon"
+          onClick={convertToImage}
         />
       </div>
       <div className="SS_send"><SharingCard/></div>

@@ -19,8 +19,8 @@ const App = () => {
 
   return (
     <>
-      {content}
-      {/* <VoteReveal/> */}
+      {/* {content} */}
+      <VoteReveal/>
     </>
   );
 
