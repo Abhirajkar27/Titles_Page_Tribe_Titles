@@ -12,6 +12,9 @@ const App = () => {
     case 0:
       content = <AchievementPage setGameSTIndex={setGameSTIndex}/>;
       break;
+    case 1:
+      content = <VoteReveal setGameSTIndex={setGameSTIndex}/>;
+      break;
     default:
       content = <EarnTitlePage setGameSTIndex={setGameSTIndex}/>;
   }
@@ -19,8 +22,7 @@ const App = () => {
 
   return (
     <>
-      {/* {content} */}
-      <VoteReveal/>
+      {content}
     </>
   );
 
