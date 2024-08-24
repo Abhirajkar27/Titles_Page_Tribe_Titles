@@ -17,6 +17,10 @@ const EarnTitlePage = (props) => {
         'Padhaku Bhaiya',
         'Ghissu',
     ];
+    const handlePlayMoreClick = () => {
+        window.location.href = "https://tribe-title.netlify.app/";
+      };
+
     const TitleBoxContainer = ({ title }) => (
         <div onClick={()=>props.setGameSTIndex(0)} className='title_box_container'>
             <img className='title_box' src={title_box} alt='title_box' />
@@ -36,7 +40,7 @@ const EarnTitlePage = (props) => {
             <img className='green_clowd_TPTA' src={Green_clowd} />
             <img className='tribeLogo_ET_TA' src={tribe_logo} alt='tribeImg' />
             <div className='exicting_line_TA'>The more your play the more you are shown to others</div>
-            <button className='btn_TPTA'><span>Play for more titles</span></button>
+            <button onClick={handlePlayMoreClick} className='btn_TPTA'><span>Play for more titles</span></button>
             <div className='fedbk_TPPTA'>
                 <span>{titles.length} Earned Titles</span>
                 <span>You get the card when a friends select yous</span>
