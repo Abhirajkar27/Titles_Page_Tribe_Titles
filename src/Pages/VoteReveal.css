@@ -1,0 +1,130 @@
+.VR_TA {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cross_btn_TPTA {
+  width: 10vw;
+  position: absolute;
+  top: 2.44rem;
+  left: 1.44rem;
+}
+.AvatarCard_TPTA {
+  position: absolute;
+  height: 50vh;
+  top: 12vh;
+}
+
+.circular-div_RV_TPTA {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border-color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -2.2vh;
+}
+
+.circular-div_RV_TPTA img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.Reveal_Comp_TPTA {
+  position: relative;
+  width: 89vw;
+  height: 20.3vh;
+  flex-shrink: 0;
+  border-radius: var(--large, 12px);
+  background: var(--Dark-Dark--90, #1d2939);
+  margin-top: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1vh;
+}
+.vote_FB_TPTA_RV {
+  /* width: 237px; */
+  width: 65vw;
+  color: var(--Light-Light--90, #f0f4f8);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; /* 144.444% */
+}
+.vote_FB_TPTA_RV span {
+  color: #ff5af9;
+}
+
+.sharing_TPTA_RV {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 2.5vw;
+}
+
+.sharing_TPTA_RV div {
+  width: 35vw;
+  /* height: 40px; */
+  height: 5vh;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: radial-gradient(
+    299.05% 136.2% at 4% 100%,
+    #ffd900 0%,
+    #ff3152 47%,
+    #4964d7 100%
+  );
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2vw;
+}
+.sharing_TPTA_RV div span {
+  color: var(--Light-Light--100, #fff);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.share_snap_TPTA,
+.share_oth_TPTA {
+  width: 12.5vw;
+}
+.RV_btn_TPTA {
+  margin-top: 2vh;
+  display: flex;
+  width: 206px;
+  min-width: 110px;
+  padding: 14px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--x-Large, 999px);
+  border: 1px solid var(--Light-Light--100, #fff);
+  background: transparent;
+}
+.RV_btn_TPTA span {
+  color: var(--Light-Light--100, #fff);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+}
+
+/* Sharing Card */

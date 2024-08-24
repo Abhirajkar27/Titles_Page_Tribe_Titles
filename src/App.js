@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import EarnTitlePage from './Pages/EarnTitlePage'
 import AchievementPage from './Pages/AchievementPage'
+import VoteReveal from './Pages/VoteReveal';
 
 const App = () => {
   const [gameSTIndex, setGameSTIndex] = useState(null);
@@ -19,6 +20,7 @@ const App = () => {
   return (
     <>
       {content}
+      {/* <VoteReveal/> */}
     </>
   );
 
