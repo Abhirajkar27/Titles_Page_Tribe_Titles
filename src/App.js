@@ -18,10 +18,10 @@ const App = () => {
       content = <VoteReveal setGameSTIndex={setGameSTIndex} />;
       break;
     case 2:
-      content = <Page1/>;
+      content = <Page1 setGameSTIndex={setGameSTIndex} />;
       break;
     case 3:
-      content = <Page2/>;
+      content = <Page2 setGameSTIndex={setGameSTIndex} />;
       break;
     default:
       content = <EarnTitlePage setGameSTIndex={setGameSTIndex} />;

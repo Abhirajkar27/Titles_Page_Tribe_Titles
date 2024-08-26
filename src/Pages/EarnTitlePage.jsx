@@ -18,7 +18,7 @@ const EarnTitlePage = (props) => {
         'Ghissu',
     ];
     const handlePlayMoreClick = () => {
-        window.location.href = "https://tribe-title.netlify.app/";
+        props.setGameSTIndex(2); 
       };
 
     const TitleBoxContainer = ({ title }) => (
