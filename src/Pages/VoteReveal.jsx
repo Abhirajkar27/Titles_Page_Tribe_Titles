@@ -140,7 +140,7 @@ const VoteReveal = (props) => {
     <div className="VR_TA">
       <img
         className="cross_btn_TPTA"
-        onClick={() => props.setGameSTIndex(null)}
+        onClick={() => props.setGameSTIndex(1)}
         src={crossBtn}
         alt="crossButton"
       />

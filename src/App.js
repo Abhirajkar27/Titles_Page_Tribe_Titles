@@ -7,7 +7,7 @@ import Page1 from "./Pages/Page1";
 import Page2 from "./Pages/Page2";
 
 const App = () => {
-  const [gameSTIndex, setGameSTIndex] = useState(10);
+  const [gameSTIndex, setGameSTIndex] = useState(null);
   const [tries,setTries]=useState(0);
   let content;
   switch (gameSTIndex) {
@@ -15,7 +15,7 @@ const App = () => {
       content = <AchievementPage setGameSTIndex={setGameSTIndex} />;
       break;
     case 1:
-      content = <VoteReveal setGameSTIndex={setGameSTIndex} />;
+      content = <EarnTitlePage setGameSTIndex={setGameSTIndex} />;
       break;
     case 2:
       content = <Page1 tries={tries} setTries={setTries} setGameSTIndex={setGameSTIndex} />;
@@ -24,7 +24,7 @@ const App = () => {
       content = <Page2 setGameSTIndex={setGameSTIndex} />;
       break;
     default:
-      content = <EarnTitlePage setGameSTIndex={setGameSTIndex} />;
+      content = <VoteReveal setGameSTIndex={setGameSTIndex} />;
   }
 
   return (
