@@ -96,6 +96,7 @@
   justify-content: center;
 }
 .svg1-pg2 {
+  transform: rotate(4deg);
   position: absolute;
   top: -29%;
 }

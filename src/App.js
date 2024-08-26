@@ -7,7 +7,7 @@ import Page1 from "./Pages/Page1";
 import Page2 from "./Pages/Page2";
 
 const App = () => {
-  const [gameSTIndex, setGameSTIndex] = useState(1);
+  const [gameSTIndex, setGameSTIndex] = useState(10);
 
   let content;
   switch (gameSTIndex) {
@@ -29,6 +29,7 @@ const App = () => {
 
   return (
     <>
+    {gameSTIndex!=3 &&
     <div className="bkg_SVG_Container_TPTA">
       <svg
         className="bkg_SVG_TPTA"
@@ -114,7 +115,7 @@ const App = () => {
           stroke-opacity="0.1"
         />
       </svg>
-      </div>
+      </div>}
       {content}
     </>
   );

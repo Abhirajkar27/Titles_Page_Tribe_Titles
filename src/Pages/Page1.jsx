@@ -237,50 +237,7 @@ const Page1 = (props) => {
             </text>
           </svg>
         </div>
-        <svg
-          width="544px"
-          className="svg1-pg1"
-          height="75vh"
-          viewBox="0 0 360 441"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M184.986 413.485L158.517 -35.5H211.455L184.986 413.485Z"
-            stroke="white"
-            stroke-opacity="0.05"
-          />
-          <path
-            d="M186.265 417.157L276.904 -23.3803L328.038 -9.67913L186.265 417.157Z"
-            stroke="white"
-            stroke-opacity="0.05"
-          />
-          <path
-            d="M183.746 417.157L93.1064 -23.3803L41.9731 -9.67913L183.746 417.157Z"
-            stroke="white"
-            stroke-opacity="0.05"
-          />
-          <path
-            d="M189.617 418.763L391.187 16.696L437.032 43.1646L189.617 418.763Z"
-            stroke="white"
-            stroke-opacity="0.05"
-          />
-          <path
-            d="M180.394 418.763L-21.1763 16.696L-67.0212 43.1646L180.394 418.763Z"
-            stroke="white"
-            stroke-opacity="0.05"
-          />
-          <path
-            d="M193.085 414.92L491.85 78.7239L529.282 116.156L193.085 414.92Z"
-            stroke="white"
-            stroke-opacity="0.05"
-          />
-          <path
-            d="M176.925 414.92L-121.839 78.7239L-159.272 116.156L176.925 414.92Z"
-            stroke="white"
-            stroke-opacity="0.05"
-          />
-        </svg>
+
         <svg
           width="95vw"
           className="svg4-pg1"
