@@ -7,7 +7,7 @@ const Page1 = (props) => {
     <div className="Page1">
       <div className="background-page1">
         <div className="Upper-buttons-page1">
-          <button className="close-page1">
+          <button className="close-page1" onClick={() => props.setGameSTIndex(10)}>
             {" "}
             <svg
               viewBox="0 0 18 18"
