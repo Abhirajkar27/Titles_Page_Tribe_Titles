@@ -3,6 +3,8 @@ import EarnTitlePage from "./Pages/EarnTitlePage";
 import AchievementPage from "./Pages/AchievementPage";
 import VoteReveal from "./Pages/VoteReveal";
 import './App.css';
+import Page1 from "./Pages/Page1";
+import Page2 from "./Pages/Page2";
 
 const App = () => {
   const [gameSTIndex, setGameSTIndex] = useState(1);
@@ -14,6 +16,12 @@ const App = () => {
       break;
     case 1:
       content = <VoteReveal setGameSTIndex={setGameSTIndex} />;
+      break;
+    case 2:
+      content = <Page1/>;
+      break;
+    case 3:
+      content = <Page2/>;
       break;
     default:
       content = <EarnTitlePage setGameSTIndex={setGameSTIndex} />;
