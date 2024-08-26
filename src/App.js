@@ -8,7 +8,7 @@ import Page2 from "./Pages/Page2";
 
 const App = () => {
   const [gameSTIndex, setGameSTIndex] = useState(10);
-
+  const [tries,setTries]=useState(0);
   let content;
   switch (gameSTIndex) {
     case 0:
@@ -18,7 +18,7 @@ const App = () => {
       content = <VoteReveal setGameSTIndex={setGameSTIndex} />;
       break;
     case 2:
-      content = <Page1 setGameSTIndex={setGameSTIndex} />;
+      content = <Page1 tries={tries} setTries={setTries} setGameSTIndex={setGameSTIndex} />;
       break;
     case 3:
       content = <Page2 setGameSTIndex={setGameSTIndex} />;

@@ -3,6 +3,7 @@ import "./Page1.css";
 import image1 from "../assets/img/imageP.png";
 import Boxes from "../components/Boxes";
 const Page1 = (props) => {
+  const Forward=props.tries>=3?false:true;
   return (
     <div className="Page1">
       <div className="background-page1">
@@ -14375,7 +14376,7 @@ const Page1 = (props) => {
           </button>
         </div>
         <div className="lower-buttons">
-          <button onClick={()=> {props.setGameSTIndex(3)}} className="skip"> Skip</button>
+          <button onClick={()=> {props.setGameSTIndex(Forward?3:1)}} className="skip"> Skip</button>
           <button className="shuffle">
             <svg
               width="12"
