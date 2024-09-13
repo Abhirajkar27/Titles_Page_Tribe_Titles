@@ -81,19 +81,21 @@
 }
 
 .fedbk_TPPTA span:nth-child(1) {
-  color: var(--Dark-Dark--100, #0e1928);
+  align-self: stretch;
   font-family: Gilroy;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 23px;
+  color: var(--Light-Light--100, #FFF);
 }
 .fedbk_TPPTA span:nth-child(2) {
-  color: var(--Dark-Dark--100, #0e1928);
+  width: 161px;
+  color: var(--Light-Light--70, #BCC9DA);
   font-family: Gilroy;
   font-size: 12px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 17px;
 }
 
