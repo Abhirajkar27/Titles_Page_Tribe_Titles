@@ -145,19 +145,27 @@ const VoteReveal = (props) => {
         src={crossBtn}
         alt="crossButton"
       />
-      <img className='Avatar_Badge_TPTA' src={AvatarBadge}/>
+      <img className="Avatar_Badge_TPTA" src={AvatarBadge} />
       <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
       <div className="Reveal_Comp_TPTA">
-        <div class="circular-div_RV_TPTA">
+        {/* <div class="circular-div_RV_TPTA">
           <img
             style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
             src={Profile_img}
             alt="Circular Image"
           />
-        </div>
-        <div className="vote_FB_TPTA_RV">
+        </div> */}
+        {/* <div className="vote_FB_TPTA_RV">
           {voteBy} from <span>College</span> voted for you{" "}
-        </div>
+        </div> */}
+        {!isRevealed && (
+          <button className="RV_btn_TPTA">
+            <span>See who voted</span>
+          </button>
+        )}
+      </div>
+      <div className="sharing_contn_TPTA">
+        <span>You are rocking with the title. brag about it</span>
         <div className="sharing_TPTA_RV">
           <div onClick={convertToImage}>
             <svg
@@ -202,11 +210,6 @@ const VoteReveal = (props) => {
           />
         </div>
       </div>
-      {!isRevealed && (
-        <button className="RV_btn_TPTA">
-          <span>See who voted</span>
-        </button>
-      )}
       <div className="SS_send">
         <SharingCard />
       </div>

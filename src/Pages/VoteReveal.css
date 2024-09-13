@@ -10,7 +10,7 @@
   top: 2.44rem;
   left: 1.44rem;
 }
-.Avatar_Badge_TPTA{
+.Avatar_Badge_TPTA {
   height: 8.7vh;
   position: absolute;
   top: 7.5vh;
@@ -72,6 +72,24 @@
   color: #ff5af9;
 }
 
+.sharing_contn_TPTA {
+  margin-top: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+.sharing_contn_TPTA > span {
+  color: var(--Light-Light--70, #bcc9da);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+}
+
 .sharing_TPTA_RV {
   display: flex;
   align-items: center;
@@ -121,11 +139,11 @@
   align-items: center;
   gap: 8px;
   border-radius: var(--x-Large, 999px);
-  border: 1px solid var(--Light-Light--100, #fff);
-  background: transparent;
+  background: var(--Primary-Primary-100, #c6ff00);
+  border: 0px;
 }
 .RV_btn_TPTA span {
-  color: var(--Light-Light--100, #fff);
+  color: var(--Dark-Rich-Dark, #030406);
   text-align: center;
   font-family: Gilroy;
   font-size: 14px;
@@ -210,5 +228,5 @@
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
-  line-height: 26px; 
+  line-height: 26px;
 }
