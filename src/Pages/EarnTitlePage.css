@@ -3,6 +3,7 @@
   align-items: center;
   /* justify-content: center; */
   flex-direction: column;
+  background: var(--Accent-Accent--01-Accent-01--Dark, #5929E0);
 }
 .green_clowd_TPTA {
   width: 100vw;
@@ -25,7 +26,7 @@
 
 .tribeLogo_ET_TA {
   /* width: 90vw; */
-  height: 30vh;
+  height: 16.5vh;
   position: absolute;
   top: 10vh;
   z-index: 6;
@@ -33,15 +34,15 @@
 .exicting_line_TA {
   position: relative;
   width: 65vw;
-  color: var(--Light-Light--90, #f0f4f8);
+  color: var(--Light-Light--90, #F0F4F8);
   text-align: center;
   font-family: Gilroy;
-  font-size: 16px;
   font-style: normal;
+  font-size: 14px;
   font-weight: 600;
   line-height: 120%; /* 19.2px */
   z-index: 5;
-  margin-top: 39vh;
+  margin-top: 28vh;
 }
 .btn_TPTA {
   display: inline-flex;
