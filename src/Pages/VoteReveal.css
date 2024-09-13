@@ -10,6 +10,13 @@
   top: 2.44rem;
   left: 1.44rem;
 }
+.Avatar_Badge_TPTA{
+  height: 8.7vh;
+  position: absolute;
+  top: 7.5vh;
+  /* margin-left: -3vw; */
+  z-index: 88;
+}
 .AvatarCard_TPTA {
   position: absolute;
   height: 50vh;

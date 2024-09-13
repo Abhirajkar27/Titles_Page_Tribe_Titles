@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./VoteReveal.css";
 import crossBtn from "../assets/img/cross.png";
+import AvatarBadge from "../assets/img/vote_badge.png";
 import AvatarCard from "../assets/img/Avatar.png";
 import Profile_img from "../assets/img/image.png";
 import Snapcht from "../assets/img/snapchat.png";
@@ -144,6 +145,7 @@ const VoteReveal = (props) => {
         src={crossBtn}
         alt="crossButton"
       />
+      <img className='Avatar_Badge_TPTA' src={AvatarBadge}/>
       <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
       <div className="Reveal_Comp_TPTA">
         <div class="circular-div_RV_TPTA">
