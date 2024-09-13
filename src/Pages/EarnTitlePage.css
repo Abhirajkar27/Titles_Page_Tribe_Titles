@@ -46,19 +46,18 @@
 }
 .btn_TPTA {
   display: inline-flex;
-  height: 40px;
-  min-width: 80px;
-  padding: 16px 21px;
+  height: 5vh;
+  width: 35vw;
   justify-content: center;
   align-items: center;
   gap: 6px;
   flex-shrink: 0;
   border-radius: var(--x-Large, 999px);
   border: 1px solid var(--Dark-Rich-Dark, #030406);
-  background: var(--Accent-Accent--03-Accent-03, #fcff40);
   box-shadow: 0px 3px 0px 0px #090909;
   z-index: 5;
   margin-top: 2vh;
+  background: var(--Light-Light--100, #fff);
 }
 .btn_TPTA {
   color: var(--Dark-Rich-Dark, #030406);
@@ -168,7 +167,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: row;
   gap: 4vw;
