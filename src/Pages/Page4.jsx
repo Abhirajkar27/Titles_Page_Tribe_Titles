@@ -3089,7 +3089,7 @@ const Page4 = (props) => {
 
   
       </div>
-      <div className="Votes-reveal-pg4 scrollable_container-pg4">
+      <div className="Votes-reveal-pg4 scrollable_container-pg4 ">
         <p className="votes-total-pg4">
             All Votes 10
         </p>
@@ -3124,7 +3124,7 @@ const Page4 = (props) => {
             <p className="new-votes">
               7 Revealed
             </p>
-            <div className="vote-line-g4">
+            <div className="vote-line-g4 ">
             <svg width="236" height="11" viewBox="0 0 268 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M4.86657 0.57898C4.88534 0.420939 5.11466 0.420939 5.13343 0.57898L5.29075 1.9048C5.49388 3.61679 6.84366 4.96657 8.55563 5.1697L9.88146 5.32702C10.0395 5.34579 10.0395 5.57511 9.88146 5.59388L8.55563 5.7512C6.84366 5.95433 5.49388 7.30411 5.29075 9.01608L5.13343 10.3419C5.11466 10.5 4.88534 10.5 4.86657 10.3419L4.70925 9.01608C4.50612 7.30411 3.15634 5.95433 1.44435 5.7512L0.118531 5.59388C-0.0395103 5.57511 -0.0395103 5.34579 0.118531 5.32702L1.44435 5.1697C3.15634 4.96657 4.50612 3.61679 4.70925 1.9048L4.86657 0.57898Z" fill="#526175"/>
 <path d="M267 6L18 6" stroke="#526175" stroke-width="0.5" stroke-linecap="round"/>
@@ -3139,6 +3139,7 @@ const Page4 = (props) => {
         <Reveal />
         <Reveal />
         <Reveal />
+      
       </div>
       <div className='button-div'>
       <button className="bottom-button-pg4"><svg width="200" height="45" viewBox="0 0 200 45" fill="none" xmlns="http://www.w3.org/2000/svg" >
