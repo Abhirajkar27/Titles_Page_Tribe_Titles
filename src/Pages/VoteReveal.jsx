@@ -275,7 +275,7 @@ const VoteReveal = (props) => {
         alt="crossButton"
       />
       <img className="Avatar_Badge_TPTA" src={AvatarBadge} />
-      <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
+      <img className="AvatarCard_VRTA" src={AvatarCard} alt="AvatarCard" />
       <div className="Reveal_Comp_TPTA">
         {/* <div className="vote_FB_TPTA_RV">
           {voteBy} from <span>College</span> voted for you{" "}

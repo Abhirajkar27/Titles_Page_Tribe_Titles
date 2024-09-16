@@ -23,7 +23,7 @@ const AchievementPage = (props) => {
     }
   };
 
-   const SharingCard = () => (
+  const SharingCard = () => (
     <div ref={divRef} className="sharingCardRV_TPTA">
       <div class="circular-div_RVC_TPTA">
         <img
@@ -146,10 +146,26 @@ const AchievementPage = (props) => {
         alt="crossButton"
       />
       <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
-      <img className="Badge_TPTA" src={Badge} alt="Badge" />
-      <div className="feedback-txt_TPTA">
+      <svg
+        className="svg_bottomShadow_TA"
+        xmlns="http://www.w3.org/2000/svg"
+        width="176"
+        height="14"
+        viewBox="0 0 176 14"
+        fill="none"
+      >
+        <ellipse
+          cx="88.0407"
+          cy="6.85547"
+          rx="87.5959"
+          ry="6.85547"
+          fill="#030406"
+        />
+      </svg>
+      {/* <img className="Badge_TPTA" src={Badge} alt="Badge" /> */}
+      {/* <div className="feedback-txt_TPTA">
         You are rocking with the title. brag about it
-      </div>
+      </div> */}
       <div className="sharing_TPTA">
         <div onClick={convertToImage}>
           <svg
@@ -180,7 +196,12 @@ const AchievementPage = (props) => {
           </svg>
           <span>Tell Others</span>
         </div>
-        <img onClick={convertToImage} className="share_snap_TPTA" src={Snapcht} alt="snapChat_Icon" />
+        <img
+          onClick={convertToImage}
+          className="share_snap_TPTA"
+          src={Snapcht}
+          alt="snapChat_Icon"
+        />
         <img
           className="share_oth_TPTA"
           src={otherShare}
@@ -188,7 +209,9 @@ const AchievementPage = (props) => {
           onClick={convertToImage}
         />
       </div>
-      <div className="SS_send"><SharingCard/></div>
+      <div className="SS_send">
+        <SharingCard />
+      </div>
     </div>
   );
 };
