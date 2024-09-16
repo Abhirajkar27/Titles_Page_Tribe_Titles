@@ -6,9 +6,9 @@ import './App.css';
 import Page1 from "./Pages/Page1";
 import Page2 from "./Pages/Page2";
 import Page3 from "./Pages/Page3";
-
+import Page4 from "./Pages/Page4";
 const App = () => {
-  const [gameSTIndex, setGameSTIndex] = useState(null);
+  const [gameSTIndex, setGameSTIndex] = useState(5);
   const [tries,setTries]=useState(0);
   let content;
   switch (gameSTIndex) {
@@ -27,6 +27,9 @@ const App = () => {
     case 4:
       content = <Page3 setGameSTIndex={setGameSTIndex} />;
       break;
+    case 5:
+        content = <Page4 setGameSTIndex={setGameSTIndex} />;
+        break;
     default:
       content = <VoteReveal setGameSTIndex={setGameSTIndex} />;
   }
