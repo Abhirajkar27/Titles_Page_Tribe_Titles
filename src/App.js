@@ -6,6 +6,7 @@ import './App.css';
 import Page1 from "./Pages/Page1";
 import Page2 from "./Pages/Page2";
 import Page3 from "./Pages/Page3";
+import Page4 from "./Pages/Page4";
 
 const App = () => {
   const [gameSTIndex, setGameSTIndex] = useState(5);
