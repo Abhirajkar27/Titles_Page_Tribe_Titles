@@ -6,6 +6,7 @@ import './App.css';
 import Page1 from "./Pages/Page1";
 import Page2 from "./Pages/Page2";
 import Page3 from "./Pages/Page3";
+import InviteList from "./Pages/InviteList";
 
 const App = () => {
   const [gameSTIndex, setGameSTIndex] = useState(null);
@@ -121,6 +122,7 @@ const App = () => {
       </svg>
       </div>}
       {content}
+      {/* <InviteList/> */}
     </>
   );
 };
