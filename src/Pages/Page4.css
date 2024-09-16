@@ -1,0 +1,124 @@
+.Votes-reveal-pg4{
+    position: absolute;
+    top: 52%;
+    padding: 20px;
+    user-select: none; /* Standard */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  z-index: 50;
+}
+.button-div{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    z-index: 99;
+    position: absolute;
+}
+
+.last-message-pg4{
+    background: linear-gradient(180deg, rgba(14, 25, 40, 0.00) 0%, #0E1928 58.18%);
+    position: absolute;
+    width: 100vw;
+    height: 4vh;
+    display: flex;
+
+   justify-content: center;
+   align-items: center;
+z-index: 99;
+    bottom: 2vh;
+}
+.reveal-text-it{
+    margin-top: 4.5vh;
+    margin-bottom: 0px;
+    color: var(--Dark-Dark--50, #79889D);
+text-align: center;
+
+/* Caption-2/Caption-2-Medium */
+font-family: Gilroy;
+font-size: 10px;
+font-style: normal;
+font-weight: 500;
+line-height: 15px; /* 150% */
+}
+.bottom-button-pg4{
+
+    position: absolute;
+    bottom: 5vh;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.votes-new{
+    display: flex;
+    width: 100vw;
+    align-items: center;
+  gap: 10px;
+  margin: 0px;
+}
+.reveal-text{
+    color: #FFF;
+font-family: Gilroy;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 100%; /* 12px */
+}
+.reveal{
+    display: flex;
+    width: 100vw;
+    gap:10px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.scrollable_container-pg4 {
+    max-height: 40vh;
+    overflow-y: auto;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+  }
+  .scrollable_container-pg4::-webkit-scrollbar {
+    display: none;
+  }
+.blurred{
+    filter: blur(3px); 
+}
+.reveal-image{
+    display: flex;
+width: 50px;
+height: 50px;
+padding: 1.041px;
+z-index: 9;
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+border: 2px solid white;
+}
+.new-votes{
+    color: var(--Light-Light--70, #BCC9DA);
+text-align: center;
+
+/* P3/P3-Medium */
+font-family: Gilroy;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 142.857% */
+}
+.votes-total-pg4{
+    margin: 0px;
+    display: flex;
+    width: 100vw;
+    color: var(--Light-Light--80, #E0E7F1);
+
+/* P2/P2-Bold */
+font-family: Gilroy;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 23px; /* 143.75% */
+}
