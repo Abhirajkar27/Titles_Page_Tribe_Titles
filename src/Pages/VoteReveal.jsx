@@ -31,7 +31,7 @@ const VoteReveal = (props) => {
   };
 
   const SharingCard = () => (
-    <div ref={divRef} className="sharingCard_TPTA">
+    <div ref={divRef} className="sharingCard_VRTA">
       <img className="BadgeS_TPTA" src={Badge} alt="Badge" />
       <div className="words_TPTA">
         <span>Most likely to</span>
@@ -132,117 +132,117 @@ const VoteReveal = (props) => {
   );
 
   return (
-    <div className="VR_TA">
-      <img
-        className="cross_btn_TPTA"
-        onClick={() => props.setGameSTIndex(1)}
-        src={BackBtn}
-        alt="crossButton"
-      />
-      <img className="Avatar_Badge_TPTA" src={AvatarBadge} />
-      <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
-      <div className="Reveal_Comp_TPTA">
-        {/* <div className="vote_FB_TPTA_RV">
-          {voteBy} from <span>College</span> voted for you{" "}
-        </div> */}
-        <div className="Tvote_img_TPTA">
-          <div className="image-row">
-            {[...Array(imagesToRender)].map((_, index) => (
-              <div class="circular-div_RV_TPTA">
-                <img
-                  style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
-                  src={Vote_person_image1}
-                  alt="Circular Image"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="votecnt_TPTA">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="14"
-              viewBox="0 0 12 14"
-              fill="none"
-            >
-              <path
-                opacity="0.5"
-                d="M0.142191 7.17346C-0.0474581 7.14906 -0.0474581 6.85094 0.142191 6.82654L1.73318 6.62203C3.78757 6.35796 5.4073 4.60325 5.65106 2.37768L5.83984 0.65411C5.86236 0.448632 6.13755 0.448632 6.16008 0.65411L6.34885 2.37768C6.59261 4.60325 8.21234 6.35796 10.2667 6.62203L11.8577 6.82654C12.0474 6.85094 12.0474 7.14906 11.8577 7.17346L10.2667 7.37797C8.21234 7.64205 6.59261 9.39675 6.34885 11.6223L6.16008 13.3459C6.13755 13.5514 5.86236 13.5514 5.83984 13.3459L5.65106 11.6223C5.4073 9.39675 3.78757 7.64205 1.73318 7.37797L0.142191 7.17346Z"
-                fill="white"
-              />
-            </svg>
-            <span>{totalVote} VOTES</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="14"
-              viewBox="0 0 12 14"
-              fill="none"
-            >
-              <path
-                opacity="0.5"
-                d="M0.142191 7.17346C-0.0474581 7.14906 -0.0474581 6.85094 0.142191 6.82654L1.73318 6.62203C3.78757 6.35796 5.4073 4.60325 5.65106 2.37768L5.83984 0.65411C5.86236 0.448632 6.13755 0.448632 6.16008 0.65411L6.34885 2.37768C6.59261 4.60325 8.21234 6.35796 10.2667 6.62203L11.8577 6.82654C12.0474 6.85094 12.0474 7.14906 11.8577 7.17346L10.2667 7.37797C8.21234 7.64205 6.59261 9.39675 6.34885 11.6223L6.16008 13.3459C6.13755 13.5514 5.86236 13.5514 5.83984 13.3459L5.65106 11.6223C5.4073 9.39675 3.78757 7.64205 1.73318 7.37797L0.142191 7.17346Z"
-                fill="white"
-              />
-            </svg>
-          </div>
-        </div>
-        {!isRevealed && (
-          <button className="RV_btn_TPTA" onClick={()=>props.setGameSTIndex(5)}>
-            <span>See who voted</span>
-          </button>
-        )}
-      </div>
-      <div className="sharing_contn_TPTA">
-        <span>You are rocking with the title. brag about it</span>
-        <div className="sharing_TPTA_RV">
-          <div onClick={convertToImage}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="21"
-              height="21"
-              viewBox="0 0 21 21"
-              fill="none"
-            >
-              <path
-                d="M7.99898 19.2907H12.999C17.1657 19.2907 18.8323 17.624 18.8323 13.4574V8.45736C18.8323 4.29069 17.1657 2.62402 12.999 2.62402H7.99898C3.83232 2.62402 2.16565 4.29069 2.16565 8.45736V13.4574C2.16565 17.624 3.83232 19.2907 7.99898 19.2907Z"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M10.4991 13.8739C12.1099 13.8739 13.4157 12.568 13.4157 10.9572C13.4157 9.34636 12.1099 8.04053 10.4991 8.04053C8.88823 8.04053 7.5824 9.34636 7.5824 10.9572C7.5824 12.568 8.88823 13.8739 10.4991 13.8739Z"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M15.1957 6.79069H15.2054"
-                stroke="white"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <span>Tell Others</span>
-          </div>
-          <img
-            onClick={convertToImage}
-            className="share_snap_TPTA"
-            src={Snapcht}
-            alt="snapChat_Icon"
-          />
-          <img
-            onClick={convertToImage}
-            className="share_oth_TPTA"
-            src={otherShare}
-            alt="otherShare_Icon"
-          />
-        </div>
-      </div>
+    // <div className="VR_TA">
+    //   <img
+    //     className="cross_btn_TPTA"
+    //     onClick={() => props.setGameSTIndex(1)}
+    //     src={BackBtn}
+    //     alt="crossButton"
+    //   />
+    //   <img className="Avatar_Badge_TPTA" src={AvatarBadge} />
+    //   <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
+    //   <div className="Reveal_Comp_TPTA">
+    //     {/* <div className="vote_FB_TPTA_RV">
+    //       {voteBy} from <span>College</span> voted for you{" "}
+    //     </div> */}
+    //     <div className="Tvote_img_TPTA">
+    //       <div className="image-row">
+    //         {[...Array(imagesToRender)].map((_, index) => (
+    //           <div class="circular-div_RV_TPTA">
+    //             <img
+    //               style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
+    //               src={Vote_person_image1}
+    //               alt="Circular Image"
+    //             />
+    //           </div>
+    //         ))}
+    //       </div>
+    //       <div className="votecnt_TPTA">
+    //         <svg
+    //           xmlns="http://www.w3.org/2000/svg"
+    //           width="12"
+    //           height="14"
+    //           viewBox="0 0 12 14"
+    //           fill="none"
+    //         >
+    //           <path
+    //             opacity="0.5"
+    //             d="M0.142191 7.17346C-0.0474581 7.14906 -0.0474581 6.85094 0.142191 6.82654L1.73318 6.62203C3.78757 6.35796 5.4073 4.60325 5.65106 2.37768L5.83984 0.65411C5.86236 0.448632 6.13755 0.448632 6.16008 0.65411L6.34885 2.37768C6.59261 4.60325 8.21234 6.35796 10.2667 6.62203L11.8577 6.82654C12.0474 6.85094 12.0474 7.14906 11.8577 7.17346L10.2667 7.37797C8.21234 7.64205 6.59261 9.39675 6.34885 11.6223L6.16008 13.3459C6.13755 13.5514 5.86236 13.5514 5.83984 13.3459L5.65106 11.6223C5.4073 9.39675 3.78757 7.64205 1.73318 7.37797L0.142191 7.17346Z"
+    //             fill="white"
+    //           />
+    //         </svg>
+    //         <span>{totalVote} VOTES</span>
+    //         <svg
+    //           xmlns="http://www.w3.org/2000/svg"
+    //           width="12"
+    //           height="14"
+    //           viewBox="0 0 12 14"
+    //           fill="none"
+    //         >
+    //           <path
+    //             opacity="0.5"
+    //             d="M0.142191 7.17346C-0.0474581 7.14906 -0.0474581 6.85094 0.142191 6.82654L1.73318 6.62203C3.78757 6.35796 5.4073 4.60325 5.65106 2.37768L5.83984 0.65411C5.86236 0.448632 6.13755 0.448632 6.16008 0.65411L6.34885 2.37768C6.59261 4.60325 8.21234 6.35796 10.2667 6.62203L11.8577 6.82654C12.0474 6.85094 12.0474 7.14906 11.8577 7.17346L10.2667 7.37797C8.21234 7.64205 6.59261 9.39675 6.34885 11.6223L6.16008 13.3459C6.13755 13.5514 5.86236 13.5514 5.83984 13.3459L5.65106 11.6223C5.4073 9.39675 3.78757 7.64205 1.73318 7.37797L0.142191 7.17346Z"
+    //             fill="white"
+    //           />
+    //         </svg>
+    //       </div>
+    //     </div>
+    //     {!isRevealed && (
+    //       <button className="RV_btn_TPTA" onClick={()=>props.setGameSTIndex(5)}>
+    //         <span>See who voted</span>
+    //       </button>
+    //     )}
+    //   </div>
+    //   <div className="sharing_contn_TPTA">
+    //     <span>You are rocking with the title. brag about it</span>
+    //     <div className="sharing_TPTA_RV">
+    //       <div onClick={convertToImage}>
+    //         <svg
+    //           xmlns="http://www.w3.org/2000/svg"
+    //           width="21"
+    //           height="21"
+    //           viewBox="0 0 21 21"
+    //           fill="none"
+    //         >
+    //           <path
+    //             d="M7.99898 19.2907H12.999C17.1657 19.2907 18.8323 17.624 18.8323 13.4574V8.45736C18.8323 4.29069 17.1657 2.62402 12.999 2.62402H7.99898C3.83232 2.62402 2.16565 4.29069 2.16565 8.45736V13.4574C2.16565 17.624 3.83232 19.2907 7.99898 19.2907Z"
+    //             stroke="white"
+    //             stroke-linecap="round"
+    //             stroke-linejoin="round"
+    //           />
+    //           <path
+    //             d="M10.4991 13.8739C12.1099 13.8739 13.4157 12.568 13.4157 10.9572C13.4157 9.34636 12.1099 8.04053 10.4991 8.04053C8.88823 8.04053 7.5824 9.34636 7.5824 10.9572C7.5824 12.568 8.88823 13.8739 10.4991 13.8739Z"
+    //             stroke="white"
+    //             stroke-linecap="round"
+    //             stroke-linejoin="round"
+    //           />
+    //           <path
+    //             d="M15.1957 6.79069H15.2054"
+    //             stroke="white"
+    //             stroke-linecap="round"
+    //             stroke-linejoin="round"
+    //           />
+    //         </svg>
+    //         <span>Tell Others</span>
+    //       </div>
+    //       <img
+    //         onClick={convertToImage}
+    //         className="share_snap_TPTA"
+    //         src={Snapcht}
+    //         alt="snapChat_Icon"
+    //       />
+    //       <img
+    //         onClick={convertToImage}
+    //         className="share_oth_TPTA"
+    //         src={otherShare}
+    //         alt="otherShare_Icon"
+    //       />
+    //     </div>
+    //   </div>
       <div className="SS_send">
         <SharingCard />
       </div>
-    </div>
+    // </div>
   );
 };
 
