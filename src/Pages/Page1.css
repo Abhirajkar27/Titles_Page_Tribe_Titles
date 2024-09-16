@@ -1,5 +1,5 @@
 .Page1 {
-  background: var(--Dark-Dark--100, #0e1928);
+  background: #5929E0;
   margin: 0px;
   padding: 0px;
   height: 100vh;
@@ -158,6 +158,11 @@
   .svg3-pg1 {
     top: 23% !important;
   }
+}
+.svgg7-pg1{
+  position: absolute;
+  top: 32%;
+  z-index: 9;
 }
 @media (min-height: 895px) {
   .mid-pg1 {

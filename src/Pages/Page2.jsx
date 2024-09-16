@@ -52,15 +52,49 @@ const Page2 = (props) => {
 <path d="M176.925 414.92L-121.839 78.7239L-159.272 116.156L176.925 414.92Z" stroke="white" stroke-opacity="0.05"/>
 </svg>
       </div>
+      <div className="Tribe-container">
       <div className="Tribe-Title">
     <img src={Title}/>
-      </div>
-      <div className="main-text">
+    <div className="main-text">
       <p className='Main-p2-text'>
       All Titles for 
       today are played
       </p>
       </div>
+      <div className="center-line-pg2">
+      <svg width="270" height="11" viewBox="0 0 270 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M135.16 10.3815C135.138 10.5395 134.862 10.5395 134.84 10.3815L134.651 9.05565C134.407 7.34366 132.788 5.99388 130.733 5.79075L129.142 5.63343C128.953 5.61466 128.953 5.38534 129.142 5.36657L130.733 5.20925C132.788 5.00612 134.407 3.65634 134.651 1.94437L134.84 0.618544C134.862 0.460484 135.138 0.460484 135.16 0.618544L135.349 1.94437C135.593 3.65634 137.212 5.00612 139.267 5.20925L140.858 5.36657C141.047 5.38533 141.047 5.61466 140.858 5.63343L139.267 5.79075C137.212 5.99388 135.593 7.34366 135.349 9.05565L135.16 10.3815Z" fill="#384353"/>
+<path d="M123 5.50001L1 5.5" stroke="#384353" stroke-linecap="round"/>
+<path d="M269 5.50001L147 5.5" stroke="#384353" stroke-linecap="round"/>
+</svg>
+
+      </div>
+      <div className="See-you-back-pg2">
+      <p class="see-you-text">See you back at</p>
+      </div>
+      <div className="time-left">
+      <svg width="144" height="74" viewBox="0 0 144 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M10 11.0838L3.51562 11.0077L13.2508 3.23416C15.0296 1.60633 17.3988 0.613159 20 0.613159H124C126.56 0.613159 128.896 1.57535 130.665 3.15786L140.496 11.0077L134 11.0839V52.6132C134 58.136 129.523 62.6132 124 62.6132H20C14.4772 62.6132 10 58.136 10 52.6132V11.0838Z" fill="#384353"/>
+  <rect x="0.5" y="9.11316" width="143" height="63.4614" rx="9.5" fill="#0E1928" stroke="#384353"/>
+
+
+  <text x="72" y="50" text-anchor="middle" fill="var(--Accent-Accent--03-Accent-03, #FCFF40)" 
+    font-family="Gilroy" font-size="40" font-weight="700" line-height="66px">
+    12:30
+  </text>
+
+  <text x="72" y="66" text-anchor="middle" fill="var(--Dark-Dark--50, #79889D)" 
+    font-family="Gilroy" font-size="10" font-weight="700" line-height="66px">
+    PM
+  </text>
+</svg>
+
+
+      </div>
+      </div>
+      </div>
+      
+      
       <div className="main-text-2">
         <p className="Main-p2-text-2">
         You can come back tomorrow
@@ -71,9 +105,13 @@ const Page2 = (props) => {
         <p className="Main-p2-text-3">
         Want to Keep giving titles, Invite a friend
         </p>
+        <p className="keep">
+        Play more for a chance to get more titles.
+        </p>
       </div>
       <div className="last-button">
         <button className='last-button-1'>Invite Friends</button>
+        <button className='last-button-3'>Cancel</button>
       </div>
     </div>
   )

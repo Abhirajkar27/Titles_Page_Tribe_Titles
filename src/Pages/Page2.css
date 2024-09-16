@@ -15,6 +15,8 @@
   width: 100vw;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  gap: 0px;
 }
 .Main-p2-text-3 {
   color: var(--Light-Light--70, #bcc9da);
@@ -22,6 +24,7 @@
   font-family: Gilroy;
   font-size: 14px;
   font-style: normal;
+  margin: 0px;
   font-weight: 500;
   line-height: 17px; /* 141.667% */
 }
@@ -89,10 +92,15 @@
   line-height: 36px;
   width: 70%;
 }
+@media (min-width:450px) {
+  .Tribe-Title{
+    padding-bottom: 105px !important;
+  }
+}
 .main-text {
-  position: absolute;
-  top: 50%;
-  width: 100vw;
+  position: relative;
+
+  width: 90vw;
   display: flex;
   justify-content: center;
 }
@@ -124,18 +132,94 @@
   background: var(--Primary-Primary-100, #c6ff00);
   box-shadow: 1px 1px 0px 0px #0e1928;
 }
+.last-button-3{
+  background-color: transparent;
+  color: var(--Light-Light--100, #FFF);
+text-align: center;
+display: flex;
+width: 68px;
+justify-content: center;
+align-items: center;
+gap: 4px;
+border: none;
+outline: none;
+/* P3/P3-SemiBold */
+font-family: Gilroy;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; /* 142.857% */
+}
 .last-button {
+ 
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100vw;
+  gap:20px;
   position: absolute;
-  bottom: 5vh;
+  bottom: 2vh;
+}
+.Tribe-container{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+}
+.time-left{
+  position: relative;
+ 
+}
+.keep{
+  color: var(--Dark-Dark--50, #79889D);
+text-align: center;
+
+/* Caption-2/Caption-2-Medium */
+font-family: Gilroy;
+font-size: 10px;
+font-style: normal;
+margin-top: 0px;
+margin-bottom: 40px;
+font-weight: 500;
+line-height: 15px; /* 150% */
+}
+.See-you-back-pg2{
+  position: relative;
+ 
+}
+.see-you-text{
+  color: var(--Light-Light--70, #BCC9DA);
+text-align: center;
+
+/* Caption-1/Caption-1-Medium */
+font-family: Gilroy;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 17px; /* 141.667% */
+}
+.center-line-pg2{
+  position: relative;
+
+}
+.Tribe-Title img{
+width: 70vw;
+position: relative;
+
 }
 .Tribe-Title {
   position: absolute;
-  top: 20%;
-  width: 100vw;
+  top: 25%;
+  gap: 0px;
+  width: 80vw;
+  height: 250px;
+  padding-bottom: 91px;
+  border-radius: 20px;
+  background: var(--Dark-Dark--90, #1D2939);
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   z-index: 9;
 }
