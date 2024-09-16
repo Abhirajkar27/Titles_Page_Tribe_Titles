@@ -31,7 +31,7 @@ const VoteReveal = (props) => {
   };
 
   const SharingCard = () => (
-    <>
+    <div ref={divRef}>
       <div className="bkg_SVG_Container_TPTA">
         <svg
           className="bkg_SVG_TPTA"
@@ -118,7 +118,54 @@ const VoteReveal = (props) => {
           />
         </svg>
       </div>
-      <div ref={divRef} className="sharingCard_VRTA">
+      <svg
+        className="svg1_SC_VR"
+        xmlns="http://www.w3.org/2000/svg"
+        width="19"
+        height="19"
+        viewBox="0 0 19 19"
+        fill="none"
+      >
+        <path
+          d="M9.01177 18.7281C9.04556 19.0125 9.45835 19.0125 9.49213 18.7281L9.7753 16.3416C10.1409 13.26 12.5705 10.8304 15.6521 10.4648L18.0386 10.1816C18.3231 10.1478 18.3231 9.73501 18.0386 9.70123L15.6521 9.41806C12.5705 9.05242 10.1409 6.62282 9.7753 3.54126L9.49213 1.15479C9.45835 0.870281 9.04556 0.870281 9.01177 1.15479L8.72861 3.54126C8.36297 6.62282 5.93337 9.05242 2.85179 9.41806L0.465308 9.70123C0.180835 9.73501 0.180835 10.1478 0.465308 10.1816L2.85179 10.4648C5.93337 10.8304 8.36297 13.26 8.72861 16.3416L9.01177 18.7281Z"
+          fill="white"
+        />
+      </svg>
+      <svg
+        className="svg2_SC_VR"
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="10"
+        viewBox="0 0 10 10"
+        fill="none"
+      >
+        <path
+          d="M4.86657 9.88147C4.88534 10.0395 5.11466 10.0395 5.13343 9.88147L5.29075 8.55565C5.49388 6.84366 6.84366 5.49388 8.55563 5.29075L9.88146 5.13343C10.0395 5.11466 10.0395 4.88534 9.88146 4.86657L8.55563 4.70925C6.84366 4.50612 5.49388 3.15634 5.29075 1.44437L5.13343 0.118545C5.11466 -0.0395145 4.88534 -0.0395145 4.86657 0.118545L4.70925 1.44437C4.50612 3.15634 3.15634 4.50612 1.44435 4.70925L0.118531 4.86657C-0.0395103 4.88534 -0.0395103 5.11466 0.118531 5.13343L1.44435 5.29075C3.15634 5.49388 4.50612 6.84366 4.70925 8.55565L4.86657 9.88147Z"
+          fill="#FF9FFC"
+        />
+      </svg>
+      <svg
+        className="svg3_SC_VR"
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="31"
+        viewBox="0 0 32 31"
+        fill="none"
+      >
+        <path d="M0 15.501H31.2587" stroke="#273343" stroke-width="3" />
+        <path
+          d="M4.57794 4.53906L26.6812 26.4594"
+          stroke="#273343"
+          stroke-width="3"
+        />
+        <path d="M15.6293 0L15.6293 31" stroke="#273343" stroke-width="3" />
+        <path
+          d="M26.6808 4.53906L4.57756 26.4594"
+          stroke="#273343"
+          stroke-width="3"
+        />
+      </svg>
+      <div className="sharingCard_VRTA">
         <img className="BadgeS_TPTA" src={Badge} alt="Badge" />
         <div className="words_TPTA">
           <span>Most likely to</span>
@@ -216,7 +263,7 @@ const VoteReveal = (props) => {
           </svg>
         </div>
       </div>
-    </>
+    </div>
   );
 
   return (
