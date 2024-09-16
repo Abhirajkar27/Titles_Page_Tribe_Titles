@@ -54,7 +54,7 @@ const EarnTitlePage = (props) => {
           <span>{titles.length} Earned Titles</span>
           <span>You get the card when a friends select you</span>
         </div>
-        <div className="Nrvl_TPPTA">
+        <div className="Nrvl_TPPTA" onClick={()=>props.setGameSTIndex(6)}>
           <img src={Reveal_coin}></img>
           <span>2 Reveals</span>
         </div>
