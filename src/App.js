@@ -7,6 +7,7 @@ import Page1 from "./Pages/Page1";
 import Page2 from "./Pages/Page2";
 import Page3 from "./Pages/Page3";
 import Page4 from "./Pages/Page4";
+import InviteList from "./Pages/InviteList";
 
 const App = () => {
   const [gameSTIndex, setGameSTIndex] = useState(null);
@@ -30,6 +31,9 @@ const App = () => {
       break;
     case 5:
         content = <Page4 setGameSTIndex={setGameSTIndex} />;
+        break;
+    case 6:
+        content = <InviteList setGameSTIndex={setGameSTIndex} />;
         break;
     default:
       content = <AchievementPage setGameSTIndex={setGameSTIndex} />;
@@ -125,7 +129,6 @@ const App = () => {
       </svg>
       </div>}
       {content}
-      {/* <InviteList/> */}
     </>
   );
 };
