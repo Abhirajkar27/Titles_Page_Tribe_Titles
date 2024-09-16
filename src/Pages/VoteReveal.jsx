@@ -201,7 +201,7 @@ const VoteReveal = (props) => {
           </div>
         </div>
         {!isRevealed && (
-          <button className="RV_btn_TPTA">
+          <button className="RV_btn_TPTA" onClick={()=>props.setGameSTIndex(5)}>
             <span>See who voted</span>
           </button>
         )}
