@@ -205,15 +205,16 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: var(--Dark-Dark--100, #0E1928);
 }
 
-.sharingCard_TPTA {
+/* .sharingCard_TPTA {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: var(--Dark-Dark--100, #0E1928);
-}
+} */
 .AvatarCardS_TPTA {
     position: relative; 
     height: 50vh;
