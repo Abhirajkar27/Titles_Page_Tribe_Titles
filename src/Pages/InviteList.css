@@ -7,6 +7,9 @@
   margin-top: 5vh;
   height: 20vh;
 }
+.BtnBase_TA{
+    width: 100vw;
+}
 
 .Social-media-ILTA {
   width: 100vw;
@@ -14,18 +17,17 @@
   justify-content: center;
   align-items: center;
   gap: 15px;
-  position: absolute;
-  top: 39.5%;
+  margin-top: 4vh;
 }
 .center-line-ILTA {
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 46.5%;
+  margin-top: 1.5vh;
 }
 .InviteList_TA span:nth-of-type(1) {
+    margin-top: 1.5vh;
   /* width: 315px; */
   width: 75vw;
   color: var(--Light-Light--100, #fff);

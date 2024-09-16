@@ -2,6 +2,7 @@ import React from "react";
 import "./InviteList.css";
 import BackBtn from "../assets/img/bkbtn.png";
 import GoldenCoin from "../assets/img/GameList_coin.png";
+import Button_Base from "../assets/img/button_base_Reveal.png";
 
 const InviteList = () => {
   return (
@@ -13,6 +14,7 @@ const InviteList = () => {
         alt="crossButton"
       />
       <img className="Goldencoin_TA" src={GoldenCoin} alt="coin" />
+      <img className="BtnBase_TA" src={Button_Base} alt="Btn_Base" />
       <span>Earn reveal via invite</span>
       <span>
         Invite a friend to Reveal who voted for you When they join the app you
