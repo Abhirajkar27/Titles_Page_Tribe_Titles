@@ -9,7 +9,7 @@ import Page3 from "./Pages/Page3";
 import Page4 from "./Pages/Page4";
 
 const App = () => {
-  const [gameSTIndex, setGameSTIndex] = useState(5);
+  const [gameSTIndex, setGameSTIndex] = useState(null);
   const [tries,setTries]=useState(0);
   let content;
   switch (gameSTIndex) {
