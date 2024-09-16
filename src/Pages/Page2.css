@@ -92,6 +92,7 @@
   line-height: 36px;
   width: 70%;
 }
+
 @media (min-width:450px) {
   .Tribe-Title{
     padding-bottom: 105px !important;

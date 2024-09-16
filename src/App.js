@@ -5,6 +5,7 @@ import VoteReveal from "./Pages/VoteReveal";
 import './App.css';
 import Page1 from "./Pages/Page1";
 import Page2 from "./Pages/Page2";
+import Page3 from "./Pages/Page3";
 
 const App = () => {
   const [gameSTIndex, setGameSTIndex] = useState(null);
@@ -23,13 +24,16 @@ const App = () => {
     case 3:
       content = <Page2 setGameSTIndex={setGameSTIndex} />;
       break;
+    case 4:
+      content = <Page3 setGameSTIndex={setGameSTIndex} />;
+      break;
     default:
       content = <VoteReveal setGameSTIndex={setGameSTIndex} />;
   }
 
   return (
     <>
-    {gameSTIndex!=3 &&
+    {gameSTIndex!=3 && gameSTIndex!=4 &&
     <div className="bkg_SVG_Container_TPTA">
       <svg
         className="bkg_SVG_TPTA"

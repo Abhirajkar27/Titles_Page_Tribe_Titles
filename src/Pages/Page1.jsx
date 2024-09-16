@@ -2,27 +2,20 @@ import React from "react";
 import "./Page1.css";
 import image1 from "../assets/img/imageP.png";
 import Boxes from "../components/Boxes";
+import cross from '../assets/img/cross.png';
 const Page1 = (props) => {
   const Forward=props.tries>=3?false:true;
   return (
     <div className="Page1">
       <div className="background-page1">
         <div className="Upper-buttons-page1">
-          <button className="close-page1" onClick={() => props.setGameSTIndex(10)}>
-            {" "}
-            <svg
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4.5 4.5L13.5 13.5M13.5 4.5L4.5 13.5"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+          <button className="close-page1-pg1" onClick={() => props.setGameSTIndex(10)}>
+          <img
+        className="cross_btn-pg1"
+        onClick={() => props.setGameSTIndex(null)}
+        src={cross}
+        alt="crossButton"
+      />
           </button>
           <button className="your-titles">
             <svg

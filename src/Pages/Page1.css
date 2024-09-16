@@ -21,19 +21,10 @@
   position: absolute;
   top: 18%;
 }
-.close-page1 {
-  border-radius: var(--x-Large, 999px);
-  background: var(--Light-Alpha-Light-Alphat--10, rgba(255, 255, 255, 0.1));
-  display: flex;
-  width: 32px;
-  height: 32px;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  color: white;
-  margin-top: 10px;
+.close-page1-pg1 {
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
 .heading-p1 {
   width: 100vw;
@@ -163,6 +154,10 @@
   position: absolute;
   top: 32%;
   z-index: 9;
+}
+.cross_btn-pg1 {
+  width: 10vw;
+  
 }
 @media (min-height: 895px) {
   .mid-pg1 {
