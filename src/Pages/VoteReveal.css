@@ -30,17 +30,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  gap: 15px;
+  gap: 1vw;
   border-radius: 40px;
   background: var(--Dark-Dark--80, #273343);
-  width: 85%;
+  width: 72vw;
   padding: 4px 6px;
+  position: relative;
 }
 
 .image-row {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50%;
 }
 
 .circular-div_RV_TPTA {
@@ -49,7 +51,7 @@
   border-radius: 50%;
   border-color: #fff;
   overflow: hidden;
-  margin-left:-4vw ;
+  margin-left:-13px ;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,11 +73,13 @@
   border-radius: 40px;
   background: var(--Dark-Dark--60, #526175);
   padding: 4px 8px;
+  /* width: 40%; */
 }
 .votecnt_TPTA span {
   color: #fff;
   font-family: Gilroy;
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 1.5vh;
   font-style: normal;
   font-weight: 700;
   line-height: 17px;
@@ -170,7 +174,8 @@
 .RV_btn_TPTA {
   margin-top: 2vh;
   display: flex;
-  width: 206px;
+  /* width: 206px; */
+  width: 64.5%;
   min-width: 110px;
   padding: 14px 24px;
   justify-content: center;
@@ -187,7 +192,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 142.857% */
+  line-height: 142.857%;
 }
 
 /* Sharing Card */
