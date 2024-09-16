@@ -7,50 +7,88 @@
 .cross_btn_TPTA {
   width: 10vw;
   position: absolute;
-  top: 2.44rem;
-  left: 1.44rem;
+  top: 2rem;
+  left: 1.24rem;
 }
 .Avatar_Badge_TPTA {
-  height: 8.7vh;
+  height: 9vh;
+  width: 43vw;
   position: absolute;
-  top: 7.5vh;
+  top: 5.5vh;
   /* margin-left: -3vw; */
   z-index: 88;
 }
 .AvatarCard_TPTA {
   position: absolute;
-  height: 50vh;
-  top: 12vh;
+  width: 80vw;
+  height: 54vh;
+  top: 10vh;
 }
 
-.circular-div_RV_TPTA {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  border-color: #fff;
-  overflow: hidden;
+.Tvote_img_TPTA {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: -2.2vh;
+  flex-direction: row;
+  gap: 15px;
+  border-radius: 40px;
+  background: var(--Dark-Dark--80, #273343);
+  width: 85%;
+  padding: 4px 6px;
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circular-div_RV_TPTA {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border-color: #fff;
+  overflow: hidden;
+  margin-left:-4vw ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .circular-div_RV_TPTA img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  /* object-fit: cover; */
+  /* border-radius: 50%; */
+}
+
+.votecnt_TPTA {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2.4vw;
+  border-radius: 40px;
+  background: var(--Dark-Dark--60, #526175);
+  padding: 4px 8px;
+}
+.votecnt_TPTA span {
+  color: #fff;
+  font-family: Gilroy;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 17px;
 }
 
 .Reveal_Comp_TPTA {
   position: relative;
   width: 89vw;
-  height: 20.3vh;
+  height: 17.3vh;
   flex-shrink: 0;
-  border-radius: var(--large, 12px);
+  border-radius: 3vh;
   background: var(--Dark-Dark--90, #1d2939);
-  margin-top: 65vh;
+  margin-top: 66.2vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,6 +198,7 @@
   flex-direction: column;
   background: var(--Dark-Dark--100, #0e1928);
 }
+
 .circular-div_RVC_TPTA {
   width: 2.5rem;
   height: 2.5rem;
