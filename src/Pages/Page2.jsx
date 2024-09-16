@@ -99,12 +99,7 @@ const Page2 = (props) => {
       </div>
       
       
-      <div className="main-text-2">
-        <p className="Main-p2-text-2">
-        You can come back tomorrow
-        to explore more titles
-        </p>
-      </div>
+     
       <div className="main-text-3">
         <p className="Main-p2-text-3">
         Want to Keep giving titles, Invite a friend
