@@ -10,11 +10,31 @@
   top: 2.44rem;
   left: 1.44rem;
 }
+
+.circular-div_APTA {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border-color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8vh 2vh auto;
+}
+
+.circular-div_APTA img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .AvatarCard_TPTA {
   height: 50vh;
-  margin-top:12vh;
+  margin-top: 2vh;
 }
-.svg_bottomShadow_TA{
+.svg_bottomShadow_TA {
   position: relative;
   margin-top: 2vh;
 }

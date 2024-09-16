@@ -145,6 +145,25 @@ const AchievementPage = (props) => {
         src={crossBtn}
         alt="crossButton"
       />
+      <div class="circular-div_APTA">
+        <img
+          style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
+          src={Profile_img}
+          alt="Circular Image"
+        />
+      </div>
+      {!isRevealed ? (
+        <div className="cardinfoshr_TATP">
+          Someone from my College just voted for me
+        </div>
+      ) : (
+        <div className="cardinfoshr_TATP_Reveal">
+          <span>{voteBy}</span> from my College just voted for me
+        </div>
+      )}
+      <div className="badgeinfoshr_TATP">
+        “Most likely to be the person showing up late everywhere “
+      </div>
       <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
       <svg
         className="svg_bottomShadow_TA"
