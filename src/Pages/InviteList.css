@@ -1,0 +1,52 @@
+.InviteList_TA {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.Goldencoin_TA {
+  margin-top: 5vh;
+  height: 20vh;
+}
+.BtnBase_TA{
+    width: 100vw;
+}
+
+.Social-media-ILTA {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 4vh;
+}
+.center-line-ILTA {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5vh;
+}
+.InviteList_TA span:nth-of-type(1) {
+    margin-top: 1.5vh;
+  /* width: 315px; */
+  width: 75vw;
+  color: var(--Light-Light--100, #fff);
+  text-align: center;
+  font-family: Gilroy;
+  /* font-size: 28px; */
+  font-size: 3.5vh;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 92.857%;
+}
+.InviteList_TA span:nth-of-type(2) {
+  margin-top: 1.2vh;
+  width: 77.5vw;
+  color: var(--Light-Light--70, #bcc9da);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+}

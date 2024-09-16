@@ -1,13 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./AchievementPage.css";
 import crossBtn from "../assets/img/cross.png";
 import AvatarCard from "../assets/img/Avatar.png";
 import Badge from "../assets/img/vote_badge.png";
+import Profile_img from "../assets/img/image.png";
 import Snapcht from "../assets/img/snapchat.png";
 import otherShare from "../assets/img/elseSM.png";
 import html2canvas from "html2canvas";
 
 const AchievementPage = (props) => {
+  const [isRevealed, setISRevealed] = useState(false);
+  const [voteBy, setVoteBy] = useState("someone");
   const divRef = useRef(null);
   const convertToImage = () => {
     console.log("converting");
@@ -19,12 +22,27 @@ const AchievementPage = (props) => {
       });
     }
   };
+
   const SharingCard = () => (
-    <div ref={divRef} className="sharingCard_TPTA">
-      <img className="BadgeS_TPTA" src={Badge} alt="Badge" />
-      <div className="words_TPTA">
-        <span>Most likely to</span>
-        <span>be the person showing up late everywhere </span>
+    <div ref={divRef} className="sharingCardRV_TPTA">
+      <div class="circular-div_RVC_TPTA">
+        <img
+          style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
+          src={Profile_img}
+          alt="Circular Image"
+        />
+      </div>
+      {!isRevealed ? (
+        <div className="cardinfoshr_TATP">
+          Someone from my College just voted for me
+        </div>
+      ) : (
+        <div className="cardinfoshr_TATP_Reveal">
+          <span>{voteBy}</span> from my College just voted for me
+        </div>
+      )}
+      <div className="badgeinfoshr_TATP">
+        “Most likely to be the person showing up late everywhere “
       </div>
       <img className="AvatarCardS_TPTA" src={AvatarCard} alt="AvatarCard" />
       <svg
@@ -128,10 +146,26 @@ const AchievementPage = (props) => {
         alt="crossButton"
       />
       <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
-      <img className="Badge_TPTA" src={Badge} alt="Badge" />
-      <div className="feedback-txt_TPTA">
+      <svg
+        className="svg_bottomShadow_TA"
+        xmlns="http://www.w3.org/2000/svg"
+        width="176"
+        height="14"
+        viewBox="0 0 176 14"
+        fill="none"
+      >
+        <ellipse
+          cx="88.0407"
+          cy="6.85547"
+          rx="87.5959"
+          ry="6.85547"
+          fill="#030406"
+        />
+      </svg>
+      {/* <img className="Badge_TPTA" src={Badge} alt="Badge" /> */}
+      {/* <div className="feedback-txt_TPTA">
         You are rocking with the title. brag about it
-      </div>
+      </div> */}
       <div className="sharing_TPTA">
         <div onClick={convertToImage}>
           <svg
@@ -162,7 +196,12 @@ const AchievementPage = (props) => {
           </svg>
           <span>Tell Others</span>
         </div>
-        <img onClick={convertToImage} className="share_snap_TPTA" src={Snapcht} alt="snapChat_Icon" />
+        <img
+          onClick={convertToImage}
+          className="share_snap_TPTA"
+          src={Snapcht}
+          alt="snapChat_Icon"
+        />
         <img
           className="share_oth_TPTA"
           src={otherShare}
@@ -170,7 +209,9 @@ const AchievementPage = (props) => {
           onClick={convertToImage}
         />
       </div>
-      <div className="SS_send"><SharingCard/></div>
+      <div className="SS_send">
+        <SharingCard />
+      </div>
     </div>
   );
 };
