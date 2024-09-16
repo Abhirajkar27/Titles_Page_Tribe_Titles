@@ -13,7 +13,7 @@ const App = () => {
   let content;
   switch (gameSTIndex) {
     case 0:
-      content = <AchievementPage setGameSTIndex={setGameSTIndex} />;
+      content = <VoteReveal setGameSTIndex={setGameSTIndex} />;
       break;
     case 1:
       content = <EarnTitlePage setGameSTIndex={setGameSTIndex} />;
@@ -28,7 +28,7 @@ const App = () => {
       content = <Page3 setGameSTIndex={setGameSTIndex} />;
       break;
     default:
-      content = <VoteReveal setGameSTIndex={setGameSTIndex} />;
+      content = <AchievementPage setGameSTIndex={setGameSTIndex} />;
   }
 
   return (
