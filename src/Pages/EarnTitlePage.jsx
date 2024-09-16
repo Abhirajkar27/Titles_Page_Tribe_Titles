@@ -47,7 +47,7 @@ const EarnTitlePage = (props) => {
         The more your play the more you are shown to others
       </div>
       <button onClick={handlePlayMoreClick} className="btn_TPTA">
-        <span>Play for more titles</span>
+        <span>Play to earn</span>
       </button>
       <div className="TR_Contn_TPPTA">
         <div className="fedbk_TPPTA">
