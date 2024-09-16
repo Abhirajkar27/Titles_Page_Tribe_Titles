@@ -1,17 +1,24 @@
 import React, { useRef, useState } from "react";
 import "./VoteReveal.css";
 import crossBtn from "../assets/img/cross.png";
+import BackBtn from "../assets/img/bkbtn.png";
 import AvatarBadge from "../assets/img/vote_badge.png";
 import AvatarCard from "../assets/img/Avatar.png";
 import Profile_img from "../assets/img/image.png";
 import Snapcht from "../assets/img/snapchat.png";
 import otherShare from "../assets/img/elseSM.png";
+import Vote_person_image1 from "../assets/img/image.png";
+import Vote_person_image2 from "../assets/img/image2.png";
 import html2canvas from "html2canvas";
 
 const VoteReveal = (props) => {
   const [isRevealed, setISRevealed] = useState(false);
   const [voteBy, setVoteBy] = useState("someone");
+  const [totalVote, setTotalVote] = useState(10);
   const divRef = useRef(null);
+
+  const imagesToRender = Math.min(totalVote, 6);
+
   const convertToImage = () => {
     console.log("converting");
     if (divRef.current) {
@@ -142,22 +149,57 @@ const VoteReveal = (props) => {
       <img
         className="cross_btn_TPTA"
         onClick={() => props.setGameSTIndex(1)}
-        src={crossBtn}
+        src={BackBtn}
         alt="crossButton"
       />
       <img className="Avatar_Badge_TPTA" src={AvatarBadge} />
       <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
       <div className="Reveal_Comp_TPTA">
-        {/* <div class="circular-div_RV_TPTA">
-          <img
-            style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
-            src={Profile_img}
-            alt="Circular Image"
-          />
-        </div> */}
         {/* <div className="vote_FB_TPTA_RV">
           {voteBy} from <span>College</span> voted for you{" "}
         </div> */}
+        <div className="Tvote_img_TPTA">
+          <div className="image-row">
+            {[...Array(imagesToRender)].map((_, index) => (
+              <div class="circular-div_RV_TPTA">
+                <img
+                  style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
+                  src={Vote_person_image1}
+                  alt="Circular Image"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="votecnt_TPTA">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="14"
+              viewBox="0 0 12 14"
+              fill="none"
+            >
+              <path
+                opacity="0.5"
+                d="M0.142191 7.17346C-0.0474581 7.14906 -0.0474581 6.85094 0.142191 6.82654L1.73318 6.62203C3.78757 6.35796 5.4073 4.60325 5.65106 2.37768L5.83984 0.65411C5.86236 0.448632 6.13755 0.448632 6.16008 0.65411L6.34885 2.37768C6.59261 4.60325 8.21234 6.35796 10.2667 6.62203L11.8577 6.82654C12.0474 6.85094 12.0474 7.14906 11.8577 7.17346L10.2667 7.37797C8.21234 7.64205 6.59261 9.39675 6.34885 11.6223L6.16008 13.3459C6.13755 13.5514 5.86236 13.5514 5.83984 13.3459L5.65106 11.6223C5.4073 9.39675 3.78757 7.64205 1.73318 7.37797L0.142191 7.17346Z"
+                fill="white"
+              />
+            </svg>
+            <span>{totalVote} VOTES</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="14"
+              viewBox="0 0 12 14"
+              fill="none"
+            >
+              <path
+                opacity="0.5"
+                d="M0.142191 7.17346C-0.0474581 7.14906 -0.0474581 6.85094 0.142191 6.82654L1.73318 6.62203C3.78757 6.35796 5.4073 4.60325 5.65106 2.37768L5.83984 0.65411C5.86236 0.448632 6.13755 0.448632 6.16008 0.65411L6.34885 2.37768C6.59261 4.60325 8.21234 6.35796 10.2667 6.62203L11.8577 6.82654C12.0474 6.85094 12.0474 7.14906 11.8577 7.17346L10.2667 7.37797C8.21234 7.64205 6.59261 9.39675 6.34885 11.6223L6.16008 13.3459C6.13755 13.5514 5.86236 13.5514 5.83984 13.3459L5.65106 11.6223C5.4073 9.39675 3.78757 7.64205 1.73318 7.37797L0.142191 7.17346Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
         {!isRevealed && (
           <button className="RV_btn_TPTA">
             <span>See who voted</span>
