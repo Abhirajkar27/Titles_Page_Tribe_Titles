@@ -37,7 +37,7 @@ height: 100px;
    align-items: center;
    gap: 15px;
    position: absolute;
-   top: 37%;
+   top: 39.5%;
 }
 .center-line-pg3{
     width: 100vw;
@@ -45,7 +45,7 @@ height: 100px;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 44%;
+    top: 46.5%;
 }
 .text1-pg3{
     color: var(--Light-Light--70, #BCC9DA);
