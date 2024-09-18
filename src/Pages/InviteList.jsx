@@ -4,12 +4,12 @@ import BackBtn from "../assets/img/bkbtn.png";
 import GoldenCoin from "../assets/img/GameList_coin.png";
 import Button_Base from "../assets/img/button_base_Reveal.png";
 
-const InviteList = () => {
+const InviteList = (props) => {
   return (
     <div className="InviteList_TA">
       <img
         className="cross_btn_TPTA"
-        // onClick={() => props.setGameSTIndex(1)}
+        onClick={() => props.setGameSTIndex(1)}
         src={BackBtn}
         alt="crossButton"
       />
