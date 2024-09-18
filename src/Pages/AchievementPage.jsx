@@ -227,7 +227,7 @@ const AchievementPage = (props) => {
     <div className="AchievementPage_TA">
       <img
         className="cross_btn_TPTA"
-        onClick={() => props.setGameSTIndex(1)}
+        onClick={() => props.setGameSTIndex(5)}
         src={BackBtn}
         alt="crossButton"
       />
