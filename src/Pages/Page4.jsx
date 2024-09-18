@@ -31,11 +31,11 @@ const Page4 = (props) => {
         <div className="Upper-buttons-page1">
           <button
             className="close-page1-pg1"
-            onClick={() => props.setGameSTIndex(10)}
+            onClick={() => props.setGameSTIndex(0)}
           >
             <img
               className="cross_btn-pg1"
-              onClick={() => props.setGameSTIndex(null)}
+              onClick={() => props.setGameSTIndex(0)}
               src={cross}
               alt="crossButton"
             />
