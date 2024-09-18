@@ -9,7 +9,7 @@ const InviteList = (props) => {
     <div className="InviteList_TA">
       <img
         className="cross_btn_TPTA"
-        onClick={() => props.setGameSTIndex(1)}
+        onClick={() => props.setGameSTIndex(null)}
         src={BackBtn}
         alt="crossButton"
       />

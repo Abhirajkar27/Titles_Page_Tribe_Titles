@@ -20,7 +20,7 @@ const Page1 = (props) => {
               alt="crossButton"
             />
           </button>
-          <button onClick={() => props.setGameSTIndex(1)} className="your-titles">
+          <button onClick={() => props.setGameSTIndex(null)} className="your-titles">
             <svg
               width="149"
               height="54"

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./AchievementPage.css";
-import crossBtn from "../assets/img/cross.png";
+import BackBtn from "../assets/img/bkbtn.png";
 import AvatarCard from "../assets/img/Avatar.png";
 import Badge from "../assets/img/vote_badge.png";
 import Profile_img from "../assets/img/image.png";
@@ -228,7 +228,7 @@ const AchievementPage = (props) => {
       <img
         className="cross_btn_TPTA"
         onClick={() => props.setGameSTIndex(1)}
-        src={crossBtn}
+        src={BackBtn}
         alt="crossButton"
       />
       <div class="circular-div_APTA">
