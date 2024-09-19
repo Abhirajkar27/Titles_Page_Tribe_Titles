@@ -197,3 +197,56 @@
   height: 4vh;
   width: 24vw;
 }
+
+/* Animation */
+
+@keyframes slideUp {
+  0% { transform: translateY(10%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes logoAppear {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.green_clowd_TPTA {
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: .1s;
+  opacity: 0;  
+}
+
+.brown_clowd_TPTA {
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: .25s; 
+  opacity: 0; 
+}
+
+.tribeLogo_ET_TA {
+  animation: logoAppear 1s ease-out forwards;
+  animation-delay: .45s; 
+  opacity: 0; 
+}
+
+.exicting_line_TA, .btn_TPTA, .TR_Contn_TPPTA{
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: .8s; 
+  opacity: 0; 
+}
+
+/* @keyframes fadeInScroll {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+} */
+
+/* .scrollable_container {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0; 
+} */
+
