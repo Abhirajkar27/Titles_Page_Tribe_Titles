@@ -3,9 +3,7 @@ import './InstructionPage.css';
 import Instruction1 from '../assets/img/instruction1.png';
 import inst2 from '../assets/img/inst2.png'
 
-const InstructionPage = ({setinstructions}) => {
-const [nextInst,setnextInst]=useState(false);
-
+const InstructionPage = ({setinstructions,nextInst,setnextInst}) => {
   return (
     <div className='Instruction-pg1'>
       <div className="vote-up">
@@ -20,7 +18,7 @@ const [nextInst,setnextInst]=useState(false);
     <img src={!nextInst?Instruction1:inst2}/>
       </div>
         <div className="instruction-button">
-            {!nextInst?<button onClick={()=>setnextInst(true)}>next</button>
+            {!nextInst?<button onClick={()=>setinstructions(false)}>next</button>
             :<button onClick={()=>setinstructions(false)}>ok got it</button>}
         </div>
     </div>

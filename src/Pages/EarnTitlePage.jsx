@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./EarnTitlePage.css";
 import tribe_logo from "../assets/img/Tribe_titles.png";
 import brown_clowd from "../assets/img/brown_clowd.png";
@@ -8,8 +8,12 @@ import earnedTitleImg from "../assets/img/earnedttlimg.png";
 import voteBadge from "../assets/img/No_votes.png";
 import Reveal_coin from "../assets/img/reveal_coin.png";
 import Back from "../assets/img/bkbtn.png";
+import InstructionPage from "./InstructionPage";
 
 const EarnTitlePage = (props) => {
+  const [instruction,setinstructions]=useState(true);
+  const [nextInst,setnextInst]=useState(true);
+
   const titles = [
     "Captain Chik-Chik",
     "Lord Late Lateef",
@@ -39,6 +43,7 @@ const EarnTitlePage = (props) => {
   );
   return (
     <div className="Titlepage_TA">
+      {instruction &&<InstructionPage setinstructions={setinstructions} nextInst={nextInst} setnextInst={setnextInst}/>}
       <img className="nkbtn_TPTA" src={Back} alt="backbutton" />
       <img className="brown_clowd_TPTA" src={brown_clowd} />
       <img className="green_clowd_TPTA" src={Green_clowd} />

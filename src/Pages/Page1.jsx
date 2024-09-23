@@ -7,9 +7,10 @@ import InstructionPage from "./InstructionPage";
 const Page1 = (props) => {
   const Forward = props.tries >= 3 ? false : true;
   const [instruction,setinstructions]=useState(true);
+  const [nextInst,setnextInst]=useState(false);
   return (
     <>
-    {instruction &&<InstructionPage setinstructions={setinstructions}/>}
+    {instruction &&<InstructionPage setinstructions={setinstructions} nextInst={nextInst} setnextInst={setnextInst}/>}
     <div className="Page1">
       <div className="background-page1">
         <div className="Upper-buttons-page1">
