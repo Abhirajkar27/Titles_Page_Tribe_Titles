@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Page1.css";
 import image1 from "../assets/img/imageP.png";
 import Boxes from "../components/Boxes";
 import cross from "../assets/img/cross.png";
+import InstructionPage from "./InstructionPage";
 const Page1 = (props) => {
   const Forward = props.tries >= 3 ? false : true;
+  const [instruction,setinstructions]=useState(true);
   return (
+    <>
+    {instruction &&<InstructionPage setinstructions={setinstructions}/>}
     <div className="Page1">
       <div className="background-page1">
         <div className="Upper-buttons-page1">
@@ -14347,6 +14351,7 @@ const Page1 = (props) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

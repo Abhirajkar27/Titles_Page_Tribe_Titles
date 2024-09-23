@@ -1,0 +1,28 @@
+import React, { useState } from 'react'
+import './InstructionPage.css';
+import Instruction1 from '../assets/img/instruction1.png';
+const InstructionPage = ({setinstructions}) => {
+const [nextInst,setnextInst]=useState(false);
+
+  return (
+    <div className='Instruction-pg1'>
+      <div className="vote-up">
+        <p className="vote-it-up">
+       { !nextInst?'Vote for others':'Unlock titles'}
+        </p>
+        <p className='vote-it-down'>
+        {!nextInst?'each vote you make will help you unlock':'get all the title unlock with each vote'}
+        </p>
+      </div>
+      <div className="image-instruction">
+    <img src={Instruction1}/>
+      </div>
+        <div className="instruction-button">
+            {!nextInst?<button onClick={()=>setnextInst(true)}>next</button>
+            :<button onClick={()=>setinstructions(false)}>ok got it</button>}
+        </div>
+    </div>
+  )
+}
+
+export default InstructionPage
