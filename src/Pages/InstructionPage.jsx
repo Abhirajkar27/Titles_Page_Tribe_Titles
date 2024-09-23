@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './InstructionPage.css';
 import Instruction1 from '../assets/img/instruction1.png';
+import inst2 from '../assets/img/inst2.png'
+
 const InstructionPage = ({setinstructions}) => {
 const [nextInst,setnextInst]=useState(false);
 
@@ -15,7 +17,7 @@ const [nextInst,setnextInst]=useState(false);
         </p>
       </div>
       <div className="image-instruction">
-    <img src={Instruction1}/>
+    <img src={!nextInst?Instruction1:inst2}/>
       </div>
         <div className="instruction-button">
             {!nextInst?<button onClick={()=>setnextInst(true)}>next</button>
