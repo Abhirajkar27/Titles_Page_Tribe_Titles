@@ -1,7 +1,7 @@
 .Instruction-pg1{
     background-color: rgba(14, 25, 40, 0.95);
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     position: absolute;
     top: 0px;

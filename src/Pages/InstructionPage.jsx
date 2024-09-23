@@ -18,8 +18,9 @@ const InstructionPage = ({setinstructions,nextInst,setnextInst}) => {
     <img src={!nextInst?Instruction1:inst2}/>
       </div>
         <div className="instruction-button">
-            {!nextInst?<button onClick={()=>setinstructions(false)}>next</button>
-            :<button onClick={()=>setinstructions(false)}>ok got it</button>}
+            {/* {!nextInst?<button onClick={()=>setinstructions(false)}>ok got it</button>
+            :<button onClick={()=>setinstructions(false)}>ok got it</button>} */}
+            <button onClick={()=>setinstructions(false)}>ok got it</button>
         </div>
     </div>
   )
