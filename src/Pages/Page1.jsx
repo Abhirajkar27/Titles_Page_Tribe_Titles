@@ -16,7 +16,7 @@ const Page1 = (props) => {
         <div className="Upper-buttons-page1">
           <button
             className="close-page1-pg1"
-            onClick={() => props.setGameSTIndex(10)}
+            onClick={() => props.setGameSTIndex(null)}
           >
             <img
               className="cross_btn-pg1"
