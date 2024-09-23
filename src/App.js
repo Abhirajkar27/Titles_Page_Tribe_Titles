@@ -49,6 +49,14 @@ const App = () => {
     };
   }, [gameSTIndex]);
 
+  useEffect(() => {
+    document.body.style.overflow = instruction === true ? 'hidden' : '';
+    window.scrollTo(0, 0);
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [instruction]);
+
   return (
     <>
     {gameSTIndex!=3 && gameSTIndex!=4 &&
