@@ -11,9 +11,7 @@ import Back from "../assets/img/bkbtn.png";
 import InstructionPage from "./InstructionPage";
 
 const EarnTitlePage = (props) => {
-  const [instruction,setinstructions]=useState(true);
   const [nextInst,setnextInst]=useState(true);
-
   const titles = [
     "Captain Chik-Chik",
     "Lord Late Lateef",
@@ -43,7 +41,7 @@ const EarnTitlePage = (props) => {
   );
   return (
     <div className="Titlepage_TA">
-      {instruction &&<InstructionPage setinstructions={setinstructions} nextInst={nextInst} setnextInst={setnextInst}/>}
+      {props.instruction &&<InstructionPage gameSTIndex={props.gameSTIndex} setinstructions={props.setinstructions} nextInst={nextInst} setnextInst={setnextInst}/>}
       <img className="nkbtn_TPTA" src={Back} alt="backbutton" />
       <img className="brown_clowd_TPTA" src={brown_clowd} />
       <img className="green_clowd_TPTA" src={Green_clowd} />

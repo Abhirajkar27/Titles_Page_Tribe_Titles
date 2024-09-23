@@ -12,6 +12,7 @@ import InviteList from "./Pages/InviteList";
 const App = () => {
   const [gameSTIndex, setGameSTIndex] = useState(null);
   const [tries,setTries]=useState(0);
+  const [instruction,setinstructions]=useState(true);
   let content;
   switch (gameSTIndex) {
     case 0:
@@ -21,7 +22,7 @@ const App = () => {
       content = <AchievementPage setGameSTIndex={setGameSTIndex} />;
       break;
     case 2:
-      content = <Page1 tries={tries} setTries={setTries} setGameSTIndex={setGameSTIndex} />;
+      content = <Page1 instruction={instruction} setinstructions={setinstructions} tries={tries} setTries={setTries} setGameSTIndex={setGameSTIndex} />;
       break;
     case 3:
       content = <Page2 setGameSTIndex={setGameSTIndex} />;
@@ -36,7 +37,7 @@ const App = () => {
         content = <InviteList setGameSTIndex={setGameSTIndex} />;
         break;
     default:
-      content = <EarnTitlePage setGameSTIndex={setGameSTIndex} />;
+      content = <EarnTitlePage instruction={instruction} setinstructions={setinstructions} setGameSTIndex={setGameSTIndex} />;
   }
 
 
