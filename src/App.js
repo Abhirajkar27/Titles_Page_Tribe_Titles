@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EarnTitlePage from "./Pages/EarnTitlePage";
 import AchievementPage from "./Pages/AchievementPage";
 import VoteReveal from "./Pages/VoteReveal";
@@ -38,6 +38,15 @@ const App = () => {
     default:
       content = <EarnTitlePage setGameSTIndex={setGameSTIndex} />;
   }
+
+
+  useEffect(() => {
+    document.body.style.overflow = gameSTIndex === null ? 'auto' : 'hidden';
+    window.scrollTo(0, 0);
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [gameSTIndex]);
 
   return (
     <>
