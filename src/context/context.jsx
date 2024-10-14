@@ -153,50 +153,54 @@ const TBHProvider = ({ children }) => {
       console.error("Error: Invalid or undefined function name.");
       return;
     }
-    const url = `https://vyld-cb-dev-api.vyld.io${path}`;
+    const body={};
+    // const url = `https://vyld-cb-dev-api.vyld.io${path}`;
+    flutterFetch(path, body, "GET", tempFunctionName, userID);
 
-    try {
-      const response = await fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: userID ? userID : "669764367d66dad334de7b06",
-        },
-      });
+    // try {
+    //   const response = await fetch(url, {
+    //     method: "GET",
+    //     headers: {
+    //       Authorization: userID ? userID : "669764367d66dad334de7b06",
+    //     },
+    //   });
 
-      if (!response.ok) {
-        throw new Error(`Network response was not ok: ${response.statusText}`);
-      }
+    //   if (!response.ok) {
+    //     throw new Error(`Network response was not ok: ${response.statusText}`);
+    //   }
 
-      const data = await response.json();
+    //   const data = await response.json();
 
-      if (typeof window[tempFunctionName] === "function") {
-        window[tempFunctionName](data);
-      } else {
-        console.error(`Error: ${tempFunctionName} is not a function.`);
-      }
-    } catch (error) {
-      console.error("Error in customFetch:", error);
-    }
+    //   if (typeof window[tempFunctionName] === "function") {
+    //     window[tempFunctionName](data);
+    //   } else {
+    //     console.error(`Error: ${tempFunctionName} is not a function.`);
+    //   }
+    // } catch (error) {
+    //   console.error("Error in customFetch:", error);
+    // }
   };
 
   async function customFetchPost(path, body, tempFunctionName = null) {
-    const url = `https://vyld-cb-dev-api.vyld.io${path}`;
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "669764367d66dad334de7b06",
-      },
-      body: JSON.stringify(body),
-    });
-    const data = await response.json();
-    if (
-      tempFunctionName != null &&
-      typeof window[tempFunctionName] === "function"
-    ) {
-      window[tempFunctionName](data);
-    }
-    console.log("Successfull Post with Response", data);
+
+    flutterFetch(path, JSON.stringify(body), "POST", tempFunctionName);
+    // const url = `https://vyld-cb-dev-api.vyld.io${path}`;
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: "669764367d66dad334de7b06",
+    //   },
+    //   body: JSON.stringify(body),
+    // });
+    // const data = await response.json();
+    // if (
+    //   tempFunctionName != null &&
+    //   typeof window[tempFunctionName] === "function"
+    // ) {
+    //   window[tempFunctionName](data);
+    // }
+    // console.log("Successfull Post with Response", data);
   }
 
   async function flutterFetch(
