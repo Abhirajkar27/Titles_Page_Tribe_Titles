@@ -221,13 +221,13 @@ const TBHProvider = ({ children }) => {
 
       window.flutterFetch.postMessage(JSON.stringify(request));
 
-      console.log("Successfull Post with Request", data);
+      // console.log("Successfull Post with Request", data);
     } catch (e) {
       console.error("Error in customFetch:", e);
     }
   }
 
-  window[flutterResponse] = async (data) => {
+  window.flutterResponse = async function(data){
     try {
       var response = JSON.parse(data);
       var code = response.code;
