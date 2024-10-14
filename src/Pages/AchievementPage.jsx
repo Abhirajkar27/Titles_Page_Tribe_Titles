@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import "./AchievementPage.css";
 import BackBtn from "../assets/img/bkbtn.png";
 import AvatarCard from "../assets/img/Avatar.png";
-import Badge from "../assets/img/vote_badge.png";
+// import Badge from "../assets/img/vote_badge.png";
 import Profile_img from "../assets/img/image.png";
 import Snapcht from "../assets/img/snapchat.png";
 import otherShare from "../assets/img/elseSM.png";

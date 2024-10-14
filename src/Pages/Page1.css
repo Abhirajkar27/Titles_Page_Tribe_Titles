@@ -80,15 +80,24 @@
 }
 .svg5-pg1 {
   z-index: 11;
-  position: absolute;
-  top: 20.5%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 19vh;
 }
 .image1-p1 {
   z-index: -4;
   position: relative;
-  top: 20px;
-  left: 19%;
+  top: 2vh;
 }
+
+.tbhQues_titleImg{
+  height: 20vh;
+  width: 20vh;;     
+  /* object-fit: cover; */
+}
+
 .shuffle {
   color: white;
   display: flex;
@@ -104,6 +113,7 @@
   border-radius: var(--x-Large, 999px);
 background: var(--Dark-Dark--80, #273343);
   box-shadow: 1px 1px 0px 0px #090909;
+  z-index: 11;
 }
 .skip {
   color: white;
@@ -119,12 +129,12 @@ background: var(--Dark-Dark--80, #273343);
 border: none;
 outline: none;
   background: var(--Dark-Dark--80, #273343);
-
+  z-index: 11;
 }
 .text-sub-p1 {
   margin-top: -13px;
   color: var(--Light-Light--100, #fff);
-  width: 53%;
+  width: 80%;
   text-align: center;
   font-family: Gilroy;
   font-size: 18px;
@@ -172,9 +182,6 @@ outline: none;
   }
   .svg2-pg1 {
     top: 20% !important;
-  }
-  .svg5-pg1 {
-    top: 22.5% !important;
   }
 }
 @media (max-height: 745px) {

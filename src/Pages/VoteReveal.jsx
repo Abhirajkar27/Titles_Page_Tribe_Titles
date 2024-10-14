@@ -4,7 +4,7 @@ import crossBtn from "../assets/img/cross.png";
 import Badge from "../assets/img/vote_badge.png";
 import BackBtn from "../assets/img/bkbtn.png";
 import AvatarBadge from "../assets/img/vote_badge.png";
-import AvatarCard from "../assets/img/Avatar.png";
+import AvatarCard from "../assets/img/Avatar_sheild.png";
 import Profile_img from "../assets/img/image.png";
 import Snapcht from "../assets/img/snapchat.png";
 import otherShare from "../assets/img/elseSM.png";
