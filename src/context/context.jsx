@@ -190,37 +190,42 @@ const TBHProvider = ({ children }) => {
       body: JSON.stringify(body),
     });
     const data = await response.json();
-    if (tempFunctionName != null && typeof window[tempFunctionName] === "function") {
+    if (
+      tempFunctionName != null &&
+      typeof window[tempFunctionName] === "function"
+    ) {
       window[tempFunctionName](data);
     }
     console.log("Successfull Post with Response", data);
   }
 
-  async function flutterFetch(path, body, tempFunctionName = null, method = "GET") {
-
+  async function flutterFetch(
+    path,
+    body,
+    method,
+    tempFunctionName = null,
+    userID = null,
+  ) {
     try {
-
       var request = {
-        "method": method,
-        "path": path,
-        "body": body,
-        "tempFunctionName": tempFunctionName,
-      }
+        method: method,
+        path: path,
+        body: body,
+        tempFunctionName: tempFunctionName,
+        userId: userID,
+      };
 
       window.flutterFetch.postMessage(JSON.stringify(request));
 
       console.log("Successfull Post with Request", data);
-
     } catch (e) {
       console.error("Error in customFetch:", e);
     }
   }
 
-  async function flutterResponse(data) {
-
+  window[flutterResponse] = async (data) => {
     try {
       var response = JSON.parse(data);
-
       var code = response.code;
       var body = response.body;
       var error = response.error;
@@ -238,8 +243,7 @@ const TBHProvider = ({ children }) => {
     } catch (e) {
       console.error("Error in customFetch:", e);
     }
-  }
-
+  };
 
   return (
     <TBHContext.Provider
