@@ -21,8 +21,6 @@ const VoteReveal = (props) => {
 
   const { vRTitlesId, customFetch } = useContext(TBHContext);
 
-  const imagesToRender = Math.min(totalVote, 6);
-
   useEffect(() => {
     if (!vrData) {
       const tempStr = Math.random().toString(36).substring(2, 10);
@@ -285,8 +283,8 @@ const VoteReveal = (props) => {
     </div>
   );
 
-  if(!vrData){
-    return <h1>Loading...</h1>
+  if (!vrData) {
+    return <h1>Loading...</h1>;
   }
 
   return (
@@ -308,15 +306,19 @@ const VoteReveal = (props) => {
         </div> */}
         <div className="Tvote_img_TPTA">
           <div className="image-row">
-            {[...Array(imagesToRender)].map((_, index) => (
-              <div class="circular-div_RV_TPTA">
-                <img
-                  style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
-                  src={Vote_person_image1}
-                  alt="Circular Image"
-                />
-              </div>
-            ))}
+            {vrData.data[0].voteUserData
+              .slice(0, Math.min(vrData.data[0].voteUserData.length, 6))
+              .map((item, index) => (
+                <div className="circular-div_RV_TPTA" key={index}>
+                  <img
+                    style={{
+                      filter: !item.isRevealed ? "blur(2.2px)" : "none",
+                    }}
+                    src={item.profilePicture}
+                    alt="Circular Image"
+                  />
+                </div>
+              ))}
           </div>
           <div className="votecnt_TPTA">
             <svg
@@ -332,7 +334,10 @@ const VoteReveal = (props) => {
                 fill="white"
               />
             </svg>
-            <span>{totalVote} VOTES</span>
+            <span>
+              {vrData.data[0].votes}{" "}
+              {vrData.data[0].votes > 1 ? "VOTES" : "VOTE"}
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="12"
