@@ -91,7 +91,7 @@ const EarnTitlePage = (props) => {
         </div>
         <div className="Nrvl_TPPTA" onClick={() => props.setGameSTIndex(6)}>
           <img src={Reveal_coin}></img>
-          <span>2 Reveals</span>
+          <span>{earnedTitles.coin} Reveals</span>
         </div>
       </div>
       <div className="scrollable_container">
