@@ -18,9 +18,7 @@ const Page1 = (props) => {
   } = useContext(TBHContext);
   const Forward = props.tries >= 3 ? false : true;
   const [nextInst, setnextInst] = useState(false);
-  useLayoutEffect(() => {
-    props.setinstructions(true);
-  }, []);
+  
 
   useEffect(() => {
     const cachedCounter = localStorage.getItem("counter");
@@ -55,7 +53,7 @@ const Page1 = (props) => {
       {props.instruction && (
         <InstructionPage
           gameSTIndex={props.gameSTIndex}
-          setinstructions={props.setinstructions}
+          setInstructions={props.setInstructions}
           nextInst={nextInst}
           setnextInst={setnextInst}
         />

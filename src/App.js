@@ -13,7 +13,8 @@ import { TBHProvider } from "./context/context";
 const App = () => {
   const [gameSTIndex, setGameSTIndex] = useState(2);
   const [tries, setTries] = useState(0);
-  const [instruction, setinstructions] = useState(true);
+  const [instructionPg1, setInstructionsPg1] = useState(true);
+  const [instructionPg2, setInstructionsPg2] = useState(true);
   let content;
   switch (gameSTIndex) {
     case 0:
@@ -25,8 +26,8 @@ const App = () => {
     case 2:
       content = (
         <Page1
-          instruction={instruction}
-          setinstructions={setinstructions}
+          instruction={instructionPg1}
+          setInstructions={setInstructionsPg1}
           tries={tries}
           setTries={setTries}
           setGameSTIndex={setGameSTIndex}
@@ -48,8 +49,8 @@ const App = () => {
     default:
       content = (
         <EarnTitlePage
-          instruction={instruction}
-          setinstructions={setinstructions}
+          instruction={instructionPg2}
+          setInstructions={setInstructionsPg2}
           setGameSTIndex={setGameSTIndex}
         />
       );
@@ -63,13 +64,13 @@ const App = () => {
     };
   }, [gameSTIndex]);
 
-  useEffect(() => {
-    document.body.style.overflow = instruction === true ? "hidden" : "hidden";
-    window.scrollTo(0, 0);
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [instruction]);    
+  // useEffect(() => {
+  //   document.body.style.overflow = instruction === true ? "hidden" : "hidden";
+  //   window.scrollTo(0, 0);
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, [instruction]);    
 
   return (
     <TBHProvider>

@@ -62,7 +62,7 @@ const EarnTitlePage = (props) => {
       {props.instruction && (
         <InstructionPage
           gameSTIndex={props.gameSTIndex}
-          setinstructions={props.setinstructions}
+          setInstructions={props.setInstructions}
           nextInst={nextInst}
           setnextInst={setnextInst}
         />

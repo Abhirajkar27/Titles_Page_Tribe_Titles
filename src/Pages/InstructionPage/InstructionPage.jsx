@@ -3,7 +3,7 @@ import "./InstructionPage.css";
 import Instruction1 from "../../assets/img/instruction1.png";
 import inst2 from "../../assets/img/inst2.png";
 
-const InstructionPage = ({ setinstructions, nextInst, setnextInst }) => {
+const InstructionPage = ({ setInstructions, nextInst, setnextInst }) => {
   return (
     <div className="Instruction-pg1">
       <div className="vote-up">
@@ -26,7 +26,7 @@ const InstructionPage = ({ setinstructions, nextInst, setnextInst }) => {
       <div className="instruction-button">
         {/* {!nextInst?<button onClick={()=>setinstructions(false)}>ok got it</button>
             :<button onClick={()=>setinstructions(false)}>ok got it</button>} */}
-        <button onClick={() => setinstructions(false)}>
+        <button onClick={() => setInstructions(false)}>
           {nextInst ? "Okay, got it" : "Start"}
         </button>
       </div>
