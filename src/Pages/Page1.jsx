@@ -207,7 +207,7 @@ const Page1 = (props) => {
             </button>
           </div>
           <div className="heading-p1">
-            <p className="heading-sub-p1">Most likely to</p>
+            <p className="heading-sub-p1">who could this be?</p>
             <p className="text-sub-p1">{tbhQuesState.TitleDescription}</p>
           </div>
 
@@ -14352,7 +14352,7 @@ const Page1 = (props) => {
           />
           <div className="mid-button-pg1">
             <button className="mid-pg1">
-              Choose from my friends{" "}
+            send this to someone else{" "}
               <svg
                 width="13"
                 height="13"
@@ -14407,7 +14407,7 @@ const Page1 = (props) => {
                   </clipPath>
                 </defs>
               </svg>
-              Shuffle Options
+              Change Options
             </button>
           </div>
         </div>
