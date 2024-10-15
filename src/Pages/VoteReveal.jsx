@@ -17,9 +17,7 @@ const VoteReveal = (props) => {
   const [isRevealed, setISRevealed] = useState(false);
   const [totalVote, setTotalVote] = useState(10);
   const divRef = useRef(null);
-  const [vrData, setVrData] = useState();
-
-  const { vRTitlesId, customFetch } = useContext(TBHContext);
+  const { vRTitlesId, customFetch, vrData, setVrData, } = useContext(TBHContext);
 
   useEffect(() => {
     if (!vrData) {

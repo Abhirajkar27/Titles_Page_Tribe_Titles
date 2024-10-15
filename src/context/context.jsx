@@ -9,6 +9,7 @@ const TBHProvider = ({ children }) => {
   const [vRTitlesId, setVRTitlesId] = useState();
   const [isTBHQuesLimitReached, setIsTBHQuesLimitReached] = useState(false);
   const [backTime, setBackTime] = useState();
+  const [vrData, setVrData] = useState();
   const initialState = {
     counter: 0,
     TitleID: "",
@@ -298,6 +299,8 @@ const TBHProvider = ({ children }) => {
         setIsTBHQuesLimitReached,
         backTime,
         setBackTime,
+        vrData, 
+        setVrData,
       }}
     >
       {children}

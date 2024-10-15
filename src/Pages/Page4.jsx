@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Page1.css";
 import image1 from "../assets/img/imageP.png";
 import "./Page4.css";
 import cross from "../assets/img/cross.png";
+import { TBHContext } from "../context/context";
 
 const Page4 = (props) => {
+  const { vRTitlesId, customFetch, vrData, setVrData, } = useContext(TBHContext);
+
   const Reveal = ({
     blur = false,
     imgurl = "../assets/img/image.png",
@@ -170,15 +173,15 @@ const Page4 = (props) => {
           </button>
         </div>
         <div className="heading-p1">
-          <p className="heading-sub-p1">Most likely to</p>
+          <p className="heading-sub-p1">tbh</p>
           <p className="text-sub-p1">
-            be the person showing up late everywhere
+          {vrData.data[0].titleData.description}
           </p>
         </div>
 
         <div className="svg5-pg1">
           <div className="image1-p1">
-            <img src={image1} />
+            <img className="tbhQues_titleImg" src={vrData.data[0].titleData.img} />
           </div>
           <svg
             width="248"
@@ -250,7 +253,7 @@ const Page4 = (props) => {
               fill="var(--Dark-Dark--100, #0E1928)"
               fontSize="16px"
             >
-              Lord late lateef
+              {vrData.data[0].titleData.name}
             </text>
           </svg>
         </div>
@@ -14309,7 +14312,7 @@ const Page4 = (props) => {
         </svg>
       </div>
       <div className="Votes-reveal-pg4 scrollable_container-pg4 ">
-        <p className="votes-total-pg4">All Votes 10</p>
+        <p className="votes-total-pg4">All Votes {vrData.data[0].votes}</p>
         <div className="votes-new">
           <p className="new-votes">1 New</p>
           <div className="vote-line-g4">
