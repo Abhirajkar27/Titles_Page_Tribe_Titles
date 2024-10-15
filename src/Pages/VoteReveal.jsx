@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./VoteReveal.css";
 import crossBtn from "../assets/img/cross.png";
 import Badge from "../assets/img/vote_badge.png";
@@ -11,13 +11,32 @@ import otherShare from "../assets/img/elseSM.png";
 import Vote_person_image1 from "../assets/img/image.png";
 import Vote_person_image2 from "../assets/img/image2.png";
 import html2canvas from "html2canvas";
+import { TBHContext } from "../context/context";
 
 const VoteReveal = (props) => {
   const [isRevealed, setISRevealed] = useState(false);
   const [totalVote, setTotalVote] = useState(10);
   const divRef = useRef(null);
+  const [vrData, setVrData] = useState();
+
+  const { vRTitlesId, customFetch } = useContext(TBHContext);
 
   const imagesToRender = Math.min(totalVote, 6);
+
+  useEffect(() => {
+    if (!vrData) {
+      const tempStr = Math.random().toString(36).substring(2, 10);
+      const tempFunctionName = `TBH${tempStr}`;
+      window[tempFunctionName] = (data) => {
+        console.log("Function:", tempFunctionName, "received data:", data);
+        setVrData(data.data);
+        delete window[tempFunctionName];
+      };
+      const path = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
+      const userID = "66acd95a4a702ed543fefc03";
+      customFetch(tempFunctionName, path, userID);
+    }
+  });
 
   const convertToImage = () => {
     console.log("converting");
@@ -266,6 +285,10 @@ const VoteReveal = (props) => {
     </div>
   );
 
+  if(!vrData){
+    return <h1>Loading...</h1>
+  }
+
   return (
     <div className="VR_TA">
       <img
@@ -274,8 +297,11 @@ const VoteReveal = (props) => {
         src={BackBtn}
         alt="crossButton"
       />
-      <img className="Avatar_Badge_TPTA" src={AvatarBadge} />
-      <img className="AvatarCard_VRTA" src={AvatarCard} alt="AvatarCard" />
+      <div className="Avatar_manage_TPTA">
+        <span className="Title_TPTA">{vrData.data[0].titleData.name}</span>
+        <img className="Avatar_Badge_TPTA" src={AvatarBadge} />
+        <img className="AvatarCard_VRTA" src={AvatarCard} alt="AvatarCard" />
+      </div>
       <div className="Reveal_Comp_TPTA">
         {/* <div className="vote_FB_TPTA_RV">
           {voteBy} from <span>College</span> voted for you{" "}

@@ -11,10 +11,11 @@ import InstructionPage from "./InstructionPage";
 import { TBHContext } from "../context/context";
 
 const EarnTitlePage = (props) => {
-  const {earnedTitles, setEarnedTitles, customFetch } = useContext(TBHContext);
+  const {earnedTitles, setEarnedTitles, customFetch , setVRTitlesId} = useContext(TBHContext);
   const [nextInst, setnextInst] = useState(true);
 
   useEffect(() => {
+    if(!earnedTitles){
     const tempStr = Math.random().toString(36).substring(2, 10);
     const tempFunctionName = `TBH${tempStr}`;
     window[tempFunctionName] = (data) => {
@@ -24,16 +25,18 @@ const EarnTitlePage = (props) => {
     };
     const path = "/api/v1/tribe-games/user/titles";
     const userID = "66acd95a4a702ed543fefc03";
-    customFetch(tempFunctionName, path, userID);
+    customFetch(tempFunctionName, path, userID);}
   }, []);
 
   const handlePlayMoreClick = () => {
     props.setGameSTIndex(2);
   };
 
-  const TitleBoxContainer = ({ title, imgUrl }) => (
+  const TitleBoxContainer = ({ titleId, title, imgUrl }) => (
     <div
-      onClick={() => props.setGameSTIndex(0)}
+      onClick={() => {
+        setVRTitlesId(titleId);
+        props.setGameSTIndex(0)}}
       className="title_box_container"
     >
       <img className="title_box" src={title_box} alt="title_box" />
@@ -83,7 +86,7 @@ const EarnTitlePage = (props) => {
       </div>
       <div className="scrollable_container">
         {earnedTitles.data.map((item, index) => (
-          <TitleBoxContainer key={index} title={item.name} imgUrl={item.img} />
+          <TitleBoxContainer key={index} titleId={item._id} title={item.name} imgUrl={item.img} />
         ))}
       </div>
     </div>

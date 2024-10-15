@@ -6,6 +6,9 @@ const TBHProvider = ({ children }) => {
   const [tbhQues, setTbhQues] = useState();
   const [isTBHQuesFetched, setIsTBHQuesFetched] = useState(false);
   const [earnedTitles, setEarnedTitles] = useState();
+  const [vRTitlesId, setVRTitlesId] = useState();
+  const [isTBHQuesLimitReached, setIsTBHQuesLimitReached] = useState(false);
+  const [backTime, setBackTime] = useState();
   const initialState = {
     counter: 0,
     TitleID: "",
@@ -154,8 +157,9 @@ const TBHProvider = ({ children }) => {
       return;
     }
     const body={};
-    // const url = `https://vyld-cb-dev-api.vyld.io${path}`;
     flutterFetch(path, body, "GET", tempFunctionName, userID);
+    // const url = `https://vyld-cb-dev-api.vyld.io${path}`;
+    
 
     // try {
     //   const response = await fetch(url, {
@@ -166,10 +170,32 @@ const TBHProvider = ({ children }) => {
     //   });
 
     //   if (!response.ok) {
-    //     throw new Error(`Network response was not ok: ${response.statusText}`);
+    //     if (
+    //       response.code === 400 &&
+    //       response.data.message === "today limit reached"
+    //     ) {
+    //       console.log("limit Marked");
+    //     }
+    //   }
+
+    //   if (!response.ok) {
+    //     console.log(response);
+    //     if (response.status === 400) {
+    //       console.log("limit Marked");
+    //     } else {
+    //       throw new Error(`Network Response Not ok: ${response.statusText}`);
+    //     }
     //   }
 
     //   const data = await response.json();
+    //   if (data.code === 400) {
+    //     if (data.data.message === "today limit reached") {
+    //       console.log("limit Marked Again");
+    //     } else {
+    //       throw new Error(`Network Response Not ok: ${response.statusText}`);
+    //     }
+    //   }
+    //   console.log("data", data);
 
     //   if (typeof window[tempFunctionName] === "function") {
     //     window[tempFunctionName](data);
@@ -182,9 +208,8 @@ const TBHProvider = ({ children }) => {
   };
 
   async function customFetchPost(path, body, tempFunctionName = null) {
-
     flutterFetch(path, JSON.stringify(body), "POST", tempFunctionName);
-    // const url = `https://vyld-cb-dev-api.vyld.io${path}`;
+    const url = `https://vyld-cb-dev-api.vyld.io${path}`;
     // const response = await fetch(url, {
     //   method: "POST",
     //   headers: {
@@ -208,7 +233,7 @@ const TBHProvider = ({ children }) => {
     body,
     method,
     tempFunctionName = null,
-    userID = null,
+    userID = null
   ) {
     try {
       var request = {
@@ -227,7 +252,7 @@ const TBHProvider = ({ children }) => {
     }
   }
 
-  window.flutterResponse = async function(data){
+  window.flutterResponse = async function (data) {
     try {
       var response = JSON.parse(data);
       var code = response.code;
@@ -267,6 +292,12 @@ const TBHProvider = ({ children }) => {
         setEarnedTitles,
         isTBHQuesFetched,
         setIsTBHQuesFetched,
+        vRTitlesId,
+        setVRTitlesId,
+        isTBHQuesLimitReached,
+        setIsTBHQuesLimitReached,
+        backTime,
+        setBackTime,
       }}
     >
       {children}

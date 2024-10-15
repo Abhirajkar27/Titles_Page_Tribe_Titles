@@ -12,7 +12,9 @@ const Page1 = (props) => {
     handleSKipTitle,
     handleShuffleContacts,
     isTBHQuesFetched, 
-    setIsTBHQuesFetched
+    setIsTBHQuesFetched,
+    setIsTBHQuesLimitReached,
+    setBackTime,
   } = useContext(TBHContext);
   const Forward = props.tries >= 3 ? false : true;
   const [nextInst, setnextInst] = useState(false);
@@ -29,8 +31,18 @@ const Page1 = (props) => {
       const tempFunctionName = `TBH${tempStr}`;
       window[tempFunctionName] = (data) => {
         console.log("Function:", tempFunctionName, "received data:", data);
+        if (
+          data.code === 400 &&
+          data.data.message === "today limit reached"
+        ){
+        setIsTBHQuesLimitReached(true);
+        setBackTime(data.data.timeLeft);
+        props.setGameSTIndex(Forward ? 3 : 1);
+        }
+        else{
         setTbhQues(data.data);
-        setIsTBHQuesFetched(true);
+        setIsTBHQuesFetched(true);}
+        
         delete window[tempFunctionName];
       };
       const path = "/api/v1/tribe-games/questions";
