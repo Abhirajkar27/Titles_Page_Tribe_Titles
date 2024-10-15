@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './InstructionPage.css';
-import Instruction1 from '../assets/img/instruction1.png';
-import inst2 from '../assets/img/inst2.png'
+import Instruction1 from '../../assets/img/instruction1.png';
+import inst2 from '../../assets/img/inst2.png'
 
 const InstructionPage = ({setinstructions,nextInst,setnextInst}) => {
   return (

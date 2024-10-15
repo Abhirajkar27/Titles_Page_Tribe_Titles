@@ -1,17 +1,35 @@
-import React, { useRef, useState } from "react";
-import "./AchievementPage.css";
-import BackBtn from "../assets/img/bkbtn.png";
-import AvatarCard from "../assets/img/Avatar.png";
-// import Badge from "../assets/img/vote_badge.png";
-import Profile_img from "../assets/img/image.png";
-import Snapcht from "../assets/img/snapchat.png";
-import otherShare from "../assets/img/elseSM.png";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import "./VoteReveal.css";
+import Badge from "../../assets/img/vote_badge.png";
+import BackBtn from "../../assets/img/bkbtn.png";
+import AvatarBadge from "../../assets/img/vote_badge.png";
+import AvatarCard from "../../assets/img/Avatar_sheild.png";
+import Snapcht from "../../assets/img/snapchat.png";
+import otherShare from "../../assets/img/elseSM.png";
 import html2canvas from "html2canvas";
+import { TBHContext } from "../../context/context";
 
-const AchievementPage = (props) => {
+const VoteReveal = (props) => {
   const [isRevealed, setISRevealed] = useState(false);
-  const [voteBy, setVoteBy] = useState("someone");
+  const [totalVote, setTotalVote] = useState(10);
   const divRef = useRef(null);
+  const { vRTitlesId, customFetch, vrData, setVrData } = useContext(TBHContext);
+
+  useEffect(() => {
+    // if (!vrData) {
+    const tempStr = Math.random().toString(36).substring(2, 10);
+    const tempFunctionName = `TBH${tempStr}`;
+    window[tempFunctionName] = (data) => {
+      console.log("Function:", tempFunctionName, "received data:", data);
+      setVrData(data.data);
+      delete window[tempFunctionName];
+    };
+    const path = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
+    const userID = "66acd95a4a702ed543fefc03";
+    customFetch(tempFunctionName, path, userID);
+    // }
+  }, []);
+
   const convertToImage = () => {
     console.log("converting");
     if (divRef.current) {
@@ -24,7 +42,7 @@ const AchievementPage = (props) => {
   };
 
   const SharingCard = () => (
-    <div>
+    <div ref={divRef}>
       <div className="bkg_SVG_Container_TPTA">
         <svg
           className="bkg_SVG_TPTA"
@@ -111,25 +129,65 @@ const AchievementPage = (props) => {
           />
         </svg>
       </div>
-      <div ref={divRef} className="sharingCardRV_TPTA">
-        <div class="circular-div_RVC_TPTA">
-          <img
-            style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
-            src={Profile_img}
-            alt="Circular Image"
-          />
+      <svg
+        className="svg1_SC_VR"
+        xmlns="http://www.w3.org/2000/svg"
+        width="19"
+        height="19"
+        viewBox="0 0 19 19"
+        fill="none"
+      >
+        <path
+          d="M9.01177 18.7281C9.04556 19.0125 9.45835 19.0125 9.49213 18.7281L9.7753 16.3416C10.1409 13.26 12.5705 10.8304 15.6521 10.4648L18.0386 10.1816C18.3231 10.1478 18.3231 9.73501 18.0386 9.70123L15.6521 9.41806C12.5705 9.05242 10.1409 6.62282 9.7753 3.54126L9.49213 1.15479C9.45835 0.870281 9.04556 0.870281 9.01177 1.15479L8.72861 3.54126C8.36297 6.62282 5.93337 9.05242 2.85179 9.41806L0.465308 9.70123C0.180835 9.73501 0.180835 10.1478 0.465308 10.1816L2.85179 10.4648C5.93337 10.8304 8.36297 13.26 8.72861 16.3416L9.01177 18.7281Z"
+          fill="white"
+        />
+      </svg>
+      <svg
+        className="svg2_SC_VR"
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="10"
+        viewBox="0 0 10 10"
+        fill="none"
+      >
+        <path
+          d="M4.86657 9.88147C4.88534 10.0395 5.11466 10.0395 5.13343 9.88147L5.29075 8.55565C5.49388 6.84366 6.84366 5.49388 8.55563 5.29075L9.88146 5.13343C10.0395 5.11466 10.0395 4.88534 9.88146 4.86657L8.55563 4.70925C6.84366 4.50612 5.49388 3.15634 5.29075 1.44437L5.13343 0.118545C5.11466 -0.0395145 4.88534 -0.0395145 4.86657 0.118545L4.70925 1.44437C4.50612 3.15634 3.15634 4.50612 1.44435 4.70925L0.118531 4.86657C-0.0395103 4.88534 -0.0395103 5.11466 0.118531 5.13343L1.44435 5.29075C3.15634 5.49388 4.50612 6.84366 4.70925 8.55565L4.86657 9.88147Z"
+          fill="#FF9FFC"
+        />
+      </svg>
+      <svg
+        className="svg3_SC_VR"
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="31"
+        viewBox="0 0 32 31"
+        fill="none"
+      >
+        <path d="M0 15.501H31.2587" stroke="#273343" stroke-width="3" />
+        <path
+          d="M4.57794 4.53906L26.6812 26.4594"
+          stroke="#273343"
+          stroke-width="3"
+        />
+        <path d="M15.6293 0L15.6293 31" stroke="#273343" stroke-width="3" />
+        <path
+          d="M26.6808 4.53906L4.57756 26.4594"
+          stroke="#273343"
+          stroke-width="3"
+        />
+      </svg>
+      <div className="sharingCard_VRTA">
+        <img className="BadgeS_TPTA" src={Badge} alt="Badge" />
+        <div className="words_TPTA">
+          <span>you’ve got this title!</span>
+          <span>{vrData.data[0].titleData.description}</span>
         </div>
-        {!isRevealed ? (
-          <div className="cardinfoshr_TATP">
-            Someone from my College just voted for me
+        <div className="AvatarBox_contnS_TPTA">
+          <div className="avatar_ContS_TPTA">
+            {vrData.data[0].titleData.name}
           </div>
-        ) : (
-          <div className="cardinfoshr_TATP_Reveal">
-            <span>{voteBy}</span> from my College just voted for me
-          </div>
-        )}
-        <div className="badgeinfoshr_TATP">Guess Who?</div>
-        <img className="AvatarCardS_TPTA" src={AvatarCard} alt="AvatarCard" />
+          <img className="AvatarCardS_TPTA" src={AvatarCard} alt="AvatarCard" />
+        </div>
         <svg
           className="svg1_TPTA"
           xmlns="http://www.w3.org/2000/svg"
@@ -223,96 +281,131 @@ const AchievementPage = (props) => {
       </div>
     </div>
   );
+
+  if (!vrData) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
-    <div className="AchievementPage_TA">
+    <div className="VR_TA">
       <img
         className="cross_btn_TPTA"
-        onClick={() => props.setGameSTIndex(5)}
+        onClick={() => props.setGameSTIndex(null)}
         src={BackBtn}
         alt="crossButton"
       />
-      <div class="circular-div_APTA">
-        <img
-          style={{ filter: !isRevealed ? "blur(2.2px)" : "none" }}
-          src={Profile_img}
-          alt="Circular Image"
-        />
+      <div className="Avatar_manage_TPTA">
+        <span className="Title_TPTA">{vrData.data[0].titleData.name}</span>
+        <img className="Avatar_Badge_TPTA" src={AvatarBadge} />
+        <img className="AvatarCard_VRTA" src={AvatarCard} alt="AvatarCard" />
       </div>
-      {!isRevealed ? (
-        <div className="cardinfoshr_TATP">
-          Someone from my College just voted for me
+      <div className="Reveal_Comp_TPTA">
+        {/* <div className="vote_FB_TPTA_RV">
+          {voteBy} from <span>College</span> voted for you{" "}
+        </div> */}
+        <div className="Tvote_img_TPTA">
+          <div className="image-row">
+            {vrData.data[0].voteUserData
+              .slice(0, Math.min(vrData.data[0].voteUserData.length, 6))
+              .map((item, index) => (
+                <div className="circular-div_RV_TPTA" key={index}>
+                  <img
+                    style={{
+                      filter: !item.isRevealed ? "blur(2.2px)" : "none",
+                    }}
+                    src={item.profilePicture}
+                    alt="Circular Image"
+                  />
+                </div>
+              ))}
+          </div>
+          <div className="votecnt_TPTA">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="14"
+              viewBox="0 0 12 14"
+              fill="none"
+            >
+              <path
+                opacity="0.5"
+                d="M0.142191 7.17346C-0.0474581 7.14906 -0.0474581 6.85094 0.142191 6.82654L1.73318 6.62203C3.78757 6.35796 5.4073 4.60325 5.65106 2.37768L5.83984 0.65411C5.86236 0.448632 6.13755 0.448632 6.16008 0.65411L6.34885 2.37768C6.59261 4.60325 8.21234 6.35796 10.2667 6.62203L11.8577 6.82654C12.0474 6.85094 12.0474 7.14906 11.8577 7.17346L10.2667 7.37797C8.21234 7.64205 6.59261 9.39675 6.34885 11.6223L6.16008 13.3459C6.13755 13.5514 5.86236 13.5514 5.83984 13.3459L5.65106 11.6223C5.4073 9.39675 3.78757 7.64205 1.73318 7.37797L0.142191 7.17346Z"
+                fill="white"
+              />
+            </svg>
+            <span>
+              {vrData.data[0].votes}{" "}
+              {vrData.data[0].votes > 1 ? "VOTES" : "VOTE"}
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="14"
+              viewBox="0 0 12 14"
+              fill="none"
+            >
+              <path
+                opacity="0.5"
+                d="M0.142191 7.17346C-0.0474581 7.14906 -0.0474581 6.85094 0.142191 6.82654L1.73318 6.62203C3.78757 6.35796 5.4073 4.60325 5.65106 2.37768L5.83984 0.65411C5.86236 0.448632 6.13755 0.448632 6.16008 0.65411L6.34885 2.37768C6.59261 4.60325 8.21234 6.35796 10.2667 6.62203L11.8577 6.82654C12.0474 6.85094 12.0474 7.14906 11.8577 7.17346L10.2667 7.37797C8.21234 7.64205 6.59261 9.39675 6.34885 11.6223L6.16008 13.3459C6.13755 13.5514 5.86236 13.5514 5.83984 13.3459L5.65106 11.6223C5.4073 9.39675 3.78757 7.64205 1.73318 7.37797L0.142191 7.17346Z"
+                fill="white"
+              />
+            </svg>
+          </div>
         </div>
-      ) : (
-        <div className="cardinfoshr_TATP_Reveal">
-          <span>{voteBy}</span> from my College just voted for me
-        </div>
-      )}
-      <div className="badgeinfoshr_TATP">
-        “Most likely to be the person showing up late everywhere “
-      </div>
-      <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
-      <svg
-        className="svg_bottomShadow_TA"
-        xmlns="http://www.w3.org/2000/svg"
-        width="176"
-        height="14"
-        viewBox="0 0 176 14"
-        fill="none"
-      >
-        <ellipse
-          cx="88.0407"
-          cy="6.85547"
-          rx="87.5959"
-          ry="6.85547"
-          fill="#030406"
-        />
-      </svg>
-      {/* <img className="Badge_TPTA" src={Badge} alt="Badge" /> */}
-      {/* <div className="feedback-txt_TPTA">
-        You are rocking with the title. brag about it
-      </div> */}
-      <div className="sharing_TPTA">
-        <div onClick={convertToImage}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="21"
-            height="21"
-            viewBox="0 0 21 21"
-            fill="none"
+        {!isRevealed && (
+          <button
+            className="RV_btn_TPTA"
+            onClick={() => props.setGameSTIndex(5)}
           >
-            <path
-              d="M7.99898 19.2907H12.999C17.1657 19.2907 18.8323 17.624 18.8323 13.4574V8.45736C18.8323 4.29069 17.1657 2.62402 12.999 2.62402H7.99898C3.83232 2.62402 2.16565 4.29069 2.16565 8.45736V13.4574C2.16565 17.624 3.83232 19.2907 7.99898 19.2907Z"
-              stroke="white"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10.4991 13.8739C12.1099 13.8739 13.4157 12.568 13.4157 10.9572C13.4157 9.34636 12.1099 8.04053 10.4991 8.04053C8.88823 8.04053 7.5824 9.34636 7.5824 10.9572C7.5824 12.568 8.88823 13.8739 10.4991 13.8739Z"
-              stroke="white"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M15.1957 6.79069H15.2054"
-              stroke="white"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <span>Tell Others</span>
+            <span>See who voted</span>
+          </button>
+        )}
+      </div>
+      <div className="sharing_contn_TPTA">
+        <span>ask your friends if they’ve voted for you</span>
+        <div className="sharing_TPTA_RV">
+          <div onClick={convertToImage}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="21"
+              viewBox="0 0 21 21"
+              fill="none"
+            >
+              <path
+                d="M7.99898 19.2907H12.999C17.1657 19.2907 18.8323 17.624 18.8323 13.4574V8.45736C18.8323 4.29069 17.1657 2.62402 12.999 2.62402H7.99898C3.83232 2.62402 2.16565 4.29069 2.16565 8.45736V13.4574C2.16565 17.624 3.83232 19.2907 7.99898 19.2907Z"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10.4991 13.8739C12.1099 13.8739 13.4157 12.568 13.4157 10.9572C13.4157 9.34636 12.1099 8.04053 10.4991 8.04053C8.88823 8.04053 7.5824 9.34636 7.5824 10.9572C7.5824 12.568 8.88823 13.8739 10.4991 13.8739Z"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M15.1957 6.79069H15.2054"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>Ask</span>
+          </div>
+          <img
+            onClick={convertToImage}
+            className="share_snap_TPTA"
+            src={Snapcht}
+            alt="snapChat_Icon"
+          />
+          <img
+            onClick={convertToImage}
+            className="share_oth_TPTA"
+            src={otherShare}
+            alt="otherShare_Icon"
+          />
         </div>
-        <img
-          onClick={convertToImage}
-          className="share_snap_TPTA"
-          src={Snapcht}
-          alt="snapChat_Icon"
-        />
-        <img
-          className="share_oth_TPTA"
-          src={otherShare}
-          alt="otherShare_Icon"
-          onClick={convertToImage}
-        />
       </div>
       <div className="SS_send">
         <SharingCard />
@@ -321,4 +414,4 @@ const AchievementPage = (props) => {
   );
 };
 
-export default AchievementPage;
+export default VoteReveal;

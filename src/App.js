@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import EarnTitlePage from "./Pages/EarnTitlePage";
-import AchievementPage from "./Pages/AchievementPage";
-import VoteReveal from "./Pages/VoteReveal";
+import EarnTitlePage from "./Pages/EarnTitlePage/EarnTitlePage";
+import AchievementPage from "./Pages/AchievementPage/AchievementPage";
+import VoteReveal from "./Pages/VoteReveal/VoteReveal";
 import "./App.css";
 import Page1 from "./Pages/Page1";
 import Page2 from "./Pages/Page2";
 import Page3 from "./Pages/Page3";
 import Page4 from "./Pages/Page4";
-import InviteList from "./Pages/InviteList";
+import InviteList from "./Pages/InviteList/InviteList";
 import { TBHProvider } from "./context/context";
 
 const App = () => {

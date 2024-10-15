@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./EarnTitlePage.css";
-import tribe_logo from "../assets/img/Tribe_titles.png";
-import brown_clowd from "../assets/img/brown_clowd.png";
-import Green_clowd from "../assets/img/Green_clowd.png";
-import title_box from "../assets/img/Ask_vote_card.png";
-import voteBadge from "../assets/img/No_votes.png";
-import Reveal_coin from "../assets/img/reveal_coin.png";
-import Back from "../assets/img/bkbtn.png";
-import InstructionPage from "./InstructionPage";
-import { TBHContext } from "../context/context";
+import tribe_logo from "../../assets/img/Tribe_titles.png";
+import brown_clowd from "../../assets/img/brown_clowd.png";
+import Green_clowd from "../../assets/img/Green_clowd.png";
+import title_box from "../../assets/img/Ask_vote_card.png";
+import voteBadge from "../../assets/img/No_votes.png";
+import Reveal_coin from "../../assets/img/reveal_coin.png";
+import Back from "../../assets/img/bkbtn.png";
+import InstructionPage from "../InstructionPage/InstructionPage";
+import { TBHContext } from "../../context/context";
 
 const EarnTitlePage = (props) => {
   const {earnedTitles, setEarnedTitles, customFetch , setVRTitlesId} = useContext(TBHContext);

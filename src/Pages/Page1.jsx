@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import "./Page1.css";
 import Boxes from "../components/Boxes";
 import cross from "../assets/img/cross.png";
-import InstructionPage from "./InstructionPage";
+import InstructionPage from "./InstructionPage/InstructionPage";
 import { TBHContext } from "../context/context";
 const Page1 = (props) => {
   const {

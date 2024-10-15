@@ -1,8 +1,8 @@
 import React from "react";
 import "./InviteList.css";
-import BackBtn from "../assets/img/bkbtn.png";
-import GoldenCoin from "../assets/img/GameList_coin.png";
-import Button_Base from "../assets/img/button_base_Reveal.png";
+import BackBtn from "../../assets/img/bkbtn.png";
+import GoldenCoin from "../../assets/img/GameList_coin.png";
+import Button_Base from "../../assets/img/button_base_Reveal.png";
 
 const InviteList = (props) => {
   return (
