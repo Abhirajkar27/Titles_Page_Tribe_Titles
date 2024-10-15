@@ -269,8 +269,38 @@
 }
 .BadgeS_TPTA {
   position: relative;
-  width: 66vw;
+  width: 64vw;
   margin-top: 5vh;
+  margin-right: 0.6vh;
+}
+.AvatarBox_contnS_TPTA{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar_ContS_TPTA {
+  position: absolute;
+  top: 41vh;
+  /* left: 50%; */
+  height: 10vh;
+  width: 60vw;
+  z-index: 88;
+  transform: translate(0%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--Light-Light--100, #fff);
+  text-align: center;
+  text-shadow: 0px 1px 0px var(--Dark-Rich-Dark, #030406);
+  -webkit-text-stroke-width: 0.6153846383094788;
+  -webkit-text-stroke-color: var(--Dark-Rich-Dark, #030406);
+  font-family: Saira;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 120%; /* 25.2px */
+  letter-spacing: 0.42px;
 }
 .words_TPTA {
   display: flex;

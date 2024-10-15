@@ -17,22 +17,22 @@ const VoteReveal = (props) => {
   const [isRevealed, setISRevealed] = useState(false);
   const [totalVote, setTotalVote] = useState(10);
   const divRef = useRef(null);
-  const { vRTitlesId, customFetch, vrData, setVrData, } = useContext(TBHContext);
+  const { vRTitlesId, customFetch, vrData, setVrData } = useContext(TBHContext);
 
   useEffect(() => {
-    if (!vrData) {
-      const tempStr = Math.random().toString(36).substring(2, 10);
-      const tempFunctionName = `TBH${tempStr}`;
-      window[tempFunctionName] = (data) => {
-        console.log("Function:", tempFunctionName, "received data:", data);
-        setVrData(data.data);
-        delete window[tempFunctionName];
-      };
-      const path = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
-      const userID = "66acd95a4a702ed543fefc03";
-      customFetch(tempFunctionName, path, userID);
-    }
-  });
+    // if (!vrData) {
+    const tempStr = Math.random().toString(36).substring(2, 10);
+    const tempFunctionName = `TBH${tempStr}`;
+    window[tempFunctionName] = (data) => {
+      console.log("Function:", tempFunctionName, "received data:", data);
+      setVrData(data.data);
+      delete window[tempFunctionName];
+    };
+    const path = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
+    const userID = "66acd95a4a702ed543fefc03";
+    customFetch(tempFunctionName, path, userID);
+    // }
+  }, []);
 
   const convertToImage = () => {
     console.log("converting");
@@ -183,10 +183,15 @@ const VoteReveal = (props) => {
       <div className="sharingCard_VRTA">
         <img className="BadgeS_TPTA" src={Badge} alt="Badge" />
         <div className="words_TPTA">
-          <span>Most likely to</span>
-          <span>be the person showing up late everywhere </span>
+          <span>you’ve got this title!</span>
+          <span>{vrData.data[0].titleData.description}</span>
         </div>
-        <img className="AvatarCardS_TPTA" src={AvatarCard} alt="AvatarCard" />
+        <div className="AvatarBox_contnS_TPTA">
+          <div className="avatar_ContS_TPTA">
+            {vrData.data[0].titleData.name}
+          </div>
+          <img className="AvatarCardS_TPTA" src={AvatarCard} alt="AvatarCard" />
+        </div>
         <svg
           className="svg1_TPTA"
           xmlns="http://www.w3.org/2000/svg"
@@ -361,7 +366,7 @@ const VoteReveal = (props) => {
         )}
       </div>
       <div className="sharing_contn_TPTA">
-        <span>You are rocking with the title. brag about it</span>
+        <span>ask your friends if they’ve voted for you</span>
         <div className="sharing_TPTA_RV">
           <div onClick={convertToImage}>
             <svg
@@ -390,7 +395,7 @@ const VoteReveal = (props) => {
                 stroke-linejoin="round"
               />
             </svg>
-            <span>Tell Others</span>
+            <span>Ask</span>
           </div>
           <img
             onClick={convertToImage}
