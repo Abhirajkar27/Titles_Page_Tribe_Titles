@@ -30,7 +30,7 @@
   font-style: normal;
   margin: 0px;
   font-weight: 500;
-  line-height: 17px; /* 141.667% */
+  line-height: 141.667% ; 
 }
 .main-text-2 {
   position: absolute;
