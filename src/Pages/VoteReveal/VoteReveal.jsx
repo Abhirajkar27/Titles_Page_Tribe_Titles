@@ -179,6 +179,11 @@ const VoteReveal = (props) => {
       </svg>
       <div className="sharingCard_VRTA">
         <img className="BadgeS_TPTA" src={Badge} alt="Badge" />
+        <span className="Avatar_BadgeTextS_TPTA">
+         {" "}
+          {vrData.data[0].votes} <br/>
+         <span>{vrData.data[0].votes > 1 ? "Votes" : "Vote"}</span>
+       </span>
         <div className="words_TPTA">
           <span>you’ve got this title!</span>
           <span>{vrData.data[0].titleData.description}</span>

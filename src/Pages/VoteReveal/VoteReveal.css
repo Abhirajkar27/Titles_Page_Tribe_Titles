@@ -309,6 +309,35 @@
   width: 30vh;
   top: 10vh;
 }
+
+.Avatar_BadgeTextS_TPTA {
+  position: absolute;
+  height: 10vh;
+  width: 18vw;
+  z-index: 88;
+  top: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 3.15vh;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 89.655%;
+}
+.Avatar_BadgeTextS_TPTA span {
+  color: var(--Dark-Dark--100, #0e1928);
+  font-family: Gilroy;
+  font-size: 1.8vh;
+  font-style: normal;
+  font-weight: 700;
+  line-height:141.667%;
+}
+
+
 .BadgeS_TPTA {
   position: relative;
   width: 64vw;
