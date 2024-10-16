@@ -1,73 +1,69 @@
-.Instruction-pg1{
-    background-color: rgba(14, 25, 40, 0.95);
-    width: 100vw;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 9999;
+.Instruction-pg1 {
+  background-color: rgba(14, 25, 40, 0.95);
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 9999;
 }
-.instruction-button{
-    position: absolute;
-    bottom: 5vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
+.instruction-button {
+  position: absolute;
+  bottom: 11vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
-.instruction-button button{
-    display: flex;
-width: 176px;
-height: 40px;
-padding: 16px 14px;
-justify-content: center;
-align-items: center;
-gap: 6px;
-flex-shrink: 0;
-border-radius: var(--x-Large, 999px);
-background: var(--Primary-Primary-100, #C6FF00);
-outline: none;
-border: none;
-font-weight: 700;
+.instruction-button button {
+  display: flex;
+  width: 21vh;
+  height: 5vh;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: var(--x-Large, 999px);
+  background: var(--Primary-Primary-100, #c6ff00);
+  outline: none;
+  border: none;
+  font-weight: 700;
 }
-.image-instruction{
-    height: 60vh;
-    display: flex;
-    width: 100vw;
-    justify-content: center;
+.image-instruction {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
 }
-.vote-it-down{
-    color: var(--Light-Light--100, #FFF);
-text-align: center;
-font-family: Gilroy;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-width: 70vw;
-margin-top: 0px;
-margin-bottom: 50px;
+.vote-it-down {
+  color: var(--Light-Light--100, #fff);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 2.2vh;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 70vw;
+  margin-top: 0px;
+  margin-bottom: 50px;
 
-padding: 0px;
+  padding: 0px;
 }
-.vote-it-up{
-    margin-bottom: 0px;
-padding: 0px;
-    width: 70vw;
-    color: var(--Primary-Primary-100, #C6FF00);
-    text-align: center;
-    font-family: Gilroy;
-    font-size: 21px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 26px; /* 123.81% */
+.vote-it-up {
+  margin: 5vh auto 0px;
+  padding: 0px;
+  color: var(--Primary-Primary-100, #c6ff00);
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 2.4vh;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 123.81%;
 }
-.vote-up{
-    margin-top: 5vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+.vote-up {
+  margin-top: 5vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
