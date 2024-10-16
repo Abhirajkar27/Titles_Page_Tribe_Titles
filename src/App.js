@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import EarnTitlePage from "./Pages/EarnTitlePage/EarnTitlePage";
 import AchievementPage from "./Pages/AchievementPage/AchievementPage";
 import VoteReveal from "./Pages/VoteReveal/VoteReveal";
+import '../src/assets/Fonts/Styles/fonts.css';
 import "./App.css";
 import Page1 from "./Pages/Page1";
 import Page2 from "./Pages/Page2";
