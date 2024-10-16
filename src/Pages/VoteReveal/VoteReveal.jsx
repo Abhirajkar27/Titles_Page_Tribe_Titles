@@ -25,7 +25,8 @@ const VoteReveal = (props) => {
       delete window[tempFunctionName];
     };
     const path = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
-    const userID = "66acd95a4a702ed543fefc03";
+    // const userID = "66acd95a4a702ed543fefc03";
+    const userID = "669764367d66dad334de7b06";
     customFetch(tempFunctionName, path, userID);
     // }
   }, []);

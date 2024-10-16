@@ -199,50 +199,91 @@
   font-weight: 700;
   line-height: 26px;
 }
-.title_box_content div img {
+
+.title_box_content div div {
+  position: relative;
   height: 4vh;
   width: 24vw;
+}
+
+.title_box_content div div span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -43%);
+  color: var(--Accent-Accent--02-Accent-02--Dark, #ae11a9);
+  font-family: Gilroy;
+  font-size: 1.2vh;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title_box_content div img {
+  height: 100%;
+  width: 100%;
 }
 
 /* Animation */
 
 @keyframes slideUp {
-  0% { transform: translateY(10%); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes logoAppear {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .green_clowd_TPTA {
   animation: slideUp 1s ease-out forwards;
-  animation-delay: .1s;
-  opacity: 0;  
+  animation-delay: 0.1s;
+  opacity: 0;
 }
 
 .brown_clowd_TPTA {
   animation: slideUp 1s ease-out forwards;
-  animation-delay: .25s; 
-  opacity: 0; 
+  animation-delay: 0.25s;
+  opacity: 0;
 }
 
 .tribeLogo_ET_TA {
   animation: logoAppear 1s ease-out forwards;
-  animation-delay: .45s; 
-  opacity: 0; 
+  animation-delay: 0.45s;
+  opacity: 0;
 }
 
-.exicting_line_TA, .btn_TPTA, .TR_Contn_TPPTA{
+.exicting_line_TA,
+.btn_TPTA,
+.TR_Contn_TPPTA {
   animation: fadeIn 1s ease-out forwards;
-  animation-delay: .8s; 
-  opacity: 0; 
+  animation-delay: 0.8s;
+  opacity: 0;
 }
 
 /* @keyframes fadeInScroll {
@@ -255,4 +296,3 @@
   animation-delay: 0.6s;
   opacity: 0; 
 } */
-

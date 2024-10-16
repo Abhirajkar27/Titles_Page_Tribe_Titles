@@ -25,7 +25,8 @@ const EarnTitlePage = (props) => {
         delete window[tempFunctionName];
       };
       const path = "/api/v1/tribe-games/user/titles";
-      const userID = "66acd95a4a702ed543fefc03";
+      // const userID = "66acd95a4a702ed543fefc03";
+      const userID = "669764367d66dad334de7b06";
       customFetch(tempFunctionName, path, userID);
     }
   }, []);
@@ -34,7 +35,7 @@ const EarnTitlePage = (props) => {
     props.setGameSTIndex(2);
   };
 
-  const TitleBoxContainer = ({ titleId, title, imgUrl }) => (
+  const TitleBoxContainer = ({ titleId, votes, title, imgUrl }) => (
     <div
       onClick={() => {
         setVRTitlesId(titleId);
@@ -47,7 +48,12 @@ const EarnTitlePage = (props) => {
         <img src={imgUrl} alt="earned_title" />
         <div>
           <span>{title}</span>
-          <img src={voteBadge} alt="vote_badge" />
+          <div>
+            <span>
+              {votes} {votes > 1 ? "Votes" : "Vote"}
+            </span>
+            <img src={voteBadge} alt="vote_badge" />
+          </div>
         </div>
       </div>
     </div>
@@ -99,6 +105,7 @@ const EarnTitlePage = (props) => {
           <TitleBoxContainer
             key={index}
             titleId={item._id}
+            votes={item.votes}
             title={item.name}
             imgUrl={item.img}
           />
