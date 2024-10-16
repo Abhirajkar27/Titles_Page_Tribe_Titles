@@ -6,7 +6,7 @@ import cross from "../assets/img/cross.png";
 import { TBHContext } from "../context/context";
 
 const Page4 = (props) => {
-  const { vRTitlesId, customFetch, vrData, setVrData, } = useContext(TBHContext);
+  const {vrData} = useContext(TBHContext);
 
   const Reveal = ({
     blur = false,
@@ -173,7 +173,7 @@ const Page4 = (props) => {
           </button>
         </div>
         <div className="heading-p1">
-          <p className="heading-sub-p1">tbh</p>
+          <p className="heading-sub-p1">people think you’re THIS!</p>
           <p className="text-sub-p1">
           {vrData.data[0].titleData.description}
           </p>
@@ -14444,16 +14444,16 @@ const Page4 = (props) => {
               />
               <text
                 x="89%"
-                y="55%"
-                fill="var(--Light-Light--100, #FFF)" /* Text color */
-                text-anchor="middle" /* Center text horizontally */
-                dominant-baseline="middle" /* Center text vertically */
-                font-family="Gilroy, sans-serif" /* Font family */
-                font-size="16.541px" /* Font size */
-                font-weight="700" /* Font weight */
-                font-style="normal" /* Font style */
+                y="54%"
+                fill="var(--Light-Light--100, #FFF)"
+                text-anchor="middle" 
+                dominant-baseline="middle" 
+                font-family='Gilroy'
+                font-size="16.541px" 
+                font-weight="700" 
+                font-style="normal" 
               >
-                9
+                {vrData.coin}
               </text>
             </g>
             <defs>
