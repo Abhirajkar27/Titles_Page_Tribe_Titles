@@ -8,10 +8,14 @@
 
 .your-titles {
   background-color: transparent;
+  margin-right: -0.6vh;
+}
+.your-titles svg {
+  width: 17vh;
 }
 .main-text-3 {
   position: absolute;
-  bottom: 11%;
+  bottom: 18%;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -22,7 +26,7 @@
   color: var(--Light-Light--70, #bcc9da);
   text-align: center;
   font-family: Gilroy;
-  font-size: 14px;
+  font-size: 1.75vh;
   font-style: normal;
   margin: 0px;
   font-weight: 500;
@@ -85,16 +89,16 @@
   text-align: center;
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: var(--Accent-Accent--02-Accent-02--Dark, #ae11a9);
-  font-family: Gilroy;
-  font-size: 28px;
+  font-family: Gilroy Bold;
+  font-size: 3vh;
   font-style: normal;
   font-weight: 700;
-  line-height: 36px;
-  width: 70%;
+  line-height: 130%;
+  width: 80%;
 }
 
-@media (min-width:450px) {
-  .Tribe-Title{
+@media (min-width: 450px) {
+  .Tribe-Title {
     padding-bottom: 105px !important;
   }
 }
@@ -113,13 +117,11 @@
 .last-button-1 {
   color: var(--Neutral-Rich-Dark, #090909);
   text-align: center;
-
-  /* P3/P3-Bold */
   font-family: Gilroy;
-  font-size: 14px;
+  font-size: 1.7vh;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 142.857% */
+  line-height: 142.857;
   display: flex;
   width: 200px;
   height: 46px;
@@ -133,91 +135,86 @@
   background: var(--Primary-Primary-100, #c6ff00);
   box-shadow: 1px 1px 0px 0px #0e1928;
 }
-.last-button-3{
+.last-button-3 {
   background-color: transparent;
-  color: var(--Light-Light--100, #FFF);
-text-align: center;
-display: flex;
-width: 68px;
-justify-content: center;
-align-items: center;
-gap: 4px;
-border: none;
-outline: none;
-/* P3/P3-SemiBold */
-font-family: Gilroy;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: 20px; /* 142.857% */
+  color: var(--Light-Light--100, #fff);
+  text-align: center;
+  display: flex;
+  width: 30vw;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  outline: none;
+  /* P3/P3-SemiBold */
+  font-family: Gilroy;
+  font-size: 1.6vh;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
 }
 .last-button {
- 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  gap:20px;
+  gap: 20px;
   position: absolute;
-  bottom: 2vh;
+  bottom: 4vh;
 }
-.Tribe-container{
+.Tribe-container {
   width: 100vw;
   display: flex;
   justify-content: center;
-
 }
-.time-left{
+.time-left {
   position: relative;
- 
 }
-.keep{
-  color: var(--Dark-Dark--50, #79889D);
-text-align: center;
+.keep {
+  color: var(--Dark-Dark--50, #79889d);
+  text-align: center;
 
-/* Caption-2/Caption-2-Medium */
-font-family: Gilroy;
-font-size: 10px;
-font-style: normal;
-margin-top: 0px;
-margin-bottom: 40px;
-font-weight: 500;
-line-height: 15px; /* 150% */
+  /* Caption-2/Caption-2-Medium */
+  font-family: Gilroy;
+  font-size: 10px;
+  font-style: normal;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  font-weight: 500;
+  line-height: 15px; /* 150% */
 }
-.See-you-back-pg2{
+.See-you-back-pg2 {
   position: relative;
- 
 }
-.see-you-text{
-  color: var(--Light-Light--70, #BCC9DA);
-text-align: center;
+.see-you-text {
+  color: var(--Light-Light--70, #bcc9da);
+  text-align: center;
 
-/* Caption-1/Caption-1-Medium */
-font-family: Gilroy;
-font-size: 12px;
-font-style: normal;
-font-weight: 500;
-line-height: 17px; /* 141.667% */
+  /* Caption-1/Caption-1-Medium */
+  font-family: Gilroy;
+  font-size: 1.45vh;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px; /* 141.667% */
 }
-.center-line-pg2{
+.center-line-pg2 {
   position: relative;
-
 }
-.Tribe-Title img{
-width: 70vw;
-position: relative;
-
+.Tribe-Title img {
+  width: 70vw;
+  position: relative;
+  margin-bottom: -2vh;
 }
 .Tribe-Title {
   position: absolute;
-  top: 25%;
+  top: 24%;
   gap: 0px;
   width: 80vw;
   height: 250px;
-  padding-bottom: 91px;
+  padding-bottom: 80px;
   border-radius: 20px;
-  background: var(--Dark-Dark--90, #1D2939);
+  background: var(--Dark-Dark--90, #1d2939);
   display: flex;
   justify-content: center;
   align-items: center;

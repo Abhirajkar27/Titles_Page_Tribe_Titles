@@ -209,7 +209,11 @@ const Page2 = (props) => {
         <div className="Tribe-Title">
           <img src={Title} />
           <div className="main-text">
-            <p className="Main-p2-text">All Titles for today are played</p>
+            <p className="Main-p2-text">
+              had fun?
+              <br />
+              wanna play again?
+            </p>
           </div>
           <div className="center-line-pg2">
             <svg
@@ -236,7 +240,7 @@ const Page2 = (props) => {
             </svg>
           </div>
           <div className="See-you-back-pg2">
-            <p class="see-you-text">See you back at</p>
+            <p class="see-you-text">play again at</p>
           </div>
           <div className="time-left">
             <svg
@@ -268,11 +272,11 @@ const Page2 = (props) => {
                 text-anchor="middle"
                 fill="var(--Accent-Accent--03-Accent-03, #FCFF40)"
                 font-family="Gilroy"
-                font-size="36"
+                font-size="40"
                 font-weight="700"
                 line-height="66px"
               >
-                {time}
+                {time.slice(0, 5)}
               </text>
 
               <text
@@ -281,11 +285,11 @@ const Page2 = (props) => {
                 text-anchor="middle"
                 fill="var(--Dark-Dark--50, #79889D)"
                 font-family="Gilroy"
-                font-size="14"
+                font-size="12"
                 font-weight="700"
                 line-height="66px"
               >
-                {period}
+                {period.toUpperCase()}
               </text>
             </svg>
           </div>
@@ -293,10 +297,8 @@ const Page2 = (props) => {
       </div>
 
       <div className="main-text-3">
-        <p className="Main-p2-text-3">
-          Want to Keep giving titles, Invite a friend
-        </p>
-        <p className="keep">Play more for a chance to get more titles.</p>
+        <p className="Main-p2-text-3">don’t wanna wait? invite your friends</p>
+        {/* <p className="keep">Play more for a chance to get more titles.</p> */}
       </div>
       <div className="last-button">
         <button
@@ -305,7 +307,7 @@ const Page2 = (props) => {
         >
           Invite Friends
         </button>
-        <button className="last-button-3">Cancel</button>
+        <button className="last-button-3">Back to home</button>
       </div>
     </div>
   );
