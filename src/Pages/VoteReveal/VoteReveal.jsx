@@ -178,12 +178,13 @@ const VoteReveal = (props) => {
         />
       </svg>
       <div className="sharingCard_VRTA">
+        <div className="BadgeS_Contn_TPTA">
         <img className="BadgeS_TPTA" src={Badge} alt="Badge" />
         <span className="Avatar_BadgeTextS_TPTA">
          {" "}
           {vrData.data[0].votes} <br/>
          <span>{vrData.data[0].votes > 1 ? "Votes" : "Vote"}</span>
-       </span>
+       </span></div>
         <div className="words_TPTA">
           <span>you’ve got this title!</span>
           <span>{vrData.data[0].titleData.description}</span>
@@ -347,8 +348,7 @@ const VoteReveal = (props) => {
               />
             </svg>
             <span>
-              {vrData.data[0].votes}{" "}
-              {vrData.data[0].votes > 1 ? "VOTES" : "VOTE"}
+              {vrData.data[0].votes}{" "}{vrData.data[0].votes > 1 ? "VOTES" : "VOTE"}
             </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -423,7 +423,7 @@ const VoteReveal = (props) => {
       <div className="SS_send">
         <SharingCard />
       </div>
-    </div>
+    </div> 
   );
 };
 
