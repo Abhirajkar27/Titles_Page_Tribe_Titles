@@ -12,7 +12,6 @@ import { TBHContext } from "../../context/context";
 
 const VoteReveal = (props) => {
   const [isRevealed, setISRevealed] = useState(false);
-  const [totalVote, setTotalVote] = useState(10);
   const divRef = useRef(null);
   const { vRTitlesId, customFetch, vrData, setVrData } = useContext(TBHContext);
 
@@ -188,6 +187,7 @@ const VoteReveal = (props) => {
           <div className="avatar_ContS_TPTA">
             {vrData.data[0].titleData.name}
           </div>
+          <img className="UserAvatarS_VRTA" src={UserAvatar} alt="UserAvatar" />
           <img className="AvatarCardS_TPTA" src={AvatarCard} alt="AvatarCard" />
         </div>
         <svg

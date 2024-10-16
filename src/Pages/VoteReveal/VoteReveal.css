@@ -153,7 +153,7 @@
 
 .Reveal_Comp_TPTA {
   position: relative;
-  width: 89vw;
+  width: 80vw;
   height: 17.3vh;
   flex-shrink: 0;
   border-radius: 3vh;
@@ -295,10 +295,19 @@
   justify-content: center;
   background: var(--Dark-Dark--100, #0E1928);
 } */
+
+
 .AvatarCardS_TPTA {
   position: relative;
   height: 50vh;
   margin: 1.2vh 14vw auto;
+}
+
+.UserAvatarS_VRTA{
+  position: absolute;
+  height: 40vh;
+  width: 30vh;
+  top: 10vh;
 }
 .BadgeS_TPTA {
   position: relative;
