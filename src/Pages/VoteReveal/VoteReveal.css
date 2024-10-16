@@ -82,6 +82,12 @@
   height: 54vh;
   top: 10vh;
 }
+.UserAvatar_VRTA{
+  position: absolute;
+  width: 72vw;
+  height: 45vh;
+  top: 18vh;
+}
 
 .Tvote_img_TPTA {
   display: flex;

@@ -3,6 +3,7 @@ import "./VoteReveal.css";
 import Badge from "../../assets/img/vote_badge.png";
 import BackBtn from "../../assets/img/bkbtn.png";
 import AvatarBadge from "../../assets/img/vote_badge.png";
+import UserAvatar from "../../assets/img/User_Avatar.png";
 import AvatarCard from "../../assets/img/Avatar_sheild.png";
 import Snapcht from "../../assets/img/snapchat.png";
 import otherShare from "../../assets/img/elseSM.png";
@@ -303,6 +304,7 @@ const VoteReveal = (props) => {
           {vrData.data[0].votes} <br/>
           <span>{vrData.data[0].votes > 1 ? "Votes" : "Vote"}</span>
         </span>
+        <img className="UserAvatar_VRTA" src={UserAvatar} alt="UserAvatar" />
         <img className="AvatarCard_VRTA" src={AvatarCard} alt="AvatarCard" />
       </div>
       <div className="Reveal_Comp_TPTA">
