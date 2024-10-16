@@ -20,7 +20,7 @@ const Page1 = (props) => {
   const [nextInst, setnextInst] = useState(false);
   
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const cachedCounter = localStorage.getItem("counter");
     console.log("caCHE", cachedCounter);
     // localStorage.clear();
