@@ -49,6 +49,33 @@
   /* margin-left: -3vw; */
   z-index: 88;
 }
+
+.Avatar_BadgeText_TPTA {
+  position: absolute;
+  height: 8vh;
+  width: 14vw;
+  z-index: 88;
+  top: 6vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 2.25vh;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 89.655%;
+}
+.Avatar_BadgeText_TPTA span {
+  color: var(--Dark-Dark--100, #0e1928);
+  font-family: Gilroy;
+  font-size: 1.3vh;
+  font-style: normal;
+  font-weight: 700;
+  line-height:141.667%;
+}
 .AvatarCard_VRTA {
   position: absolute;
   width: 80vw;
@@ -273,7 +300,7 @@
   margin-top: 5vh;
   margin-right: 0.6vh;
 }
-.AvatarBox_contnS_TPTA{
+.AvatarBox_contnS_TPTA {
   position: relative;
   display: flex;
   align-items: center;

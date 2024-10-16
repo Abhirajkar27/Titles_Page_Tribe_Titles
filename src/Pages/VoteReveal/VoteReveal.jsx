@@ -298,6 +298,11 @@ const VoteReveal = (props) => {
       <div className="Avatar_manage_TPTA">
         <span className="Title_TPTA">{vrData.data[0].titleData.name}</span>
         <img className="Avatar_Badge_TPTA" src={AvatarBadge} />
+        <span className="Avatar_BadgeText_TPTA">
+          {" "}
+          {vrData.data[0].votes} <br/>
+          <span>{vrData.data[0].votes > 1 ? "Votes" : "Vote"}</span>
+        </span>
         <img className="AvatarCard_VRTA" src={AvatarCard} alt="AvatarCard" />
       </div>
       <div className="Reveal_Comp_TPTA">
