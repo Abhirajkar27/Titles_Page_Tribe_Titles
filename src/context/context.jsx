@@ -110,6 +110,7 @@ const TBHProvider = ({ children }) => {
       }
       localStorage.setItem("counter", newCounter);
       setCounter(tbhQuesDispatch, newCounter);
+
       resetState(tbhQuesDispatch, tbhQues, newCounter);
     }
   };
@@ -137,7 +138,15 @@ const TBHProvider = ({ children }) => {
     };
     customFetchPost(path, body);
     console.log("Skipped Successfully");
-    handleNextData();
+    const titleDesc = document.getElementById("text_titleDesc");
+    const gifTitleCont = document.getElementById("Gif_Title_cont");
+    titleDesc.classList.add('abtest');
+    gifTitleCont.classList.add('abtest');
+    setTimeout(() => {
+      handleNextData();
+      titleDesc.classList.remove('abtest');
+    gifTitleCont.classList.remove('abtest');
+    }, 500);
   };
 
   const handleVoteTitle = (userID) => {
@@ -149,7 +158,15 @@ const TBHProvider = ({ children }) => {
     };
     customFetchPost(path, body);
     console.log("Successfully Voted");
-    handleNextData();
+    const titleDesc = document.getElementById("text_titleDesc");
+    const gifTitleCont = document.getElementById("Gif_Title_cont");
+    titleDesc.classList.add('abtest');
+    gifTitleCont.classList.add('abtest');
+    setTimeout(() => {
+      handleNextData();
+      titleDesc.classList.remove('abtest');
+    gifTitleCont.classList.remove('abtest');
+    }, 500);
   };
 
   const customFetch = async (tempFunctionName, path, userID = null) => {

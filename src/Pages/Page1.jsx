@@ -24,7 +24,9 @@ const Page1 = (props) => {
   useLayoutEffect(() => {
     const cachedCounter = localStorage.getItem("counter");
     console.log("caCHE", cachedCounter);
-    // localStorage.clear();
+    if(cachedCounter>=11){
+      localStorage.clear();
+    }
     if (!cachedCounter || (cachedCounter && !isTBHQuesFetched)) {
       const tempStr = Math.random().toString(36).substring(2, 10);
       const tempFunctionName = `TBH${tempStr}`;
@@ -207,9 +209,9 @@ const Page1 = (props) => {
           </div>
           <div className="heading-p1">
             <p className="heading-sub-p1">who could this be?</p>
-            <p className="text-sub-p1">{tbhQuesState.TitleDescription}</p>
+            <p id="text_titleDesc" className="text-sub-p1">{tbhQuesState.TitleDescription}</p>
           </div>
-          <div className="svg5-pg1">
+          <div id="Gif_Title_cont" className="svg5-pg1">
             <div className="image1-p1">
               <img className="tbhQues_titleImg" src={tbhQuesState.TitleImg} />
             </div>

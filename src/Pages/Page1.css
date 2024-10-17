@@ -88,6 +88,14 @@
   margin-top: 19vh;
 }
 
+#text_titleDesc, #Gif_Title_cont{
+  transition: opacity 0.42s ease-in-out;
+}
+
+.abtest{
+  opacity: 0 !important;
+}
+
 .Gif_Badge {
   width: 90vw;
 }
@@ -102,6 +110,9 @@
   font-style: normal;
   font-weight: 800;
   line-height: 144.444%;
+  width: 80%;
+  text-align: center;
+  vertical-align: center;
 }
 
 .image1-p1 {
