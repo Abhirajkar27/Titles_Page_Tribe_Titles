@@ -157,10 +157,9 @@ const TBHProvider = ({ children }) => {
       console.error("Error: Invalid or undefined function name.");
       return;
     }
-    // const body={};
+    // const body = {};
     // flutterFetch(path, body, "GET", tempFunctionName, userID);
     const url = `https://vyld-cb-dev-api.vyld.io${path}`;
-    
 
     try {
       const response = await fetch(url, {
@@ -209,7 +208,7 @@ const TBHProvider = ({ children }) => {
   };
 
   async function customFetchPost(path, body, tempFunctionName = null) {
-    // flutterFetch(path, JSON.stringify(body), "POST", tempFunctionName);
+    // flutterFetch(path, body, "POST", tempFunctionName);
     const url = `https://vyld-cb-dev-api.vyld.io${path}`;
     const response = await fetch(url, {
       method: "POST",
@@ -245,9 +244,9 @@ const TBHProvider = ({ children }) => {
         userId: userID,
       };
 
-      window.flutterFetch.postMessage(JSON.stringify(request));
+      console.log("Request sending by Custom fetch", request);
 
-      // console.log("Successfull Post with Request", data);
+      window.flutterFetch.postMessage(JSON.stringify(request));
     } catch (e) {
       console.error("Error in customFetch:", e);
     }
@@ -258,16 +257,20 @@ const TBHProvider = ({ children }) => {
       var response = JSON.parse(data);
       var code = response.code;
       var body = response.body;
+      var bodyCode = body?.code;
       var error = response.error;
       var tempFunctionName = response.tempFunctionName;
 
-      if (code == 200) {
+      if (code === 200 || bodyCode === 200) {
+        console.log("ok response, now calling function");
         if (typeof window[tempFunctionName] === "function") {
+          console.log("Function called with data", data, response.body);
           window[tempFunctionName](body);
         } else {
           console.error(`Error: ${tempFunctionName} is not a function.`);
         }
       } else {
+        console.log("Error is coming", data);
         console.error("Error in customFetch:", error);
       }
     } catch (e) {
@@ -299,7 +302,7 @@ const TBHProvider = ({ children }) => {
         setIsTBHQuesLimitReached,
         backTime,
         setBackTime,
-        vrData, 
+        vrData,
         setVrData,
       }}
     >

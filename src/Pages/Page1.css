@@ -54,6 +54,7 @@
   height: 40px;
   position: absolute;
   bottom: 2%;
+  z-index: 11;
 }
 .mid-pg1 {
   color: var(--Light-Light--100, #fff);
