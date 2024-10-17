@@ -31,9 +31,11 @@ const TBHProvider = ({ children }) => {
       case "SET_COUNTER":
         return { ...tbhQuesState, counter: action.payload };
       case "RESET_OPTION_INFO":
-        return { ...tbhQuesState, 
+        return {
+          ...tbhQuesState,
           TitleMeta: action.payload.TitleMeta,
-          OptionInfo: action.payload.OptionInfo };
+          OptionInfo: action.payload.OptionInfo,
+        };
       case "RESET_STATE":
         return {
           ...tbhQuesState,
@@ -88,8 +90,8 @@ const TBHProvider = ({ children }) => {
     const updatedMeta = {
       titleData: tbhQuesState.TitleMeta.titleData,
       users: contactData.meta.users,
-    }
-    console.log("up meta",updatedMeta);
+    };
+    console.log("up meta", updatedMeta);
     tbhQuesDispatch({
       type: "RESET_OPTION_INFO",
       payload: {
@@ -112,10 +114,15 @@ const TBHProvider = ({ children }) => {
       : tbhQuesState.counter;
 
     if (currentCounter <= 10) {
-      let newCounter =
-        !tbhQuesState.counter || tbhQuesState.counter === 0
-          ? currentCounter
-          : currentCounter + 1;
+      let newCounter;
+      if (!tbhQuesState.OptionInfo || tbhQuesState.OptionInfo.length === 0) {
+        newCounter = currentCounter;
+      } else {
+        newCounter =
+          !tbhQuesState.counter || tbhQuesState.counter === 0
+            ? currentCounter
+            : currentCounter + 1;
+      }
       if (newCounter === 0) {
         newCounter = 1;
       }
@@ -145,34 +152,34 @@ const TBHProvider = ({ children }) => {
 
   const handleManageReveal = () => {
     console.log("clicked");
-    if(vrData.coin>1){
-    const path = "/api/v1/tribe-games/user/reveal";
-    const body = {
-      titleId: vRTitlesId,
-    };
-    const tempStr = Math.random().toString(36).substring(2, 10);
-    const tempFunctionName = `TBH${tempStr}`;
-    window[tempFunctionName] = (data) => {
-      if (data.code === 200) {
-        const tempStr2 = Math.random().toString(36).substring(2, 10);
-        const tempFunctionName2 = `TBH${tempStr2}`;
-        window[tempFunctionName2] = (data) => {
-          console.log("Function:", tempFunctionName2, "received data:", data);
-          setVrData(data.data);
-          delete window[tempFunctionName2];
-        };
-        const path2 = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
-        // const userID = "66acd95a4a702ed543fefc03";
-        const userID2 = "66bb25192117ebbca39c7bf7";
-        customFetch(tempFunctionName2, path2, userID2);
-      } else {
-        console.log("Some error might Occured!!!");
-      }
-      delete window[tempFunctionName];
-    };
-    const userID = "66bb25192117ebbca39c7bf7";
-    customFetchPost(path, body, tempFunctionName, userID);}
-    else{
+    if (vrData.coin > 1) {
+      const path = "/api/v1/tribe-games/user/reveal";
+      const body = {
+        titleId: vRTitlesId,
+      };
+      const tempStr = Math.random().toString(36).substring(2, 10);
+      const tempFunctionName = `TBH${tempStr}`;
+      window[tempFunctionName] = (data) => {
+        if (data.code === 200) {
+          const tempStr2 = Math.random().toString(36).substring(2, 10);
+          const tempFunctionName2 = `TBH${tempStr2}`;
+          window[tempFunctionName2] = (data) => {
+            console.log("Function:", tempFunctionName2, "received data:", data);
+            setVrData(data.data);
+            delete window[tempFunctionName2];
+          };
+          const path2 = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
+          // const userID = "66acd95a4a702ed543fefc03";
+          const userID2 = "66bb25192117ebbca39c7bf7";
+          customFetch(tempFunctionName2, path2, userID2);
+        } else {
+          console.log("Some error might Occured!!!");
+        }
+        delete window[tempFunctionName];
+      };
+      const userID = "66bb25192117ebbca39c7bf7";
+      customFetchPost(path, body, tempFunctionName, userID);
+    } else {
       console.log("You dont have Enough Coin");
     }
   };

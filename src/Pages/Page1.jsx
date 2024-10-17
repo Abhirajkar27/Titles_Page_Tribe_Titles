@@ -24,7 +24,8 @@ const Page1 = (props) => {
   useLayoutEffect(() => {
     const cachedCounter = localStorage.getItem("counter");
     console.log("caCHE", cachedCounter);
-    if(cachedCounter>=11){
+    if(cachedCounter>10){
+      console.log("making counter 0");
       localStorage.clear();
     }
     if (!cachedCounter || (cachedCounter && !isTBHQuesFetched)) {
