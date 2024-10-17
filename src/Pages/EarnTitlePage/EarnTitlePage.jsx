@@ -26,7 +26,7 @@ const EarnTitlePage = (props) => {
       };
       const path = "/api/v1/tribe-games/user/titles";
       // const userID = "66acd95a4a702ed543fefc03";
-      const userID = "669764367d66dad334de7b06";
+      const userID = "66bb25192117ebbca39c7bf7";
       customFetch(tempFunctionName, path, userID);
     }
   }, []);

@@ -26,7 +26,7 @@ const VoteReveal = (props) => {
     };
     const path = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
     // const userID = "66acd95a4a702ed543fefc03";
-    const userID = "669764367d66dad334de7b06";
+    const userID = "66bb25192117ebbca39c7bf7";
     customFetch(tempFunctionName, path, userID);
     // }
   }, []);
@@ -319,8 +319,8 @@ const VoteReveal = (props) => {
         </div> */}
         <div className="Tvote_img_TPTA">
           <div className="image-row">
-            {vrData.data[0].voteUserData
-              .slice(0, Math.min(vrData.data[0].voteUserData.length, 6))
+            {vrData.data[0].votedUserData
+              .slice(0, Math.min(vrData.data[0].votedUserData.length, 6))
               .map((item, index) => (
                 <div className="circular-div_RV_TPTA" key={index}>
                   <img
