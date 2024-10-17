@@ -16,6 +16,7 @@ const TBHProvider = ({ children }) => {
     TitleName: "",
     TitleImg: "",
     TitleDescription: "",
+    TitleMeta: {},
     OptionInfo: [],
   };
 
@@ -30,7 +31,9 @@ const TBHProvider = ({ children }) => {
       case "SET_COUNTER":
         return { ...tbhQuesState, counter: action.payload };
       case "RESET_OPTION_INFO":
-        return { ...tbhQuesState, OptionInfo: action.payload.OptionInfo };
+        return { ...tbhQuesState, 
+          TitleMeta: action.payload.TitleMeta,
+          OptionInfo: action.payload.OptionInfo };
       case "RESET_STATE":
         return {
           ...tbhQuesState,
@@ -39,6 +42,7 @@ const TBHProvider = ({ children }) => {
           TitleName: action.payload.TitleName,
           TitleImg: action.payload.TitleImg,
           TitleDescription: action.payload.TitleDescription,
+          TitleMeta: action.payload.TitleMeta,
           OptionInfo: action.payload.OptionInfo,
         };
       default:
@@ -68,6 +72,7 @@ const TBHProvider = ({ children }) => {
         TitleName: nextTitleData.name || "",
         TitleImg: nextTitleData.img || "",
         TitleDescription: nextTitleData.description || "",
+        TitleMeta: nextData.meta,
         OptionInfo: nextData.users.map((user) => ({
           _id: user._id,
           name: user.name,
@@ -80,9 +85,15 @@ const TBHProvider = ({ children }) => {
   };
 
   const ResetContactOption = (contactData) => {
+    const updatedMeta = {
+      titleData: tbhQuesState.TitleMeta.titleData,
+      users: contactData.meta.users,
+    }
+    console.log("up meta",updatedMeta);
     tbhQuesDispatch({
       type: "RESET_OPTION_INFO",
       payload: {
+        TitleMeta: updatedMeta,
         OptionInfo: contactData.users.map((user) => ({
           _id: user._id,
           name: user.name,
@@ -124,8 +135,9 @@ const TBHProvider = ({ children }) => {
       ResetContactOption(data.data);
       delete window[tempFunctionName];
     };
+    console.log("checking Meta", tbhQuesState.TitleMeta);
     const body = {
-      meta: tbhQues.data[tbhQuesState.counter - 1].meta,
+      meta: tbhQuesState.TitleMeta,
     };
     const path = "/api/v1/tribe-games/shuffle/contact";
     customFetchPost(path, body, tempFunctionName);
