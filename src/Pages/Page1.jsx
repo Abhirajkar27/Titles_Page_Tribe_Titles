@@ -278,7 +278,7 @@ const Page1 = (props) => {
                 y="60%"
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fontFamily="Gilroy"
+                fontFamily="Gilroy Bold"
                 fontWeight="800"
                 fill="var(--Dark-Dark--100, #0E1928)"
                 fontSize="16px"
