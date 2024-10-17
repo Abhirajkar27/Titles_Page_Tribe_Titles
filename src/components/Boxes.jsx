@@ -177,7 +177,7 @@ const Boxes = (props) => {
             font-size="12px"
             font-weight="600"
             fill="var(--Dark-Dark--100, #0E1928)"
-            className={option.name.length > 12 ? "scrolling-text-name" : ""}
+            className={option.name.length > 14 ? "scrolling-text-name" : ""}
           >
             {option.name}
           </text>
