@@ -131,6 +131,40 @@ const TBHProvider = ({ children }) => {
     customFetchPost(path, body, tempFunctionName);
   };
 
+  const handleManageReveal = () => {
+    console.log("clicked");
+    if(vrData.coin>1){
+    const path = "/api/v1/tribe-games/user/reveal";
+    const body = {
+      titleId: vRTitlesId,
+    };
+    const tempStr = Math.random().toString(36).substring(2, 10);
+    const tempFunctionName = `TBH${tempStr}`;
+    window[tempFunctionName] = (data) => {
+      if (data.code === 200) {
+        const tempStr2 = Math.random().toString(36).substring(2, 10);
+        const tempFunctionName2 = `TBH${tempStr2}`;
+        window[tempFunctionName2] = (data) => {
+          console.log("Function:", tempFunctionName2, "received data:", data);
+          setVrData(data.data);
+          delete window[tempFunctionName2];
+        };
+        const path2 = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
+        // const userID = "66acd95a4a702ed543fefc03";
+        const userID2 = "66bb25192117ebbca39c7bf7";
+        customFetch(tempFunctionName2, path2, userID2);
+      } else {
+        console.log("Some error might Occured!!!");
+      }
+      delete window[tempFunctionName];
+    };
+    const userID = "66bb25192117ebbca39c7bf7";
+    customFetchPost(path, body, tempFunctionName, userID);}
+    else{
+      console.log("You dont have Enough Coin");
+    }
+  };
+
   const handleSKipTitle = () => {
     const path = "/api/v1/tribe-games/question/skip";
     const body = {
@@ -140,12 +174,12 @@ const TBHProvider = ({ children }) => {
     console.log("Skipped Successfully");
     const titleDesc = document.getElementById("text_titleDesc");
     const gifTitleCont = document.getElementById("Gif_Title_cont");
-    titleDesc.classList.add('abtest');
-    gifTitleCont.classList.add('abtest');
+    titleDesc.classList.add("abtest");
+    gifTitleCont.classList.add("abtest");
     setTimeout(() => {
       handleNextData();
-      titleDesc.classList.remove('abtest');
-    gifTitleCont.classList.remove('abtest');
+      titleDesc.classList.remove("abtest");
+      gifTitleCont.classList.remove("abtest");
     }, 500);
   };
 
@@ -160,12 +194,12 @@ const TBHProvider = ({ children }) => {
     console.log("Successfully Voted");
     const titleDesc = document.getElementById("text_titleDesc");
     const gifTitleCont = document.getElementById("Gif_Title_cont");
-    titleDesc.classList.add('abtest');
-    gifTitleCont.classList.add('abtest');
+    titleDesc.classList.add("abtest");
+    gifTitleCont.classList.add("abtest");
     setTimeout(() => {
       handleNextData();
-      titleDesc.classList.remove('abtest');
-    gifTitleCont.classList.remove('abtest');
+      titleDesc.classList.remove("abtest");
+      gifTitleCont.classList.remove("abtest");
     }, 500);
   };
 
@@ -224,14 +258,19 @@ const TBHProvider = ({ children }) => {
     }
   };
 
-  async function customFetchPost(path, body, tempFunctionName = null) {
+  async function customFetchPost(
+    path,
+    body,
+    tempFunctionName = null,
+    userID = null
+  ) {
     // flutterFetch(path, body, "POST", tempFunctionName);
     const url = `https://vyld-cb-dev-api.vyld.io${path}`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "669764367d66dad334de7b06",
+        Authorization: userID ? userID : "669764367d66dad334de7b06",
       },
       body: JSON.stringify(body),
     });
@@ -321,6 +360,7 @@ const TBHProvider = ({ children }) => {
         setBackTime,
         vrData,
         setVrData,
+        handleManageReveal,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Page1.css";
 import image1 from "../assets/img/imageP.png";
 import "./Page4.css";
@@ -6,19 +6,31 @@ import cross from "../assets/img/cross.png";
 import { TBHContext } from "../context/context";
 
 const Page4 = (props) => {
-  const {vrData} = useContext(TBHContext);
+  const { vrData, handleManageReveal } = useContext(TBHContext);
 
-  const Reveal = ({
-    blur = false,
-    imgurl = "../assets/img/image.png",
-    text = "someone at your college",
-  }) => {
-    const k = require("../assets/img/image.png");
-    console.log(imgurl);
+  const [revealedData, setRevealedData] = useState([]);
+  const [unrevealedData, setUnrevealedData] = useState([]);
+
+  useEffect(() => {
+    if (vrData?.data?.[0]?.votedUserData) {
+      const revealed = vrData.data[0].votedUserData.filter(
+        (user) => user.isRevealed
+      );
+      const unrevealed = vrData.data[0].votedUserData.filter(
+        (user) => !user.isRevealed
+      );
+
+      setRevealedData(revealed);
+      setUnrevealedData(unrevealed);
+      console.log(revealed, unrevealed);
+    }
+  }, [vrData]);
+
+  const Reveal = ({ blur = false, user, text }) => {
     return (
       <div className="reveal" onClick={() => props.setGameSTIndex(1)}>
         <img
-          src={k}
+          src={user.profilePicture}
           alt="Revealed Content"
           className={blur ? "blurred reveal-image" : "reveal-image"}
         />
@@ -174,14 +186,15 @@ const Page4 = (props) => {
         </div>
         <div className="heading-p1">
           <p className="heading-sub-p1">people think you’re THIS!</p>
-          <p className="text-sub-p1">
-          {vrData.data[0].titleData.description}
-          </p>
+          <p className="text-sub-p1">{vrData.data[0].titleData.description}</p>
         </div>
 
         <div className="svg5-pg1">
           <div className="image1-p1">
-            <img className="tbhQues_titleImg" src={vrData.data[0].titleData.img} />
+            <img
+              className="tbhQues_titleImg"
+              src={vrData.data[0].titleData.img}
+            />
           </div>
           <svg
             width="248"
@@ -14314,31 +14327,7 @@ const Page4 = (props) => {
       <div className="Votes-reveal-pg4 scrollable_container-pg4 ">
         <p className="votes-total-pg4">All Votes {vrData.data[0].votes}</p>
         <div className="votes-new">
-          <p className="new-votes">1 New</p>
-          <div className="vote-line-g4">
-            <svg
-              width="268"
-              height="11"
-              viewBox="0 0 268 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4.86657 0.57898C4.88534 0.420939 5.11466 0.420939 5.13343 0.57898L5.29075 1.9048C5.49388 3.61679 6.84366 4.96657 8.55563 5.1697L9.88146 5.32702C10.0395 5.34579 10.0395 5.57511 9.88146 5.59388L8.55563 5.7512C6.84366 5.95433 5.49388 7.30411 5.29075 9.01608L5.13343 10.3419C5.11466 10.5 4.88534 10.5 4.86657 10.3419L4.70925 9.01608C4.50612 7.30411 3.15634 5.95433 1.44435 5.7512L0.118531 5.59388C-0.0395103 5.57511 -0.0395103 5.34579 0.118531 5.32702L1.44435 5.1697C3.15634 4.96657 4.50612 3.61679 4.70925 1.9048L4.86657 0.57898Z"
-                fill="#526175"
-              />
-              <path
-                d="M267 6L18 6"
-                stroke="#526175"
-                stroke-width="0.5"
-                stroke-linecap="round"
-              />
-            </svg>
-          </div>
-        </div>
-        <Reveal blur={true} />
-        <div className="votes-new">
-          <p className="new-votes">2 Previous</p>
+          <p className="new-votes">{unrevealedData.length} Previous</p>
           <div className="vote-line-g4">
             <svg
               width="240"
@@ -14360,10 +14349,11 @@ const Page4 = (props) => {
             </svg>
           </div>
         </div>
-        <Reveal blur={true} />
-        <Reveal blur={true} />
+        {unrevealedData.map((user, index) => (
+          <Reveal text="someone at your college" user={user} blur={true} />
+        ))}
         <div className="votes-new">
-          <p className="new-votes">7 Revealed</p>
+          <p className="new-votes">{revealedData.length} Revealed</p>
           <div className="vote-line-g4 ">
             <svg
               width="236"
@@ -14385,13 +14375,9 @@ const Page4 = (props) => {
             </svg>
           </div>
         </div>
-        <Reveal />
-        <Reveal />
-        <Reveal />
-        <Reveal />
-        <Reveal />
-        <Reveal />
-        <Reveal />
+        {revealedData.map((user, index) => (
+          <Reveal text={user.name} user={user} blur={true} />
+        ))}
       </div>
       <div className="button-div">
         <button className="bottom-button-pg4">
@@ -14446,12 +14432,12 @@ const Page4 = (props) => {
                 x="89%"
                 y="54%"
                 fill="var(--Light-Light--100, #FFF)"
-                text-anchor="middle" 
-                dominant-baseline="middle" 
-                font-family='Gilroy'
-                font-size="16.541px" 
-                font-weight="700" 
-                font-style="normal" 
+                text-anchor="middle"
+                dominant-baseline="middle"
+                font-family="Gilroy"
+                font-size="16.541px"
+                font-weight="700"
+                font-style="normal"
               >
                 {vrData.coin}
               </text>
@@ -14479,6 +14465,10 @@ const Page4 = (props) => {
         <p className="reveal-text-it">
           Click 'reveal' to see remaining votes. 1 reveal will be deducted.
         </p>
+        <button onClick={() => {
+              console.log("hey i am clickable");
+              handleManageReveal();
+        }}>Click me</button>
       </div>
     </div>
   );

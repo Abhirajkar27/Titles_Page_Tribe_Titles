@@ -70,6 +70,7 @@
   background-color: transparent;
   border: none;
   outline: none;
+  z-index:100;
 }
 .votes-new {
   display: flex;
