@@ -225,3 +225,37 @@
   top: -20%;
   z-index: 9;
 }
+
+
+/* Animations */
+
+
+.svg5-pg1, .mid-button-pg1, .lower-buttons {
+  opacity: 0;
+  transform: translateY(5px); 
+  transition: all 0.5s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+      transform: translateY(0); 
+  }
+}
+
+
+.svg5-pg1 {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: 0.25s; 
+}
+
+.mid-button-pg1 {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: .4s; 
+}
+
+.lower-buttons {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: 1.2s; 
+}
