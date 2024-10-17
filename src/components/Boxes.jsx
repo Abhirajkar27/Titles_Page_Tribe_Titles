@@ -8,16 +8,17 @@ const Boxes = (props) => {
   if (!tbhQuesState.OptionInfo || tbhQuesState.OptionInfo.length === 0) {
     return <p>Loading...</p>;
   }
-const colors = [{fill:"#008A4A",bg:"#36FFA1"},
-                {fill:"#5929E0",bg:"#B398FF"},
-                {fill:"#744C00",bg:"#FCFF40"},
-                {fill:"#008181",bg:"#64FFFF"}];
+  const colors = [
+    { fill: "#008A4A", bg: "#36FFA1" },
+    { fill: "#5929E0", bg: "#B398FF" },
+    { fill: "#744C00", bg: "#FCFF40" },
+    { fill: "#008181", bg: "#64FFFF" },
+  ];
   return (
     <div className="main-box-pg1">
-      {
-      tbhQuesState.OptionInfo.map((option, index) => (
-      <svg
-          key={option._id} 
+      {tbhQuesState.OptionInfo.map((option, index) => (
+        <svg
+          key={option._id}
           width="111"
           height={`${yes ? "105" : "12vh"}`}
           viewBox="0 0 111 104"
@@ -27,7 +28,7 @@ const colors = [{fill:"#008A4A",bg:"#36FFA1"},
             handleVoteTitle(tbhQuesState.OptionInfo[0]._id);
             props.onLastVote();
           }}
-          className="grid-item" 
+          className="grid-item"
           //   xmlns:xlink="http://www.w3.org/1999/xlink"
         >
           <mask id="path-1-inside-1_451_6252" fill="white">
@@ -176,6 +177,7 @@ const colors = [{fill:"#008A4A",bg:"#36FFA1"},
             font-size="12px"
             font-weight="600"
             fill="var(--Dark-Dark--100, #0E1928)"
+            className={option.name.length > 12 ? "scrolling-text-name" : ""}
           >
             {option.name}
           </text>
@@ -206,8 +208,8 @@ const colors = [{fill:"#008A4A",bg:"#36FFA1"},
               />
             </pattern>
           </defs>
-        </svg>))
-}
+        </svg>
+      ))}
     </div>
   );
 };

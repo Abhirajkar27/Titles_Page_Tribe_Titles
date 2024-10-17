@@ -63,3 +63,25 @@
   .grid-item:hover {
     transform: scale(1.05);
   }
+
+
+  .scrolling-text-name {
+    animation: scroll-text 4s linear infinite;
+  }
+  
+  @keyframes scroll-text {
+    0% {
+      transform: translateX(100%); 
+    }
+    40% {
+      transform: translateX(0); 
+    }
+    60% {
+      transform: translateX(0); 
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+  }
+  
+  
