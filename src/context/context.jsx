@@ -107,6 +107,11 @@ const TBHProvider = ({ children }) => {
     });
   };
 
+  const setCountFnc = (newCounter)=>{
+    localStorage.setItem("counter", newCounter);
+      setCounter(tbhQuesDispatch, newCounter);
+  }
+
   const handleNextData = () => {
     const cachedCounter = localStorage.getItem("counter");
     const currentCounter = cachedCounter
@@ -126,8 +131,7 @@ const TBHProvider = ({ children }) => {
       if (newCounter === 0) {
         newCounter = 1;
       }
-      localStorage.setItem("counter", newCounter);
-      setCounter(tbhQuesDispatch, newCounter);
+      setCountFnc(newCounter);
 
       resetState(tbhQuesDispatch, tbhQues, newCounter);
     }
@@ -380,6 +384,7 @@ const TBHProvider = ({ children }) => {
         vrData,
         setVrData,
         handleManageReveal,
+        setCountFnc, 
       }}
     >
       {children}

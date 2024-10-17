@@ -16,6 +16,7 @@ const Page1 = (props) => {
     setIsTBHQuesFetched,
     setIsTBHQuesLimitReached,
     setBackTime,
+    setCountFnc,
   } = useContext(TBHContext);
   const Forward = props.tries >= 3 ? false : true;
   const [nextInst, setnextInst] = useState(false);
@@ -51,6 +52,30 @@ const Page1 = (props) => {
       customFetch(tempFunctionName, path);
     }
   }, []);
+
+  function ManageWaitForw(){
+    const tempStr = Math.random().toString(36).substring(2, 10);
+      const tempFunctionName = `TBH${tempStr}`;
+      window[tempFunctionName] = (data) => {
+        console.log("Function:", tempFunctionName, "received data:", data);
+        if (
+          data.code === 400 &&
+          data.data.message === "today limit reached"
+        ){
+        setIsTBHQuesLimitReached(true);
+        setBackTime(data.data.timeLeft);
+        props.setGameSTIndex(Forward ? 3 : 1);
+        }
+        else{
+        localStorage.clear();
+        setCountFnc(0); 
+        setTbhQues(data.data);
+        setIsTBHQuesFetched(true);}
+        delete window[tempFunctionName];
+      };
+      const path = "/api/v1/tribe-games/questions";
+      customFetch(tempFunctionName, path);
+  }
 
   return (
     <>
@@ -14278,7 +14303,7 @@ const Page1 = (props) => {
             onLastVote={() => {
               if (tbhQuesState.counter === 10) {
                 localStorage.clear();
-                props.setGameSTIndex(Forward ? 3 : 1);
+                ManageWaitForw();
               }
             }}
           />
@@ -14308,7 +14333,7 @@ const Page1 = (props) => {
                 handleSKipTitle();
                 if (tbhQuesState.counter === 10) {
                   localStorage.clear();
-                  props.setGameSTIndex(Forward ? 3 : 1);
+                  ManageWaitForw();
                 }
               }}
               className="skip"
