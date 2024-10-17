@@ -86,18 +86,35 @@
   align-items: center;
   margin-top: 19vh;
 }
+
+.Gif_Badge {
+  width: 90vw;
+}
+.TBH_Title_pg1 {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--Dark-Dark--100, #0e1928);
+  font-family: Gilroy Bold;
+  font-size: 2.2vh;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 144.444%;
+}
+
 .image1-p1 {
   z-index: -4;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 2.4vh;
+  top: 2vh;
   height: 20vh;
-  width: 20vh;
-  border-radius: 2.4vh;
-  border: .3vh solid var(--Dark-Rich-Dark, #030406);
-  overflow: hidden; 
+  width: 75vw;
+  border-radius: 1.5vh;
+  border: 0.3vh solid var(--Dark-Rich-Dark, #030406);
+  overflow: hidden;
 }
 
 .tbhQues_titleImg {
