@@ -11,11 +11,10 @@ import html2canvas from "html2canvas";
 import { TBHContext } from "../../context/context";
 
 const AchievementPage = (props) => {
-
   const divRef = useRef(null);
 
-  const { vrData, isRevealed, setISRevealed,
-    voteBy, setVoteBy, } = useContext(TBHContext);
+  const { vrData, isRevealed, setISRevealed, voteBy, setVoteBy } =
+    useContext(TBHContext);
 
   const convertToImage = () => {
     console.log("converting");
@@ -130,11 +129,15 @@ const AchievementPage = (props) => {
           </div>
         ) : (
           <div className="cardinfoshr_TATP_Reveal">
-            <span>{voteBy}</span>  voted for you
+            <span>{voteBy}</span> voted for you
           </div>
         )}
         <div className="badgeinfoshr_TATP">Guess Who?</div>
-        <img className="AvatarCardS_TPTA" src={AvatarCard} alt="AvatarCard" />
+        <div className="Avatar_manage_APTA">
+          <span className="Title_APTA">{vrData.data[0].titleData.name}</span>
+          <img className="UserAvatar_APTA" src={UserAvatar} alt="UserAvatar" />
+          <img className="AvatarCard_APTA" src={AvatarCard} alt="AvatarCard" />
+        </div>
         <svg
           className="svg1_TPTA"
           xmlns="http://www.w3.org/2000/svg"
