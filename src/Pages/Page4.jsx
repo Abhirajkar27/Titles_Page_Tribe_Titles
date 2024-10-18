@@ -6,7 +6,7 @@ import cross from "../assets/img/cross.png";
 import { TBHContext } from "../context/context";
 
 const Page4 = (props) => {
-  const { vrData, handleManageReveal } = useContext(TBHContext);
+  const { vrData, handleManageReveal , revealCoin} = useContext(TBHContext);
 
   const [revealedData, setRevealedData] = useState([]);
   const [unrevealedData, setUnrevealedData] = useState([]);
@@ -14447,7 +14447,7 @@ const Page4 = (props) => {
                 font-weight="700"
                 font-style="normal"
               >
-                {vrData.coin}
+                {revealCoin}
               </text>
             </g>
             <defs>

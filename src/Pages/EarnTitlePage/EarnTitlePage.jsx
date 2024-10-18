@@ -11,7 +11,8 @@ import InstructionPage from "../InstructionPage/InstructionPage";
 import { TBHContext } from "../../context/context";
 
 const EarnTitlePage = (props) => {
-  const { earnedTitles, setEarnedTitles, customFetch, setVRTitlesId } =
+  const { earnedTitles, setEarnedTitles, customFetch, setVRTitlesId, revealCoin,
+    setRevealCoin, } =
     useContext(TBHContext);
   const [nextInst, setnextInst] = useState(true);
 
@@ -22,6 +23,7 @@ const EarnTitlePage = (props) => {
       window[tempFunctionName] = (data) => {
         console.log("Function:", tempFunctionName, "received data:", data);
         setEarnedTitles(data.data);
+        setRevealCoin(data.data.coin)
         delete window[tempFunctionName];
       };
       const path = "/api/v1/tribe-games/user/titles";
@@ -97,7 +99,7 @@ const EarnTitlePage = (props) => {
         </div>
         <div className="Nrvl_TPPTA" onClick={() => props.setGameSTIndex(6)}>
           <img src={Reveal_coin}></img>
-          <span>{earnedTitles.coin} Reveals</span>
+          <span>{revealCoin} Reveals</span>
         </div>
       </div>
       <div className="scrollable_container">

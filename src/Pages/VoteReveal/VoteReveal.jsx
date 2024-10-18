@@ -13,7 +13,8 @@ import { TBHContext } from "../../context/context";
 const VoteReveal = (props) => {
   const [isRevealed, setISRevealed] = useState(false);
   const divRef = useRef(null);
-  const { vRTitlesId, customFetch, vrData, setVrData } = useContext(TBHContext);
+  const { vRTitlesId, customFetch, vrData, setVrData, revealCoin,
+    setRevealCoin, } = useContext(TBHContext);
 
   useEffect(() => {
     // if (!vrData) {
@@ -22,6 +23,7 @@ const VoteReveal = (props) => {
     window[tempFunctionName] = (data) => {
       console.log("Function:", tempFunctionName, "received data:", data);
       setVrData(data.data);
+      setRevealCoin(data.data.coin);
       delete window[tempFunctionName];
     };
     const path = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;

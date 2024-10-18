@@ -10,6 +10,7 @@ const TBHProvider = ({ children }) => {
   const [isTBHQuesLimitReached, setIsTBHQuesLimitReached] = useState(false);
   const [backTime, setBackTime] = useState();
   const [vrData, setVrData] = useState();
+  const [revealCoin, setRevealCoin] = useState();
   const initialState = {
     counter: 0,
     TitleID: "",
@@ -170,6 +171,7 @@ const TBHProvider = ({ children }) => {
           window[tempFunctionName2] = (data) => {
             console.log("Function:", tempFunctionName2, "received data:", data);
             setVrData(data.data);
+            setRevealCoin(data.data.coin);
             delete window[tempFunctionName2];
           };
           const path2 = `/api/v1/tribe-games/user/titles?titleId=${vRTitlesId}`;
@@ -385,6 +387,8 @@ const TBHProvider = ({ children }) => {
         setVrData,
         handleManageReveal,
         setCountFnc, 
+        revealCoin,
+        setRevealCoin,
       }}
     >
       {children}
