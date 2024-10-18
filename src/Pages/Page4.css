@@ -87,6 +87,28 @@
   font-weight: 600;
   line-height: 100%; /* 12px */
 }
+.reveal_btn_cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  z-index: 99999999;
+}
+.Reveal_Btn_pg4{
+  z-index: 99999999;
+  position: absolute;
+  bottom: 6vh;
+  background-color: yellow;
+  width: 30vw;
+  border-radius: 2vh;
+  height: 5vh;
+}
+.Reveal_Btn_pg4 span{
+  z-index: 99999999;
+  color: red;
+  font-size: 2.5vh;
+  font-weight: bold;
+}
 .reveal {
   display: flex;
   width: 100vw;
