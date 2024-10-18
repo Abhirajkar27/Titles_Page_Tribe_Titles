@@ -58,20 +58,23 @@ const App = () => {
   }
 
   useEffect(() => {
-    document.body.style.overflow = (gameSTIndex === null || gameSTIndex === 5) ? "" : "hidden";
+    if (gameSTIndex === null) {
+      document.body.style.overflow = instructionPg2 ? "hidden" : "";
+    } else if (gameSTIndex === 5) {
+      document.body.style.overflow = "";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+
+    if (gameSTIndex === null && !instructionPg2) {
+      document.body.style.overflow = "";
+    }
+    
     window.scrollTo(0, 0);
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [,gameSTIndex]);
-
-  // useEffect(() => {
-  //   document.body.style.overflow = instruction === true ? "hidden" : "hidden";
-  //   window.scrollTo(0, 0);
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //   };
-  // }, [instruction]);    
+  }, [,gameSTIndex,instructionPg2]);   
 
   return (
     <TBHProvider>
