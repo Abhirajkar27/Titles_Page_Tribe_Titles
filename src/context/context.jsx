@@ -233,54 +233,54 @@ const TBHProvider = ({ children }) => {
       console.error("Error: Invalid or undefined function name.");
       return;
     }
-    // const body = {};
-    // flutterFetch(path, body, "GET", tempFunctionName, userID);
-    const url = `https://vyld-cb-dev-api.vyld.io${path}`;
+    const body = {};
+    flutterFetch(path, body, "GET", tempFunctionName, userID);
+    // const url = `https://vyld-cb-dev-api.vyld.io${path}`;
 
-    try {
-      const response = await fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: userID ? userID : "669764367d66dad334de7b06",
-        },
-      });
+    // try {
+    //   const response = await fetch(url, {
+    //     method: "GET",
+    //     headers: {
+    //       Authorization: userID ? userID : "669764367d66dad334de7b06",
+    //     },
+    //   });
 
-      if (!response.ok) {
-        if (
-          response.code === 400 &&
-          response.data.message === "today limit reached"
-        ) {
-          console.log("limit Marked");
-        }
-      }
+    //   if (!response.ok) {
+    //     if (
+    //       response.code === 400 &&
+    //       response.data.message === "today limit reached"
+    //     ) {
+    //       console.log("limit Marked");
+    //     }
+    //   }
 
-      if (!response.ok) {
-        console.log(response);
-        if (response.status === 400) {
-          console.log("limit Marked");
-        } else {
-          throw new Error(`Network Response Not ok: ${response.statusText}`);
-        }
-      }
+    //   if (!response.ok) {
+    //     console.log(response);
+    //     if (response.status === 400) {
+    //       console.log("limit Marked");
+    //     } else {
+    //       throw new Error(`Network Response Not ok: ${response.statusText}`);
+    //     }
+    //   }
 
-      const data = await response.json();
-      if (data.code === 400) {
-        if (data.data.message === "today limit reached") {
-          console.log("limit Marked Again");
-        } else {
-          throw new Error(`Network Response Not ok: ${response.statusText}`);
-        }
-      }
-      console.log("data", data);
+    //   const data = await response.json();
+    //   if (data.code === 400) {
+    //     if (data.data.message === "today limit reached") {
+    //       console.log("limit Marked Again");
+    //     } else {
+    //       throw new Error(`Network Response Not ok: ${response.statusText}`);
+    //     }
+    //   }
+    //   console.log("data", data);
 
-      if (typeof window[tempFunctionName] === "function") {
-        window[tempFunctionName](data);
-      } else {
-        console.error(`Error: ${tempFunctionName} is not a function.`);
-      }
-    } catch (error) {
-      console.error("Error in customFetch:", error);
-    }
+    //   if (typeof window[tempFunctionName] === "function") {
+    //     window[tempFunctionName](data);
+    //   } else {
+    //     console.error(`Error: ${tempFunctionName} is not a function.`);
+    //   }
+    // } catch (error) {
+    //   console.error("Error in customFetch:", error);
+    // }
   };
 
   async function customFetchPost(
@@ -289,24 +289,24 @@ const TBHProvider = ({ children }) => {
     tempFunctionName = null,
     userID = null
   ) {
-    // flutterFetch(path, body, "POST", tempFunctionName);
-    const url = `https://vyld-cb-dev-api.vyld.io${path}`;
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: userID ? userID : "669764367d66dad334de7b06",
-      },
-      body: JSON.stringify(body),
-    });
-    const data = await response.json();
-    if (
-      tempFunctionName != null &&
-      typeof window[tempFunctionName] === "function"
-    ) {
-      window[tempFunctionName](data);
-    }
-    console.log("Successfull Post with Response", data);
+    flutterFetch(path, body, "POST", tempFunctionName);
+    // const url = `https://vyld-cb-dev-api.vyld.io${path}`;
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: userID ? userID : "669764367d66dad334de7b06",
+    //   },
+    //   body: JSON.stringify(body),
+    // });
+    // const data = await response.json();
+    // if (
+    //   tempFunctionName != null &&
+    //   typeof window[tempFunctionName] === "function"
+    // ) {
+    //   window[tempFunctionName](data);
+    // }
+    // console.log("Successfull Post with Response", data);
   }
 
   async function flutterFetch(
@@ -327,7 +327,7 @@ const TBHProvider = ({ children }) => {
 
       console.log("Request sending by Custom fetch", request);
 
-      window.flutterFetch.postMessage(JSON.stringify(request));
+      window.flutterFetch.postMessage(btoa(JSON.stringify(request)));
     } catch (e) {
       console.error("Error in customFetch:", e);
     }
@@ -335,7 +335,8 @@ const TBHProvider = ({ children }) => {
 
   window.flutterResponse = async function (data) {
     try {
-      var response = JSON.parse(data);
+      const decoded = atob(data);
+      var response = JSON.parse(decoded);
       var code = response.code;
       var body = response.body;
       var bodyCode = body?.code;

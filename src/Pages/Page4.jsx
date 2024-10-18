@@ -261,7 +261,7 @@ const Page4 = (props) => {
               y="60%"
               textAnchor="middle"
               dominantBaseline="middle"
-              fontFamily="Gilroy"
+              fontFamily="Gilroy Bold"
               fontWeight="800"
               fill="var(--Dark-Dark--100, #0E1928)"
               fontSize="16px"
@@ -14404,7 +14404,7 @@ const Page4 = (props) => {
       </div>
       <div className="last-message-pg4">
         <p className="reveal-text-it">
-          Click 'reveal' to see remaining votes. 1 reveal will be deducted.
+        want more reveals? invite more people
         </p>
       </div>
     </div>
