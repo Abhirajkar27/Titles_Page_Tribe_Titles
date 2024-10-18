@@ -64,7 +64,7 @@ const TBHProvider = ({ children }) => {
 
   // Function to reset the state based on the next data in the array
   const resetState = (tbhQuesDispatch, data, counter) => {
-    if (counter > 10) return;
+    if (counter > tbhQues.data.length) return;
     // console.log("setting data", data);
     const nextData = data.data[counter - 1];
     const nextTitleData = nextData.titleData;
@@ -110,32 +110,21 @@ const TBHProvider = ({ children }) => {
     });
   };
 
-  const setCountFnc = (newCounter)=>{
-    localStorage.setItem("counter", newCounter);
-      setCounter(tbhQuesDispatch, newCounter);
-  }
+  const setCountFnc = (newCounter) => {
+    setCounter(tbhQuesDispatch, newCounter);
+  };
 
   const handleNextData = () => {
-    const cachedCounter = localStorage.getItem("counter");
-    const currentCounter = cachedCounter
-      ? parseInt(cachedCounter)
-      : tbhQuesState.counter;
+    const currentCounter = tbhQuesState.counter;
 
-    if (currentCounter <= 10) {
+    if (currentCounter <= tbhQues.data.length) {
       let newCounter;
       if (!tbhQuesState.OptionInfo || tbhQuesState.OptionInfo.length === 0) {
-        newCounter = currentCounter;
-      } else {
-        newCounter =
-          !tbhQuesState.counter || tbhQuesState.counter === 0
-            ? currentCounter
-            : currentCounter + 1;
-      }
-      if (newCounter === 0) {
         newCounter = 1;
+      } else {
+        newCounter = currentCounter + 1;
       }
       setCountFnc(newCounter);
-
       resetState(tbhQuesDispatch, tbhQues, newCounter);
     }
   };
@@ -192,42 +181,52 @@ const TBHProvider = ({ children }) => {
     }
   };
 
-  const handleSKipTitle = () => {
+  const handleSKipTitle = async () => {
     const path = "/api/v1/tribe-games/question/skip";
     const body = {
       meta: tbhQues.data[tbhQuesState.counter - 1].meta,
     };
-    customFetchPost(path, body);
+    await customFetchPost(path, body);
     console.log("Skipped Successfully");
-    const titleDesc = document.getElementById("text_titleDesc");
-    const gifTitleCont = document.getElementById("Gif_Title_cont");
-    titleDesc.classList.add("abtest");
-    gifTitleCont.classList.add("abtest");
-    setTimeout(() => {
-      handleNextData();
-      titleDesc.classList.remove("abtest");
-      gifTitleCont.classList.remove("abtest");
-    }, 500);
+    if (tbhQuesState.counter === tbhQues.data.length) {
+      console.log("calling mang Forw");
+    } else {
+      const titleDesc = document.getElementById("text_titleDesc");
+      const gifTitleCont = document.getElementById("Gif_Title_cont");
+      titleDesc.classList.add("abtest");
+      gifTitleCont.classList.add("abtest");
+      setTimeout(() => {
+        handleNextData();
+        titleDesc.classList.remove("abtest");
+        gifTitleCont.classList.remove("abtest");
+      }, 500);
+    }
+    return;
   };
 
-  const handleVoteTitle = (userID) => {
+  const handleVoteTitle = async (userID) => {
     const path = "/api/v1/tribe-games/vote";
     const body = {
       titleId: tbhQuesState.TitleID,
       userId: userID,
       meta: tbhQues.data[tbhQuesState.counter - 1].meta,
     };
-    customFetchPost(path, body);
+    await customFetchPost(path, body);
     console.log("Successfully Voted");
-    const titleDesc = document.getElementById("text_titleDesc");
-    const gifTitleCont = document.getElementById("Gif_Title_cont");
-    titleDesc.classList.add("abtest");
-    gifTitleCont.classList.add("abtest");
-    setTimeout(() => {
-      handleNextData();
-      titleDesc.classList.remove("abtest");
-      gifTitleCont.classList.remove("abtest");
-    }, 500);
+    if (tbhQuesState.counter === tbhQues.data.length) {
+      console.log("calling mang Forw");
+    } else {
+      const titleDesc = document.getElementById("text_titleDesc");
+      const gifTitleCont = document.getElementById("Gif_Title_cont");
+      titleDesc.classList.add("abtest");
+      gifTitleCont.classList.add("abtest");
+      setTimeout(() => {
+        handleNextData();
+        titleDesc.classList.remove("abtest");
+        gifTitleCont.classList.remove("abtest");
+      }, 500);
+    }
+    return;
   };
 
   const customFetch = async (tempFunctionName, path, userID = null) => {
@@ -309,6 +308,7 @@ const TBHProvider = ({ children }) => {
       window[tempFunctionName](data);
     }
     console.log("Successfull Post with Response", data);
+    return ;
   }
 
   async function flutterFetch(
@@ -362,6 +362,32 @@ const TBHProvider = ({ children }) => {
     }
   };
 
+
+  const calculateFinalTime = (backTimeInSeconds) => {
+    // Get current time in milliseconds
+    const currentTime = new Date();
+  
+    // Calculate the final time by adding backTimeInSeconds (converted to ms)
+    const finalTime = new Date(currentTime.getTime() + backTimeInSeconds * 1000);
+  
+    // Extract hours, minutes, and seconds from finalTime
+    let hours = finalTime.getHours();
+    const minutes = finalTime.getMinutes();
+    const seconds = finalTime.getSeconds();
+  
+    // Determine if the time is AM or PM
+    const newPeriod = hours >= 12 ? "PM" : "AM";
+  
+    // Convert hours to 12-hour format
+    hours = hours % 12 || 12; // Convert 0 to 12 for midnight
+  
+    // Format time as hr:min:sec
+    const newTime = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  
+    // Return newTime and newPeriod
+    return { newTime, newPeriod };
+  };
+
   return (
     <TBHContext.Provider
       value={{
@@ -389,11 +415,14 @@ const TBHProvider = ({ children }) => {
         vrData,
         setVrData,
         handleManageReveal,
-        setCountFnc, 
+        setCountFnc,
         revealCoin,
         setRevealCoin,
-        isRevealed, setISRevealed,
-        voteBy, setVoteBy,
+        isRevealed,
+        setISRevealed,
+        voteBy,
+        setVoteBy,
+        calculateFinalTime,
       }}
     >
       {children}

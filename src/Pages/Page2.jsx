@@ -4,13 +4,13 @@ import Title from "../assets/img/title.png";
 import back from "../assets/img/bkbtn.png";
 import { TBHContext } from "../context/context";
 const Page2 = (props) => {
-  const { isTBHQuesLimitReached, backTime } = useContext(TBHContext);
+  const { isTBHQuesLimitReached, backTime, calculateFinalTime } = useContext(TBHContext);
   const [time, setTime] = useState("");
   const [period, setPeriod] = useState("");
 
   useEffect(() => {
     if (isTBHQuesLimitReached && backTime) {
-      const [newTime, newPeriod] = backTime.split(" ");
+      const { newTime, newPeriod } = calculateFinalTime(backTime);
       setTime(newTime);
       setPeriod(newPeriod);
     }

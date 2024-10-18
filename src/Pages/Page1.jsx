@@ -17,19 +17,14 @@ const Page1 = (props) => {
     setIsTBHQuesLimitReached,
     setBackTime,
     setCountFnc,
+    tbhQues,
   } = useContext(TBHContext);
   const Forward = props.tries >= 3 ? false : true;
   const [nextInst, setnextInst] = useState(false);
   
 
   useLayoutEffect(() => {
-    const cachedCounter = localStorage.getItem("counter");
-    console.log("caCHE", cachedCounter);
-    if(cachedCounter>10){
-      console.log("making counter 0");
-      localStorage.clear();
-    }
-    if (!cachedCounter || (cachedCounter && !isTBHQuesFetched)) {
+    if (!isTBHQuesFetched) {
       const tempStr = Math.random().toString(36).substring(2, 10);
       const tempFunctionName = `TBH${tempStr}`;
       window[tempFunctionName] = (data) => {
@@ -54,6 +49,7 @@ const Page1 = (props) => {
   }, []);
 
   function ManageWaitForw(){
+    console.log("resetting TBH Data");
     const tempStr = Math.random().toString(36).substring(2, 10);
       const tempFunctionName = `TBH${tempStr}`;
       window[tempFunctionName] = (data) => {
@@ -62,12 +58,13 @@ const Page1 = (props) => {
           data.code === 400 &&
           data.data.message === "today limit reached"
         ){
+          console.log("Moving to new state");
         setIsTBHQuesLimitReached(true);
         setBackTime(data.data.timeLeft);
         props.setGameSTIndex(Forward ? 3 : 1);
         }
         else{
-        localStorage.clear();
+          console.log("data fetched again");
         setCountFnc(0); 
         setTbhQues(data.data);
         setIsTBHQuesFetched(true);}
@@ -14301,8 +14298,7 @@ const Page1 = (props) => {
           </svg>
           <Boxes
             onLastVote={() => {
-              if (tbhQuesState.counter === 10) {
-                localStorage.clear();
+              if (tbhQuesState.counter === tbhQues.data.length) {
                 ManageWaitForw();
               }
             }}
@@ -14331,8 +14327,7 @@ const Page1 = (props) => {
             <button
               onClick={() => {
                 handleSKipTitle();
-                if (tbhQuesState.counter === 10) {
-                  localStorage.clear();
+                if (tbhQuesState.counter === tbhQues.data.length) {
                   ManageWaitForw();
                 }
               }}

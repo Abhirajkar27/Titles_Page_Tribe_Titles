@@ -24,8 +24,8 @@ const Boxes = (props) => {
           viewBox="0 0 111 104"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          onClick={() => {
-            handleVoteTitle(tbhQuesState.OptionInfo[0]._id);
+          onClick={async() => {
+            await handleVoteTitle(tbhQuesState.OptionInfo[0]._id);
             props.onLastVote();
           }}
           className="grid-item"
