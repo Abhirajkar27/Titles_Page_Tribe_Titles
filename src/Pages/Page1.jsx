@@ -34,6 +34,7 @@ const Page1 = (props) => {
           data.data.message === "today limit reached"
         ){
         setIsTBHQuesLimitReached(true);
+        setIsTBHQuesFetched(False);
         setBackTime(data.data.timeLeft);
         props.setGameSTIndex(Forward ? 3 : 1);
         }
