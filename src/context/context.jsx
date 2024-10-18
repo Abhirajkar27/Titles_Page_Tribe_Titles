@@ -141,6 +141,7 @@ const TBHProvider = ({ children }) => {
     console.log("checking Meta", tbhQuesState.TitleMeta);
     const body = {
       meta: tbhQuesState.TitleMeta,
+      titleId: tbhQuesState.TitleID,
     };
     const path = "/api/v1/tribe-games/shuffle/contact";
     customFetchPost(path, body, tempFunctionName);
@@ -181,28 +182,110 @@ const TBHProvider = ({ children }) => {
     }
   };
 
+  // const handleSKipTitle = async () => {
+  //   const path = "/api/v1/tribe-games/question/skip";
+  //   const body = {
+  //     meta: tbhQues.data[tbhQuesState.counter - 1].meta,
+  //   };
+  //   var isProceed = false;
+  //   const tempStr = Math.random().toString(36).substring(2, 10);
+  //     const tempFunctionName = `TBH${tempStr}`;
+  //     window[tempFunctionName] = (data) => {isProceed=true;
+  //       delete window[tempFunctionName];
+  //     }
+
+  //   await customFetchPost(path, body);
+  //   console.log("Skipped Successfully");
+  //   if (tbhQuesState.counter === tbhQues.data.length) {
+  //     console.log("calling mang Forw");
+  //   } else {
+  //     const titleDesc = document.getElementById("text_titleDesc");
+  //     const gifTitleCont = document.getElementById("Gif_Title_cont");
+  //     titleDesc.classList.add("abtest");
+  //     gifTitleCont.classList.add("abtest");
+  //     setTimeout(() => {
+  //       handleNextData();
+  //       titleDesc.classList.remove("abtest");
+  //       gifTitleCont.classList.remove("abtest");
+  //     }, 500);
+  //   }
+  //   return;
+  // };
+
   const handleSKipTitle = async () => {
     const path = "/api/v1/tribe-games/question/skip";
     const body = {
       meta: tbhQues.data[tbhQuesState.counter - 1].meta,
     };
-    await customFetchPost(path, body);
+
+    // Function to wrap the logic in a Promise for sequential flow control
+    const customFetchPromise = (path, body) => {
+      return new Promise((resolve) => {
+        // Create a temporary function name
+        const tempStr = Math.random().toString(36).substring(2, 10);
+        const tempFunctionName = `TBH${tempStr}`;
+
+        // Create the global callback function
+        window[tempFunctionName] = (data) => {
+          resolve(data); // Resolve the promise when this function is called
+          delete window[tempFunctionName]; // Cleanup after resolving
+        };
+
+        // Call customFetchPost and pass the function name
+        customFetchPost(path, body, tempFunctionName);
+      });
+    };
+
+    // Now we wait for customFetchPromise to resolve, ensuring sequential flow
+    await customFetchPromise(path, body);
     console.log("Skipped Successfully");
+
+    // Proceed with the rest of your logic
     if (tbhQuesState.counter === tbhQues.data.length) {
       console.log("calling mang Forw");
     } else {
       const titleDesc = document.getElementById("text_titleDesc");
       const gifTitleCont = document.getElementById("Gif_Title_cont");
+
+      // Add the animation class
       titleDesc.classList.add("abtest");
       gifTitleCont.classList.add("abtest");
+
+      // Set a timeout before proceeding to the next step
       setTimeout(() => {
         handleNextData();
         titleDesc.classList.remove("abtest");
         gifTitleCont.classList.remove("abtest");
       }, 500);
     }
+
     return;
   };
+
+  // const handleVoteTitle = async (userID) => {
+  //   const path = "/api/v1/tribe-games/vote";
+  //   const body = {
+  //     titleId: tbhQuesState.TitleID,
+  //     userId: userID,
+  //     meta: tbhQues.data[tbhQuesState.counter - 1].meta,
+  //   };
+  //   await customFetchPost(path, body);
+  //   console.log("Successfully Voted");
+  //   if (tbhQuesState.counter === tbhQues.data.length) {
+  //     console.log("calling mang Forw");
+  //   } else {
+  //     const titleDesc = document.getElementById("text_titleDesc");
+  //     const gifTitleCont = document.getElementById("Gif_Title_cont");
+  //     titleDesc.classList.add("abtest");
+  //     gifTitleCont.classList.add("abtest");
+  //     setTimeout(() => {
+  //       handleNextData();
+  //       titleDesc.classList.remove("abtest");
+  //       gifTitleCont.classList.remove("abtest");
+  //     }, 500);
+  //   }
+  //   return;
+  // };
 
   const handleVoteTitle = async (userID) => {
     const path = "/api/v1/tribe-games/vote";
@@ -211,21 +294,47 @@ const TBHProvider = ({ children }) => {
       userId: userID,
       meta: tbhQues.data[tbhQuesState.counter - 1].meta,
     };
-    await customFetchPost(path, body);
+
+    // Function to wrap the customFetchPost in a Promise for sequential flow control
+    const customFetchPromise = (path, body) => {
+      return new Promise((resolve) => {
+        const tempStr = Math.random().toString(36).substring(2, 10);
+        const tempFunctionName = `TBH${tempStr}`;
+
+        // Create the global callback function
+        window[tempFunctionName] = (data) => {
+          resolve(data); // Resolve the promise when this function is called
+          delete window[tempFunctionName]; // Cleanup after resolving
+        };
+
+        // Call customFetchPost and pass the function name
+        customFetchPost(path, body, tempFunctionName);
+      });
+    };
+
+    // Await the custom fetch promise to ensure sequential flow
+    await customFetchPromise(path, body);
     console.log("Successfully Voted");
+
+    // Proceed with the rest of your logic
     if (tbhQuesState.counter === tbhQues.data.length) {
       console.log("calling mang Forw");
     } else {
       const titleDesc = document.getElementById("text_titleDesc");
       const gifTitleCont = document.getElementById("Gif_Title_cont");
+
+      // Add the animation class
       titleDesc.classList.add("abtest");
       gifTitleCont.classList.add("abtest");
+
+      // Set a timeout before proceeding to the next step
       setTimeout(() => {
         handleNextData();
         titleDesc.classList.remove("abtest");
         gifTitleCont.classList.remove("abtest");
       }, 500);
     }
+
     return;
   };
 
@@ -234,54 +343,54 @@ const TBHProvider = ({ children }) => {
       console.error("Error: Invalid or undefined function name.");
       return;
     }
-    // const body = {};
-    // flutterFetch(path, body, "GET", tempFunctionName, userID);
-    const url = `https://vyld-cb-dev-api.vyld.io${path}`;
+    const body = {};
+    flutterFetch(path, body, "GET", tempFunctionName, userID);
+    // const url = `https://vyld-cb-dev-api.vyld.io${path}`;
 
-    try {
-      const response = await fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: userID ? userID : "669764367d66dad334de7b06",
-        },
-      });
+    // try {
+    //   const response = await fetch(url, {
+    //     method: "GET",
+    //     headers: {
+    //       Authorization: userID ? userID : "669764367d66dad334de7b06",
+    //     },
+    //   });
 
-      if (!response.ok) {
-        if (
-          response.code === 400 &&
-          response.data.message === "today limit reached"
-        ) {
-          console.log("limit Marked");
-        }
-      }
+    //   if (!response.ok) {
+    //     if (
+    //       response.code === 400 &&
+    //       response.data.message === "today limit reached"
+    //     ) {
+    //       console.log("limit Marked");
+    //     }
+    //   }
 
-      if (!response.ok) {
-        console.log(response);
-        if (response.status === 400) {
-          console.log("limit Marked");
-        } else {
-          throw new Error(`Network Response Not ok: ${response.statusText}`);
-        }
-      }
+    //   if (!response.ok) {
+    //     console.log(response);
+    //     if (response.status === 400) {
+    //       console.log("limit Marked");
+    //     } else {
+    //       throw new Error(`Network Response Not ok: ${response.statusText}`);
+    //     }
+    //   }
 
-      const data = await response.json();
-      if (data.code === 400) {
-        if (data.data.message === "today limit reached") {
-          console.log("limit Marked Again");
-        } else {
-          throw new Error(`Network Response Not ok: ${response.statusText}`);
-        }
-      }
-      console.log("data", data);
+    //   const data = await response.json();
+    //   if (data.code === 400) {
+    //     if (data.data.message === "today limit reached") {
+    //       console.log("limit Marked Again");
+    //     } else {
+    //       throw new Error(`Network Response Not ok: ${response.statusText}`);
+    //     }
+    //   }
+    //   console.log("data", data);
 
-      if (typeof window[tempFunctionName] === "function") {
-        window[tempFunctionName](data);
-      } else {
-        console.error(`Error: ${tempFunctionName} is not a function.`);
-      }
-    } catch (error) {
-      console.error("Error in customFetch:", error);
-    }
+    //   if (typeof window[tempFunctionName] === "function") {
+    //     window[tempFunctionName](data);
+    //   } else {
+    //     console.error(`Error: ${tempFunctionName} is not a function.`);
+    //   }
+    // } catch (error) {
+    //   console.error("Error in customFetch:", error);
+    // }
   };
 
   async function customFetchPost(
@@ -290,25 +399,25 @@ const TBHProvider = ({ children }) => {
     tempFunctionName = null,
     userID = null
   ) {
-    // flutterFetch(path, body, "POST", tempFunctionName);
-    const url = `https://vyld-cb-dev-api.vyld.io${path}`;
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: userID ? userID : "669764367d66dad334de7b06",
-      },
-      body: JSON.stringify(body),
-    });
-    const data = await response.json();
-    if (
-      tempFunctionName != null &&
-      typeof window[tempFunctionName] === "function"
-    ) {
-      window[tempFunctionName](data);
-    }
-    console.log("Successfull Post with Response", data);
-    return ;
+    flutterFetch(path, body, "POST", tempFunctionName);
+    // const url = `https://vyld-cb-dev-api.vyld.io${path}`;
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: userID ? userID : "669764367d66dad334de7b06",
+    //   },
+    //   body: JSON.stringify(body),
+    // });
+    // const data = await response.json();
+    // if (
+    //   tempFunctionName != null &&
+    //   typeof window[tempFunctionName] === "function"
+    // ) {
+    //   window[tempFunctionName](data);
+    // }
+    // console.log("Successfull Post with Response", data);
+    // return;
   }
 
   async function flutterFetch(
@@ -337,8 +446,10 @@ const TBHProvider = ({ children }) => {
 
   window.flutterResponse = async function (data) {
     try {
+      var response;
+      console.log(data);
       const decoded = atob(data);
-      var response = JSON.parse(decoded);
+      response = JSON.parse(decoded);
       var code = response.code;
       var body = response.body;
       var bodyCode = body?.code;
@@ -353,6 +464,17 @@ const TBHProvider = ({ children }) => {
         } else {
           console.error(`Error: ${tempFunctionName} is not a function.`);
         }
+      } else if (
+        code === 400 &&
+        error?.code === 400 &&
+        error?.data?.message === "today limit reached"
+      ) {
+        if (typeof window[tempFunctionName] === "function") {
+          console.log("Function called with error", data, error);
+          window[tempFunctionName](error);
+        } else {
+          console.error(`Error: ${tempFunctionName} is not a function.`);
+        }
       } else {
         console.log("Error is coming", data);
         console.error("Error in customFetch:", error);
@@ -362,28 +484,31 @@ const TBHProvider = ({ children }) => {
     }
   };
 
-
   const calculateFinalTime = (backTimeInSeconds) => {
     // Get current time in milliseconds
     const currentTime = new Date();
-  
+
     // Calculate the final time by adding backTimeInSeconds (converted to ms)
-    const finalTime = new Date(currentTime.getTime() + backTimeInSeconds * 1000);
-  
+    const finalTime = new Date(
+      currentTime.getTime() + backTimeInSeconds * 1000
+    );
+
     // Extract hours, minutes, and seconds from finalTime
     let hours = finalTime.getHours();
     const minutes = finalTime.getMinutes();
     const seconds = finalTime.getSeconds();
-  
+
     // Determine if the time is AM or PM
     const newPeriod = hours >= 12 ? "PM" : "AM";
-  
+
     // Convert hours to 12-hour format
     hours = hours % 12 || 12; // Convert 0 to 12 for midnight
-  
+
     // Format time as hr:min:sec
-    const newTime = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-  
+    const newTime = `${String(hours).padStart(2, "0")}:${String(
+      minutes
+    ).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
     // Return newTime and newPeriod
     return { newTime, newPeriod };
   };

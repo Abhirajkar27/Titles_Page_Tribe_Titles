@@ -14325,8 +14325,8 @@ const Page1 = (props) => {
           </div>
           <div className="lower-buttons">
             <button
-              onClick={() => {
-                handleSKipTitle();
+              onClick={ async() => {
+                await handleSKipTitle();
                 if (tbhQuesState.counter === tbhQues.data.length) {
                   ManageWaitForw();
                 }
