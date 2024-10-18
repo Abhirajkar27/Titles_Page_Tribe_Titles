@@ -6,7 +6,7 @@ import cross from "../assets/img/cross.png";
 import { TBHContext } from "../context/context";
 
 const Page4 = (props) => {
-  const { vrData, handleManageReveal, revealCoin } = useContext(TBHContext);
+  const { vrData, handleManageReveal, revealCoin, setVoteBy, setISRevealed } = useContext(TBHContext);
 
   const [revealedData, setRevealedData] = useState([]);
   const [unrevealedData, setUnrevealedData] = useState([]);
@@ -28,7 +28,16 @@ const Page4 = (props) => {
 
   const Reveal = ({ blur = false, user, text }) => {
     return (
-      <div className="reveal" onClick={() => props.setGameSTIndex(1)}>
+      <div
+        className="reveal"
+        onClick={() => {
+          if (!blur) {
+            setVoteBy(user.name);
+          }
+          setISRevealed(!blur);
+          props.setGameSTIndex(1);
+        }}
+      >
         <img
           src={user.profilePicture}
           alt="Revealed Content"
@@ -14403,9 +14412,7 @@ const Page4 = (props) => {
         </button>
       </div>
       <div className="last-message-pg4">
-        <p className="reveal-text-it">
-        want more reveals? invite more people
-        </p>
+        <p className="reveal-text-it">want more reveals? invite more people</p>
       </div>
     </div>
   );

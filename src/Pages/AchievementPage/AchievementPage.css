@@ -30,10 +30,59 @@
   border-radius: 50%;
 }
 
-.AvatarCard_TPTA {
-  height: 50vh;
+/* .AvatarCard_TPTA {
+  height: 40vh;
   margin-top: 2vh;
+} */
+
+.Avatar_manage_APTA {
+  width: 80vw;
+  height: 46vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  
 }
+
+.Title_APTA {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* top: 48.5vh; */
+  top: 32vh;
+  height: 9vh;
+  width: 65vw;
+  z-index: 89;
+  color: var(--Light-Light--100, #fff);
+  text-align: center;
+  text-shadow: 0px 1px 0px var(--Dark-Rich-Dark, #030406);
+  -webkit-text-stroke-width: 0.6153846383094788;
+  -webkit-text-stroke-color: var(--Dark-Rich-Dark, #030406);
+  font-family: Saira;
+  /* font-size: 30px; */
+  font-size: 3.75vh;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 120%; /* 36px */
+  letter-spacing: 0.6px;
+}
+
+.AvatarCard_APTA {
+  position: absolute;
+  width: 74vw;
+  height: 46vh;
+  /* top: 10vh; */
+}
+.UserAvatar_APTA{
+  position: absolute;
+  width: 68vw;
+  height: 40vh;
+  top: 4.5vh;
+  /* top: 18vh; */
+}
+
 .svg_bottomShadow_TA {
   position: relative;
   margin-top: 2vh;

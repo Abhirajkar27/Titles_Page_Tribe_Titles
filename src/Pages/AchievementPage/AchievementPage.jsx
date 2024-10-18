@@ -1,17 +1,22 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import "./AchievementPage.css";
 import BackBtn from "../../assets/img/bkbtn.png";
-import AvatarCard from "../../assets/img/Avatar.png";
 // import Badge from "../assets/img/vote_badge.png";
 import Profile_img from "../../assets/img/image.png";
 import Snapcht from "../../assets/img/snapchat.png";
 import otherShare from "../../assets/img/elseSM.png";
+import UserAvatar from "../../assets/img/User_Avatar.png";
+import AvatarCard from "../../assets/img/Avatar_sheild.png";
 import html2canvas from "html2canvas";
+import { TBHContext } from "../../context/context";
 
 const AchievementPage = (props) => {
-  const [isRevealed, setISRevealed] = useState(false);
-  const [voteBy, setVoteBy] = useState("someone");
+
   const divRef = useRef(null);
+
+  const { vrData, isRevealed, setISRevealed,
+    voteBy, setVoteBy, } = useContext(TBHContext);
+
   const convertToImage = () => {
     console.log("converting");
     if (divRef.current) {
@@ -125,7 +130,7 @@ const AchievementPage = (props) => {
           </div>
         ) : (
           <div className="cardinfoshr_TATP_Reveal">
-            <span>{voteBy}</span> from my College just voted for me
+            <span>{voteBy}</span>  voted for you
           </div>
         )}
         <div className="badgeinfoshr_TATP">Guess Who?</div>
@@ -244,13 +249,17 @@ const AchievementPage = (props) => {
         </div>
       ) : (
         <div className="cardinfoshr_TATP_Reveal">
-          <span>{voteBy}</span> from my College just voted for me
+          <span>{voteBy}</span> voted for you
         </div>
       )}
       <div className="badgeinfoshr_TATP">
-        “Most likely to be the person showing up late everywhere “
+        "{vrData.data[0].titleData.description}"
       </div>
-      <img className="AvatarCard_TPTA" src={AvatarCard} alt="AvatarCard" />
+      <div className="Avatar_manage_APTA">
+        <span className="Title_APTA">{vrData.data[0].titleData.name}</span>
+        <img className="UserAvatar_APTA" src={UserAvatar} alt="UserAvatar" />
+        <img className="AvatarCard_APTA" src={AvatarCard} alt="AvatarCard" />
+      </div>
       <svg
         className="svg_bottomShadow_TA"
         xmlns="http://www.w3.org/2000/svg"
@@ -299,7 +308,7 @@ const AchievementPage = (props) => {
               stroke-linejoin="round"
             />
           </svg>
-          <span>Tell Others</span>
+          <span>Reply</span>
         </div>
         <img
           onClick={convertToImage}
