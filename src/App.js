@@ -63,7 +63,7 @@ const App = () => {
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [gameSTIndex]);
+  }, [,gameSTIndex]);
 
   // useEffect(() => {
   //   document.body.style.overflow = instruction === true ? "hidden" : "hidden";
