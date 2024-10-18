@@ -1,33 +1,12 @@
 .Votes-reveal-pg4 {
   position: absolute;
-  top: 55%;
-  padding-left: 20px;
+  top: 50%;
+  padding-left: 6vw;
   user-select: none; /* Standard */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   z-index: 50;
-}
-@media (max-width: 711px) {
-  .Votes-reveal-pg4 {
-    top: 57.5% !important;
-  }
-}
-@media (max-width: 625px) {
-  .Votes-reveal-pg4 {
-    top: 60% !important;
-  }
-}
-@media (min-width: 625px) and (max-width: 661px) {
-  .Votes-reveal-pg4 {
-    top: 59% !important;
-  }
-}
-
-@media (max-width: 752px) {
-  .Votes-reveal-pg4 {
-    top: 56.5%;
-  }
 }
 .button-div {
   width: 100vw;
@@ -118,9 +97,8 @@
 }
 
 .scrollable_container-pg4 {
-  max-height: 34vh;
+  max-height: 35vh;
   overflow-y: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
