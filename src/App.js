@@ -58,7 +58,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    document.body.style.overflow = gameSTIndex === null ? "" : "hidden";
+    document.body.style.overflow = (gameSTIndex === null || gameSTIndex === 5) ? "" : "hidden";
     window.scrollTo(0, 0);
     return () => {
       document.body.style.overflow = "auto";

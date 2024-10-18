@@ -18,11 +18,10 @@
 
 .last-message-pg4 {
   background: linear-gradient(180deg, rgba(14, 25, 40, 0) 0%, #0e1928 58.18%);
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 14vh;
   display: flex;
-
   justify-content: center;
   align-items: center;
   z-index: 99;
@@ -75,7 +74,7 @@
 }
 .Reveal_Btn_pg4{
   z-index: 99999999;
-  position: absolute;
+  position: fixed;
   bottom: 6vh;
   background-color: yellow;
   width: 30vw;
@@ -97,7 +96,7 @@
 }
 
 .scrollable_container-pg4 {
-  max-height: 35vh;
+  /* max-height: 35vh; */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
